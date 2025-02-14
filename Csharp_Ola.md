@@ -110,3 +110,8 @@ This concept is commonly tested in **coding interviews** to check logical unders
 
 Hope this helps! 🚀
 
+---
+
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
