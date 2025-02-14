@@ -5,8 +5,16 @@
 Given the following C# code snippet:
 
 ```csharp
-int a = 5;
-Console.WriteLine(a++ + ++a + a++);
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int a = 5;
+        Console.WriteLine(a++ + ++a + a++);
+    }
+}
 ```
 
 You need to determine the output of the `Console.WriteLine()` statement and explain how the expression is evaluated step by step.
@@ -94,9 +102,9 @@ class Program
 ---
 
 ## Key Takeaways
-- Always evaluate **post-increment (`a++`) before updating `a`**.
-- **Pre-increment (`++a`) updates `a` before usage**.
-- Understanding order of execution is crucial in expressions with multiple increments.
+- **Post-Increment (`a++`)**: Uses the current value, then increments `a`.
+- **Pre-Increment (`++a`)**: Increments `a` first, then uses the new value.
+- **Operator Precedence Matters**: Since `+` is left-associative, evaluation happens from left to right.
 
 This concept is commonly tested in **coding interviews** to check logical understanding of **operator precedence** and **side effects of increment operators**.
 
