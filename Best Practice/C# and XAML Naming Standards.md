@@ -2,7 +2,20 @@
 
 ## C# Naming Conventions
 
-### **1. Class Naming**
+### **1. Project and Class Library Naming**
+- Use PascalCase.
+- Project names should be descriptive and align with the business domain.
+- Class library names should be meaningful and indicate their purpose.
+
+**Examples:**
+```
+CompanyName.ProductName.Module
+CompanyName.Utilities
+MyApp.DataAccess
+MyApp.Services
+```
+
+### **2. Class Naming**
 - Use PascalCase.
 - Use nouns or noun phrases.
 - Avoid abbreviations.
@@ -14,7 +27,7 @@ public class EmployeeManager
 }
 ```
 
-### **2. Method Naming**
+### **3. Method Naming**
 - Use PascalCase.
 - Use verbs or verb phrases.
 - Methods should be named based on their behavior.
@@ -26,7 +39,7 @@ public void CalculateSalary()
 }
 ```
 
-### **3. Variable Naming**
+### **4. Variable Naming**
 #### **Local Variables & Fields**
 - Use camelCase.
 - Avoid using underscores (`_`) for local variables.
@@ -51,7 +64,7 @@ public const int DefaultEmployeeCount = 100;
 private readonly string CompanyName = "TechCorp";
 ```
 
-### **4. Property Naming**
+### **5. Property Naming**
 - Use PascalCase.
 - Avoid prefixing properties with `Get` or `Set`.
 
@@ -60,7 +73,7 @@ public string FirstName { get; set; }
 public int Age { get; private set; }
 ```
 
-### **5. Interface Naming**
+### **6. Interface Naming**
 - Prefix interface names with `I`.
 - Use PascalCase.
 
@@ -71,7 +84,7 @@ public interface IEmployeeService
 }
 ```
 
-### **6. Enum Naming**
+### **7. Enum Naming**
 - Use PascalCase for enum type and members.
 
 ```csharp
@@ -83,7 +96,7 @@ public enum PaymentStatus
 }
 ```
 
-### **7. Event Naming**
+### **8. Event Naming**
 - Use PascalCase.
 - Use `EventHandler` suffix for event handlers.
 
