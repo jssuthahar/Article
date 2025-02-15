@@ -132,4 +132,10 @@ private void OnSubmitClick(object sender, RoutedEventArgs e)
 - **Use Async/Await Properly** for asynchronous operations.
 - **Follow MVVM Pattern** in XAML applications.
 
+## Additional Resources
+- Website: [MS Dev Build](https://www.msdevbuild.com/)
+- YouTube Channels:
+  - English: [MS Dev Build](https://www.youtube.com/@MSDEVBUILD)
+  - Tamil: [MS Dev Build Tamil](https://www.youtube.com/@MSDEVBUILDTamil)
+
 By following these guidelines, you ensure consistency, readability, and maintainability in your C# and XAML projects.
