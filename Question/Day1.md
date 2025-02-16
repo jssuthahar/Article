@@ -1,5 +1,3 @@
-# README.md
-
 ## 1. Full form of WPF
 **WPF** stands for **Windows Presentation Foundation**. It is a UI framework developed by Microsoft for building Windows desktop applications. WPF provides rich UI elements, data binding, animation, and powerful rendering capabilities using XAML and C#.
 
