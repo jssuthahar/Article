@@ -77,19 +77,6 @@ Explanation:
 | "100", "200"                  | "300"            |
 | "ABC", "123"                  | **Error** (Cannot convert "ABC" to int) |
 
-### Error Handling
-- If non-numeric values are entered, `Convert.ToInt16()` will throw an exception.
-- Use `int.TryParse()` to handle invalid inputs safely:
-```csharp
-int firstnumber, second;
-if(int.TryParse(txtfirst.Text, out firstnumber) && int.TryParse(txtsecond.Text, out second)) {
-    int result = firstnumber + second;
-    txtresult.Text = result.ToString();
-} else {
-    txtresult.Text = "Invalid input";
-}
-```
-
 ## Conclusion
 - Strings concatenate when using `+`, but integers add numerically.
 - `Convert.ToInt16()` converts strings to integers but fails on non-numeric values.
