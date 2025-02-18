@@ -204,3 +204,7 @@ string tempFile = Path.GetTempFileName();
 Console.WriteLine("Temporary file created: " + tempFile);
 ```
 
+
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
