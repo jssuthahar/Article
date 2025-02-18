@@ -95,3 +95,7 @@ class Program
 
 This guide provides an essential understanding of `object` and `dynamic` types, helping developers choose the right type based on their use case.
 
+
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
