@@ -154,3 +154,9 @@ Console.WriteLine("The sum of the array is: " + sum);
 - **For-Each Loop**: Simplifies iteration over collections and eliminates the need for an index variable.
 
 Both loops are essential for different scenarios, and as a beginner, understanding when to use each one will help you write cleaner and more efficient code.
+
+
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
+
