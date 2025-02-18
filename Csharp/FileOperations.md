@@ -161,11 +161,6 @@ string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.Applica
 MessageBox.Show("AppData Path: " + appDataPath);
 ```
 
-## Running the Code
-1. Create a WPF application.
-2. Copy the required code snippets into the `MainWindow.xaml.cs` file.
-3. Run the application to test file and directory operations.
-
 ## Conclusion
 This guide covers the basic file and directory operations in WPF, including the use of `FileInfo`, `DirectoryInfo`, `Path.Join`, `TempData`, and `AppData` location retrieval. You can extend this functionality by handling exceptions and using advanced file I/O methods like `FileStream` and `StreamReader/Writer` for better control.
 
