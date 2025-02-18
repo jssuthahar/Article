@@ -95,5 +95,9 @@ if(int.TryParse(txtfirst.Text, out firstnumber) && int.TryParse(txtsecond.Text, 
 - `Convert.ToInt16()` converts strings to integers but fails on non-numeric values.
 - Always validate inputs before conversion to prevent errors.
 
-This document serves as a basic guide to working with data types and type conversion in C#.
+
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
+
 
