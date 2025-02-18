@@ -230,3 +230,6 @@ Console.WriteLine(intBox.GetValue());
 - **Multiple interfaces** enable flexible design.
 - **Generics** allow type safety and reusable code.
 - **Real-time scenarios** include payment processing, vehicles, and data handling.
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
