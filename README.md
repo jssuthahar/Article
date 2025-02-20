@@ -18,7 +18,7 @@ This repository includes:
 1. Browse the articles and code samples.
 2. Clone the repository for local access:
    ```sh
-   git clone https://github.com/YOUR_GITHUB_USERNAME/msdevbuild-learning.git
+   git clone https://github.com/jssuthahar/MSDEVBUILD-Doc.git
    ```
 3. Explore the code and refer to the related blog posts for detailed explanations.
 
