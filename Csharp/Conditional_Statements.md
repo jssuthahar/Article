@@ -219,3 +219,6 @@ switch (lbloper.Text)
 
 This guide covers all conditional statements with real-world examples and interview questions.
 
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
