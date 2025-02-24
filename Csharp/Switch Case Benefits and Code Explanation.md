@@ -136,3 +136,7 @@ switch (oper)
 if (oper != "/" || second != 0)
     txtresult.Text = result.ToString();
 ```
+
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
