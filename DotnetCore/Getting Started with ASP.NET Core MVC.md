@@ -11,8 +11,8 @@ ASP.NET Core MVC is a framework for building web applications using the Model-Vi
 2. **Create a New MVC Project**
    Open a terminal or command prompt and run:
    ```sh
-   dotnet new mvc -n MyMvcApp
-   cd MyMvcApp
+   dotnet new mvc -n AmazonLite
+   cd AmazonLite
    ````
    This will create a new ASP.NET Core MVC project.
 
