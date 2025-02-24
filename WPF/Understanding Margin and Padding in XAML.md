@@ -43,5 +43,8 @@ If we add padding to a `TextBox`, it would look like this:
 ## Conclusion
 - **Use `Margin`** when you need to create space between elements.
 - **Use `Padding`** when you need to create space inside an element, between its content and its boundary.
-- In the provided example, `Margin` is used to space out buttons and the `TextBox`, making the UI more visually appealing and easier to interact with.
+
+  ## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
 
