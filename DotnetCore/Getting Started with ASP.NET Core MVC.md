@@ -159,3 +159,8 @@ public class SampleController : Controller
 ### 7. What are Razor views in ASP.NET Core?
 **Answer:** Razor views are `.cshtml` files used to create dynamic web pages. They contain both HTML and C# code.
 
+
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
+
