@@ -136,6 +136,9 @@ File.WriteAllText(filepath, ostring.ToString());
    - Value types store data directly, while reference types store references to data.
    - Value types are stored in stack memory, whereas reference types are stored in heap memory.
 
----
-This README provides a clear understanding of memory allocation, data types, mutability, and best practices when working with strings in C#. 🚀
+
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
+
 
