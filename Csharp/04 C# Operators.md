@@ -19,7 +19,7 @@ The AND operator returns `true` only if both conditions are `true`.
 ```csharp
 if (username == uid && password == pwd)
 {
-    MessageBox.Show("Welcome", "JSQUARE", MessageBoxButton.YesNoCancel, MessageBoxImage.Information);
+    MessageBox.Show("Welcome", "MSDEVBUILD", MessageBoxButton.YesNoCancel, MessageBoxImage.Information);
 }
 else
 {
