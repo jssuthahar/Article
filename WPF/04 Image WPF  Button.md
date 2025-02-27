@@ -1,5 +1,5 @@
 ## Overview
-This document provides details on how to properly add an image to a WPF project and use it within a `Button` control. The example below demonstrates how to include an image inside a `Button` using a `StackPanel` layout.
+You will lean here on how to properly add an image to a WPF project and use it within a `Button` control. The example below demonstrates how to include an image inside a `Button` using a `StackPanel` layout.
 
 ## XAML Code Example
 ```xml
