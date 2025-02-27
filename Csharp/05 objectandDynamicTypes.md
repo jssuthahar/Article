@@ -86,20 +86,21 @@ Pattern matching in C# allows checking and extracting values based on their type
 ```csharp
 object value = "Hello";
 
-switch (value)
+if (value is int number)
 {
-    case int number:
-        Console.WriteLine($"Value is an integer: {number}");
-        break;
-    case string text:
-        Console.WriteLine($"Value is a string: {text}");
-        break;
-    case bool flag:
-        Console.WriteLine($"Value is a boolean: {flag}");
-        break;
-    default:
-        Console.WriteLine("Unknown type");
-        break;
+    Console.WriteLine($"Value is an integer: {number}");
+}
+else if (value is string text)
+{
+    Console.WriteLine($"Value is a string: {text}");
+}
+else if (value is bool flag)
+{
+    Console.WriteLine($"Value is a boolean: {flag}");
+}
+else
+{
+    Console.WriteLine("Unknown type");
 }
 ```
 
@@ -148,4 +149,3 @@ switch (value)
 - **YouTube Tamil**: [MSDEVBUILD TAMIL](https://www.youtube.com/@MSDEVBUILDTamil)
 - **Blog**: [Blog](https://www.msdevbuild.com/)
 - **Follow Whatsapp**: [Whatsapp](https://www.whatsapp.com/channel/0029Va5j2rHEFeXcTlUhQB0J)
-
