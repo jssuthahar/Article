@@ -1,0 +1,74 @@
+# .NET Core TagHelpers
+
+## Why Do We Need TagHelpers?
+TagHelpers in ASP.NET Core provide a way to extend HTML elements with server-side functionality. They enable developers to use server-side logic in Razor views without mixing C# code with HTML, leading to more maintainable and readable views.
+
+### Benefits of TagHelpers:
+- Improves HTML readability and maintainability.
+- Reduces inline C# code in views.
+- Provides IntelliSense support in Razor views.
+- Enhances consistency across UI components.
+
+## Main Usage of TagHelpers
+TagHelpers simplify rendering HTML elements dynamically by using server-side attributes. 
+
+For example, the following Razor syntax uses `asp-controller` and `asp-action` attributes to generate dynamic URLs:
+
+```html
+<a asp-controller="Home" asp-action="Index">Home</a>
+<a asp-controller="Home" asp-action="AboutUS">About US</a>
+<a asp-controller="Product" asp-action="Index">Product</a>
+
+<input type="button" />
+<input type="text" />
+<input type="datetime-local" />
+<input type="radio" />
+```
+
+The `asp-controller` and `asp-action` attributes dynamically generate the correct URLs based on the routing configuration.
+
+## How to Add the Required NuGet Package
+TagHelpers are included in the `Microsoft.AspNetCore.Mvc.TagHelpers` package, which is part of ASP.NET Core by default. However, if you need to install it separately, run the following command:
+
+```sh
+Install-Package Microsoft.AspNetCore.Mvc.TagHelpers
+```
+
+## Where to Add TagHelper References?
+To use TagHelpers in a Razor view, add the following directive to the `_ViewImports.cshtml` file:
+
+```razor
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+```
+
+This allows all TagHelpers from `Microsoft.AspNetCore.Mvc.TagHelpers` to be available in your views.
+
+## Common Interview Questions & Answers
+
+### 1. What are TagHelpers in ASP.NET Core?
+**Answer:** TagHelpers are a way to extend HTML elements with server-side capabilities, making views cleaner and more maintainable.
+
+### 2. Why should we use TagHelpers instead of HTML helpers?
+**Answer:** TagHelpers improve readability, provide better IntelliSense support, and keep the Razor view closer to HTML syntax.
+
+### 3. How do you enable TagHelpers in a project?
+**Answer:** Add `@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"` to `_ViewImports.cshtml`.
+
+### 4. Can we create custom TagHelpers?
+**Answer:** Yes, you can create custom TagHelpers by inheriting from the `TagHelper` class and overriding the `Process` method.
+
+### 5. What is the purpose of the `asp-controller` and `asp-action` attributes?
+**Answer:** They dynamically generate URLs for `<a>` and `<form>` elements based on the configured routing.
+
+### 6. How does TagHelper improve UI consistency?
+**Answer:** By centralizing UI logic and reducing redundancy, ensuring that UI elements behave consistently across views.
+
+## Conclusion
+TagHelpers in .NET Core simplify Razor views by enabling a cleaner and more HTML-like syntax while still leveraging server-side logic. They are essential for modern ASP.NET Core MVC development, improving maintainability and productivity.
+
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
+- **YouTube Tamil**: [MSDEVBUILD TAMIL](https://www.youtube.com/@MSDEVBUILDTamil)
+- **Blog**: [Blog](https://www.msdevbuild.com/)
+- **Follow Whatsapp**: [Whatsapp](https://www.whatsapp.com/channel/0029Va5j2rHEFeXcTlUhQB0J)
