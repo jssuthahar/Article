@@ -4,7 +4,6 @@ This repository contains 50 frequently asked C# interview questions related to `
 
 
 1. **Print numbers from 1 to 10**  
-   🔵 **(Asked in Ola)** 
    _Explanation:_ A `for` loop is used to iterate from 1 to 10, incrementing `i` in each iteration and printing it.
    ```csharp
    for (int i = 1; i <= 10; i++)
@@ -18,7 +17,6 @@ This repository contains 50 frequently asked C# interview questions related to `
    ```
 
 3. **Sum of first N natural numbers**
-    🔵 **(Asked in Microsoft)**  
    _Explanation:_ The loop iterates from 1 to `N`, adding each number to a sum variable to get the total sum of natural numbers.
    ```csharp
    int sum = 0;
