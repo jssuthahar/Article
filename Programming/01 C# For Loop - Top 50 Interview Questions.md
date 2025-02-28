@@ -4,7 +4,7 @@ This repository contains 50 frequently asked C# interview questions related to `
 
 
 1. **Print numbers from 1 to 10**  
-   (Asked in Ola)
+   (Asked in Ola)  
    _Explanation:_ A `for` loop is used to iterate from 1 to 10, incrementing `i` in each iteration and printing it.
    ```csharp
    for (int i = 1; i <= 10; i++)
