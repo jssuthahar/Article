@@ -3,7 +3,7 @@
 This repository contains 50 frequently asked C# interview questions related to `for` loops, commonly asked in product-based companies. Each question includes an explanation, code snippet, and expected output.
 
 
-1. **Print numbers from 1 to 10**
+1. **Print numbers from 1 to 10**  
    (Asked in Ola)
    _Explanation:_ A `for` loop is used to iterate from 1 to 10, incrementing `i` in each iteration and printing it.
    ```csharp
