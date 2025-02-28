@@ -218,6 +218,10 @@ foreach (string name in names)
 ```
 
 ---
+## Recommended Study Material
+To gain a thorough understanding of C# for loops, it is highly recommended to go through the **Top 50 Interview Questions on C# For Loop**. This guide will help students prepare effectively for technical interviews.
+
+🔗 **Read here:** [C# For Loop - Top 50 Interview Questions](https://github.com/jssuthahar/MSDEVBUILD-Doc/blob/main/Programming/01%20C%23%20For%20Loop%20-%20Top%2050%20Interview%20Questions.md)
 
 ## Conclusion
 Understanding loops, increments, decrements, nested loops, and arrays in C# is essential for writing efficient and structured code. Mastering these concepts will help in both academic learning and technical interviews.
