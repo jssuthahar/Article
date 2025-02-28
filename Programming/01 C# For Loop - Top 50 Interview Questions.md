@@ -4,7 +4,7 @@ This repository contains 50 frequently asked C# interview questions related to `
 
 
 1. **Print numbers from 1 to 10**  
-   🔵 (Asked in Ola)   
+   🔵 **(Asked in Ola)  ** 
    _Explanation:_ A `for` loop is used to iterate from 1 to 10, incrementing `i` in each iteration and printing it.
    ```csharp
    for (int i = 1; i <= 10; i++)
@@ -17,7 +17,8 @@ This repository contains 50 frequently asked C# interview questions related to `
    1 2 3 4 5 6 7 8 9 10
    ```
 
-3. **Sum of first N natural numbers**  (Asked in Microsoft)
+3. **Sum of first N natural numbers**
+    🔵 **(Asked in Microsoft)**  
    _Explanation:_ The loop iterates from 1 to `N`, adding each number to a sum variable to get the total sum of natural numbers.
    ```csharp
    int sum = 0;
@@ -32,7 +33,8 @@ This repository contains 50 frequently asked C# interview questions related to `
    Sum: 55
    ```
 
-4. **Factorial of a number**  (Asked in Accenture)
+5. **Factorial of a number**
+    🔵 **(Asked in Accenture)**  
    _Explanation:_ The factorial of a number `N` is calculated by multiplying all numbers from 1 to `N`. The loop runs from 1 to `N` and keeps multiplying the `fact` variable.
    ```csharp
    int fact = 1, num = 5;
@@ -47,7 +49,8 @@ This repository contains 50 frequently asked C# interview questions related to `
    Factorial: 120
    ```
 
-12. **Check if a number is a palindrome** (Asked in Swiggy)
+12. **Check if a number is a palindrome**
+     🔵 **(Asked in Swiggy)**  
    ```csharp
    int num = 121, rev = 0, temp = num;
    for (; temp > 0; temp /= 10)
