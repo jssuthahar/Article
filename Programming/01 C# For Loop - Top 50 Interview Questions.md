@@ -46,8 +46,6 @@ This repository contains 50 frequently asked C# interview questions related to `
    Factorial: 120
    ```
 
-...(Previously listed questions continue)...
-
 12. **Check if a number is a palindrome**
    ```csharp
    int num = 121, rev = 0, temp = num;
