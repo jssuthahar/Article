@@ -74,7 +74,17 @@ This document provides a comprehensive explanation of various string manipulatio
   bool endsWithCom = email.EndsWith(".com"); // true
   ```
 
-### 8. `IsNullOrEmpty()` and `IsNullOrWhiteSpace()`
+### 8. `IndexOf()` and `LastIndexOf()`
+- **Purpose:** Finds the position of a character or substring in a string.
+- **Example:**
+  ```csharp
+  string text = "suthahar jegatheesan";
+  int firstIndex = text.IndexOf("a"); // Finds first occurrence of 'a'
+  int lastIndex = text.LastIndexOf("a"); // Finds last occurrence of 'a'
+  ```
+- **Best Practice:** Use `IndexOf()` to search for substrings and validate their existence before using `Substring()`.
+
+### 9. `IsNullOrEmpty()` and `IsNullOrWhiteSpace()`
 - **Purpose:** Checks whether a string is null or empty.
 - **Example:**
   ```csharp
@@ -152,6 +162,7 @@ txtregusername.Text = val + remaing;
 - Avoid string concatenation in loops due to performance issues; use `StringBuilder` if necessary.
 
 This document ensures best practices while working with strings in C# to improve code efficiency and maintainability.
+
 
 ## Connect with Me
 - **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
