@@ -88,6 +88,21 @@ namespace DemoAppFeb
 - `Thread.CurrentUICulture` determines the UI language used for resource lookups.
 - When set, the application automatically retrieves text from the corresponding `.resx` file (e.g., `Resources.ta-IN.resx` for Tamil).
 
+## List of .NET Supported Culture and Country Codes
+
+| Culture Code | Language | Country/Region |
+|-------------|---------|---------------|
+| en-US       | English | United States |
+| en-GB       | English | United Kingdom |
+| hi-IN       | Hindi   | India |
+| ta-IN       | Tamil   | India |
+| fr-FR       | French  | France |
+| de-DE       | German  | Germany |
+| zh-CN       | Chinese | China |
+| ja-JP       | Japanese | Japan |
+| es-ES       | Spanish | Spain |
+| ar-SA       | Arabic  | Saudi Arabia |
+
 ## Interview Questions and Answers
 
 ### 1. What is localization in WPF?
@@ -129,7 +144,11 @@ Thread.CurrentThread.CurrentUICulture = newCulture;
 ```
 After changing the culture, you may need to reload the UI elements to reflect the changes.
 
-## Conclusion
 
-By following these steps, you can successfully localize your WPF application using resource files. This allows your application to support multiple languages, enhancing the user experience across different regions.
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
+- **YouTube Tamil**: [MSDEVBUILD TAMIL](https://www.youtube.com/@MSDEVBUILDTamil)
+- **Blog**: [Blog](https://www.msdevbuild.com/)
+- **Follow Whatsapp**: [Whatsapp](https://www.whatsapp.com/channel/0029Va5j2rHEFeXcTlUhQB0J)
 
