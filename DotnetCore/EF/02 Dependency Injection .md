@@ -125,6 +125,10 @@ public class MessageController : ControllerBase
 ### Q5: Can a Scoped service be injected into a Singleton?
 **A**: No, injecting a Scoped service into a Singleton can cause unintended behavior, as the Scoped instance may not be valid when accessed outside its original request scope.
 
-## Conclusion
-Dependency Injection is a fundamental pattern in .NET, enabling better design and maintainability. It is essential for building scalable and testable applications, particularly in ASP.NET Core. By using DI, developers can achieve a cleaner architecture and improved code management.
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
+- **YouTube Tamil**: [MSDEVBUILD TAMIL](https://www.youtube.com/@MSDEVBUILDTamil)
+- **Blog**: [Blog](https://www.msdevbuild.com/)
+- **Follow Whatsapp**: [Whatsapp](https://www.whatsapp.com/channel/0029Va5j2rHEFeXcTlUhQB0J)
 
