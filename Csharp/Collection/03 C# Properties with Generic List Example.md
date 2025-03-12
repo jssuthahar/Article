@@ -4,7 +4,7 @@
 Properties in C# provide a flexible mechanism to access and modify fields in a class. They encapsulate data, ensuring controlled access using **getters** and **setters**. This document explains how to use properties effectively, particularly in conjunction with **generic lists**.
 
 ## Understanding Properties
-A **property** in C# is a member of a class that provides a way to read, write, or compute the value of a private field. It consists of **accessors**:
+A **property** in C# is a member of a class that provides a way to read, write, or compute the value of a private field. It consists of **accessors**: 
 - `get` accessor returns the property value.
 - `set` accessor assigns a value.
 
@@ -14,6 +14,58 @@ private datatype field;
 public datatype PropertyName {
     get { return field; }
     set { field = value; }
+}
+```
+
+### Types of Properties in C#
+#### 1. **Auto-Implemented Properties**
+Auto-implemented properties simplify property declaration when no additional logic is needed in the accessors.
+```csharp
+public class Person
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+}
+```
+
+#### 2. **Read-Only Properties**
+A property with only a `get` accessor is read-only and cannot be modified outside the constructor or class methods.
+```csharp
+public class Configuration
+{
+    public string Version { get; } = "1.0.0";
+}
+```
+
+#### 3. **Write-Only Properties**
+A property with only a `set` accessor can be modified but not read from outside the class.
+```csharp
+public class Secret
+{
+    private string password;
+    public string Password
+    {
+        set { password = value; }
+    }
+}
+```
+
+#### 4. **Expression-Bodied Properties**
+For simple properties, we can use an expression-bodied syntax.
+```csharp
+public class Circle
+{
+    public double Radius { get; set; }
+    public double Area => Math.PI * Radius * Radius;
+}
+```
+
+#### 5. **Static Properties**
+A property marked as `static` belongs to the class rather than instances.
+```csharp
+public class AppSettings
+{
+    public static string DefaultLanguage { get; set; } = "English";
 }
 ```
 
