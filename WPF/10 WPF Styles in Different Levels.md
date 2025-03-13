@@ -172,3 +172,10 @@ By leveraging styles effectively, you can create a consistent and scalable WPF a
 
 ### **Q10: What are the performance implications of using DynamicResource over StaticResource?**
 **A:** `DynamicResource` is resolved at runtime, which may impact performance if frequently used, while `StaticResource` is resolved at compile-time and is more efficient.
+
+ ## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
+- **YouTube Tamil**: [MSDEVBUILD TAMIL](https://www.youtube.com/@MSDEVBUILDTamil)
+- **Blog**: [Blog](https://www.msdevbuild.com/)
+- **Follow Whatsapp**: [Whatsapp](https://www.whatsapp.com/channel/0029Va5j2rHEFeXcTlUhQB0J)
