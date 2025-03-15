@@ -1,4 +1,4 @@
-For Full Stack Python training, you’ll need to cover both frontend and backend topics, along with database management, deployment, and best practices. Here’s a structured roadmap:
+ you’ll need to cover both frontend and backend topics, along with database management, deployment, and best practices. Here’s a structured roadmap:
 
 ### **1. Introduction to Full Stack Development**
    - What is Full Stack Development?
