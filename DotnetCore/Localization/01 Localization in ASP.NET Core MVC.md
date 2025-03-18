@@ -9,7 +9,50 @@ This project demonstrates how to implement **Globalization and Localization** in
 - Formats **dates, numbers, and currencies** based on the selected culture.
 - Localizes **model properties and validation messages**.
 
----
+# Localization in ASP.NET Core MVC
+
+This document provides a guide to implementing localization in an ASP.NET Core MVC project. It covers configuring localization services, adding resource files, and using them in views, controllers, and models.
+
+## Folder Structure
+```
+YourProject/
+|-- Controllers/
+|   |-- HomeController.cs
+|   |-- CartController.cs
+|   |-- ProductController.cs
+|
+|-- Views/
+|   |-- Shared/
+|   |   |-- _Layout.cshtml
+|   |-- Cart/
+|   |   |-- Index.cshtml
+|   |   |-- OrderSuccess.cshtml
+|   |-- Product/
+|   |   |-- Index.cshtml
+|
+|-- Models/
+|   |-- Product.cs
+|   |-- CartItem.cs
+|   |-- Order.cs
+|
+|-- Resources/
+|   |-- Controllers/
+|   |   |-- CartController.en-US.resx
+|   |   |-- CartController.tn-IN.resx
+|   |-- Views/
+|   |   |-- Shared/_Layout.en-US.resx
+|   |   |-- Shared/_Layout.tn-IN.resx
+|
+|-- Services/
+|   |-- EmailService.cs
+|
+|-- wwwroot/
+|   |-- images/
+|
+|-- Startup.cs
+|-- Program.cs
+|-- appsettings.json
+```
 
 ## Setup Instructions
 
