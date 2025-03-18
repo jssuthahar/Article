@@ -114,46 +114,10 @@ class Program
 
 ---
 
-## Step 5: Sending Email Using SendGrid (Cloud-Based Solution)
-### Get SendGrid API Key
-1. Create an account at [SendGrid](https://sendgrid.com/).
-2. Generate an API key.
-
-### Send Email with SendGrid
-```csharp
-using System;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
-using SendGrid;
-using SendGrid.Helpers.Mail;
-
-class Program
-{
-    static async Task Main()
-    {
-        var config = new ConfigurationBuilder()
-            .AddJsonFile("appsettings.json")
-            .Build();
-
-        var client = new SendGridClient(config["EmailSettings:SendGridApiKey"]);
-        var from = new EmailAddress("your-email@gmail.com", "Sender Name");
-        var subject = "Test Email from SendGrid";
-        var to = new EmailAddress("recipient@example.com", "Recipient Name");
-        var plainTextContent = "Hello, this is a test email using SendGrid!";
-        var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, null);
-
-        var response = await client.SendEmailAsync(msg);
-        Console.WriteLine(response.StatusCode);
-    }
-}
-```
-
----
 
 ## Conclusion
 - **Use `SmtpClient`** for simple email sending (deprecated but still works for SMTP servers).
 - **Use `MailKit`** for better performance and reliability.
-- **Use `SendGrid`** for cloud-based email delivery and scalability.
 
 
  ## Connect with Me
