@@ -229,6 +229,13 @@ dotnet run
 2. Change the language using the dropdown.
 3. The **form labels & validation messages** will be localized automatically.
 
+Testing Localization
+
+Set the culture in the browser or add a query parameter:
+
+https://localhost:5001?culture=tn-IN
+
+This will load the tn-IN resource files.
 ---
 
 ## Summary
