@@ -1,4 +1,4 @@
-# C# File Operations in WPF
+# C# File Operations
 
 This document provides detailed information on handling files and directories in a WPF application using the `System.IO` namespace. It covers file creation, deletion, existence checking, and directory operations.
 
