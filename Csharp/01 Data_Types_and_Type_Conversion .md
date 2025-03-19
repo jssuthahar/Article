@@ -11,6 +11,7 @@ C# supports various data types, including:
 - **float, double, decimal**: Used for storing floating-point numbers.
 - **bool**: Holds `true` or `false` values.
 
+
 ## Value Reassignment and Replacement
 
 ### Integer Reassignment
