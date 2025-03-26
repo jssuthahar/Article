@@ -19,121 +19,199 @@ The `async` keyword in C# allows a method to run asynchronously without blocking
 ### What is `await`?
 The `await` keyword pauses the execution of an `async` method until the awaited task is completed. This helps in writing non-blocking code.
 
-## Setting Up `HttpClient`
+ DemoAPI.Service
 
-First, install the required package if necessary:
+## Overview
+The `DemoAPI.Service` namespace contains the `APICall` class, which provides methods for interacting with an external API. This class performs HTTP operations such as:
+- **POST**: Save student data.
+- **GET**: Retrieve student data.
+- **PUT/PATCH**: Update student data.
+
+## API Base URL
+```
+https://jsonplaceholder.typicode.com/
+```
+
+## Dependencies
+This project uses `Newtonsoft.Json` for JSON serialization and `System.Net.Http` for making API calls.
+Ensure you have the following package installed:
 ```sh
-dotnet add package System.Net.Http
+Install-Package Newtonsoft.Json
 ```
 
-### Using `HttpClient` in .NET Core
+## Class: `APICall`
+The `APICall` class contains methods to call the API.
 
-The following example demonstrates a simple GET request using `HttpClient`:
-
+### 1. Save Student Data (POST)
 ```csharp
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
+public async Task<string> SaveStudent(Student # README - DemoAPI.Service
 
-class Program
+## Overview
+The `DemoAPI.Service` namespace contains the `APICall` class, which provides methods for interacting with an external API. This class performs HTTP operations such as:
+- **POST**: Save student data.
+- **GET**: Retrieve student data.
+- **PUT/PATCH**: Update student data.
+
+## API Base URL
+```
+https://jsonplaceholder.typicode.com/
+```
+
+## Dependencies
+This project uses `Newtonsoft.Json` for JSON serialization and `System.Net.Http` for making API calls.
+Ensure you have the following package installed:
+```sh
+Install-Package Newtonsoft.Json
+```
+
+## Class: `APICall`
+The `APICall` class contains methods to call the API.
+
+### 1. Save Student Data (POST)
+```csharp
+public async Task<string> SaveStudent(Student stud)
 {
-    private static readonly HttpClient client = new HttpClient();
-
-    static async Task Main()
-    {
-        string url = "https://jsonplaceholder.typicode.com/posts/1";
-        string response = await FetchDataAsync(url);
-        Console.WriteLine(response);
-    }
-
-    static async Task<string> FetchDataAsync(string url)
-    {
-        HttpResponseMessage response = await client.GetAsync(url);
-        response.EnsureSuccessStatusCode(); // Throws an exception if the response is not successful
-        return await response.Content.ReadAsStringAsync();
-    }
+    string APIUrl = "https://jsonplaceholder.typicode.com/posts";
+    HttpClient client = new HttpClient();
+    string json = JsonConvert.SerializeObject(stud);
+    HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+    HttpResponseMessage response = await client.PostAsync(APIUrl, content);
+    response.EnsureSuccessStatusCode();
+    return await response.Content.ReadAsStringAsync();
 }
 ```
-
-## Explanation of `async` and `await` in `HttpClient`
-
-1. **`async Task<string> FetchDataAsync(string url)`**
-   - The method is marked as `async`, meaning it runs asynchronously.
-   - It returns a `Task<string>` because it performs an asynchronous operation.
-
-2. **`await client.GetAsync(url)`**
-   - `GetAsync(url)` sends a GET request asynchronously.
-   - The `await` keyword ensures the program waits for the request to complete before proceeding.
-
-3. **`response.EnsureSuccessStatusCode()`**
-   - This checks if the response was successful (status code 200-299).
-   - If not, it throws an exception.
-
-4. **`await response.Content.ReadAsStringAsync()`**
-   - Reads the response content asynchronously as a string.
-
-## Using `HttpClient` for POST Requests
-
-The following example demonstrates how to send a POST request:
-
+**Usage:**
 ```csharp
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-
-class Program
-{
-    private static readonly HttpClient client = new HttpClient();
-
-    static async Task Main()
-    {
-        string url = "https://jsonplaceholder.typicode.com/posts";
-        var postData = new { title = "foo", body = "bar", userId = 1 };
-        string response = await PostDataAsync(url, postData);
-        Console.WriteLine(response);
-    }
-
-    static async Task<string> PostDataAsync(string url, object data)
-    {
-        string json = JsonSerializer.Serialize(data);
-        HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
-
-        HttpResponseMessage response = await client.PostAsync(url, content);
-        response.EnsureSuccessStatusCode();
-        return await response.Content.ReadAsStringAsync();
-    }
-}
+APICall apiCall = new APICall();
+Student student = new Student { Name = "John Doe", Age = 25 };
+string response = await apiCall.SaveStudent(student);
 ```
 
-### Explanation
-- Converts the object `data` into JSON format using `JsonSerializer.Serialize()`.
-- Creates `HttpContent` with `StringContent()`.
-- Sends the data asynchronously using `PostAsync()`.
+### 2. Get Student Data (GET)
+```csharp
+public async Task<string> GetData()
+{
+    string APIUrl = "https://jsonplaceholder.typicode.com/posts/1";
+    HttpClient client = new HttpClient();
+    HttpResponseMessage response = await client.GetAsync(APIUrl);
+    response.EnsureSuccessStatusCode();
+    return await response.Content.ReadAsStringAsync();
+}
+```
+**Usage:**
+```csharp
+string response = await apiCall.GetData();
+```
 
-## Best Practices for Using `HttpClient`
+### 3. Get Student Data with Parameter (GET)
+```csharp
+public async Task<string> GetDataWithParam(int id)
+{
+    string APIUrl = $"https://jsonplaceholder.typicode.com/posts/{id}";
+    HttpClient client = new HttpClient();
+    HttpResponseMessage response = await client.GetAsync(APIUrl);
+    response.EnsureSuccessStatusCode();
+    return await response.Content.ReadAsStringAsync();
+}
+```
+**Usage:**
+```csharp
+int studentId = 1;
+string response = await apiCall.GetDataWithParam(studentId);
+```
 
-1. **Use a Singleton or `IHttpClientFactory`**
-   - Avoid creating multiple instances of `HttpClient` to prevent socket exhaustion.
-   - Use dependency injection to manage `HttpClient`.
+---
 
-2. **Handle Exceptions**
-   - Always use `try-catch` to handle potential HTTP request failures.
+## Adding PUT & PATCH Methods
+The `PUT` and `PATCH` methods allow updating student data.
 
-3. **Use `ConfigureAwait(false)` in Library Code**
-   - Helps improve performance in certain cases when running tasks.
+### 4. Update Student Data (PUT)
+```csharp
+public async Task<string> UpdateStudent(Student stud)
+{
+    string APIUrl = "https://jsonplaceholder.typicode.com/posts/1";
+    HttpClient client = new HttpClient();
+    string json = JsonConvert.SerializeObject(stud);
+    HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+    HttpResponseMessage response = await client.PutAsync(APIUrl, content);
+    response.EnsureSuccessStatusCode();
+    return await response.Content.ReadAsStringAsync();
+}
+```
+**Usage:**
+```csharp
+Student student = new Student { Name = "John Doe", Age = 26 };
+string response = await apiCall.UpdateStudent(student);
+```
 
-4. **Dispose `HttpClient` Properly**
-   - Avoid disposing `HttpClient` frequently; reuse a single instance.
+### 5. Partially Update Student Data (PATCH)
+```csharp
+public async Task<string> PatchStudent(Student stud)
+{
+    string APIUrl = "https://jsonplaceholder.typicode.com/posts/1";
+    HttpClient client = new HttpClient();
+    string json = JsonConvert.SerializeObject(stud);
+    HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+    HttpRequestMessage request = new HttpRequestMessage(new HttpMethod("PATCH"), APIUrl)
+    {
+        Content = content
+    };
+    HttpResponseMessage response = await client.SendAsync(request);
+    response.EnsureSuccessStatusCode();
+    return await response.Content.ReadAsStringAsync();
+}
+```
+**Usage:**
+```csharp
+Student student = new Student { Age = 27 }; // Updating only age
+string response = await apiCall.PatchStudent(student);
+```
+
+## Testing the API
+You can test the API endpoints using **Postman** or **Swagger**.
+
+### Example Request (POST)
+```
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json
+{
+    "title": "foo",
+    "body": "bar",
+    "userId": 1
+}
+```
+### Example Request (GET)
+```
+GET https://jsonplaceholder.typicode.com/posts/1
+```
+### Example Request (GET with Parameter)
+```
+GET https://jsonplaceholder.typicode.com/posts/1
+```
+### Example Request (PUT)
+```
+PUT https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+{
+    "id": 1,
+    "title": "foo",
+    "body": "bar",
+    "userId": 1
+}
+```
+### Example Request (PATCH)
+```
+PATCH https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+{
+    "title": "updated title"
+}
+```
 
 ## Conclusion
+This document provides an overview of the API calling methods within `DemoAPI.Service`. It covers how to call the API using **POST**, **GET**, **GET with parameter**, **PUT**, and **PATCH** methods with appropriate examples. The test API `https://jsonplaceholder.typicode.com/` has been used for demonstration.
 
-- `HttpClient` allows efficient communication with APIs.
-- Using `async` and `await` prevents blocking operations.
-- Proper error handling and best practices enhance reliability.
 
-By following these guidelines, you can seamlessly integrate API calls into your .NET applications while ensuring optimal performance and resource management.
 
  ## Connect with Me
 - **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
