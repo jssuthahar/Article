@@ -37,7 +37,60 @@ Console.WriteLine("Tax Rate: " + TaxInfo.TaxRate); // Output: Tax Rate: 0.07
 - Cannot be modified at runtime.
 - Only supports primitive types and strings.
 
----
+# Understanding `const` Accessibility in C#
+
+## Overview
+In C#, `const` fields are **implicitly `static`** and have **private accessibility by default** if no access modifier is specified. However, they can be made accessible outside the class by explicitly specifying an access modifier like `public`, `protected`, or `internal`.
+
+## Default Accessibility of `const`
+By default, a `const` field inside a class is **private**, meaning it cannot be accessed outside the class unless explicitly made public.
+
+### Example 1: `const` with Default (Private) Accessibility
+```csharp
+class MyClass
+{
+    const int MyConstant = 10; // Default is private
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Console.WriteLine(MyClass.MyConstant); // ❌ Compilation Error: 'MyConstant' is inaccessible
+    }
+}
+```
+Here, `MyConstant` is not accessible outside `MyClass` because it is `private` by default.
+
+## Making `const` Accessible Outside the Class
+To access a `const` field outside the class, you must explicitly declare it as `public`.
+
+### Example 2: `const` with Public Accessibility
+```csharp
+class MyClass
+{
+    public const int MyConstant = 10; // Explicitly public
+}
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine(MyClass.MyConstant); // ✅ Works fine
+    }
+}
+```
+In this example, `MyConstant` is declared as `public`, making it accessible from `Program`.
+
+## Key Points to Remember
+- `const` fields are **implicitly `static`**.
+- If no access modifier is specified, a `const` field is **private**.
+- To make a `const` accessible outside the class, declare it with `public`, `protected`, or `internal`.
+- `const` values are **evaluated at compile time** and cannot be modified after compilation.
+
+## When to Use `const`
+- When you have fixed values that **never change** (e.g., mathematical constants, configuration values).
+- When you need a value to be **shared across all instances** of a class.
 
 ## 3. `readonly` Variable
 A `readonly` variable is initialized at the time of declaration or inside the constructor.
