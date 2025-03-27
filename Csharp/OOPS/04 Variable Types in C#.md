@@ -37,10 +37,6 @@ Console.WriteLine("Tax Rate: " + TaxInfo.TaxRate); // Output: Tax Rate: 0.07
 - Cannot be modified at runtime.
 - Only supports primitive types and strings.
 
-# Understanding `const` Accessibility in C#
-
-## Overview
-In C#, `const` fields are **implicitly `static`** and have **private accessibility by default** if no access modifier is specified. However, they can be made accessible outside the class by explicitly specifying an access modifier like `public`, `protected`, or `internal`.
 
 ## Default Accessibility of `const`
 By default, a `const` field inside a class is **private**, meaning it cannot be accessed outside the class unless explicitly made public.
