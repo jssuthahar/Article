@@ -110,4 +110,9 @@ Console.WriteLine($"Is {num} divisible by 5? {result}");
 | Limitation          | Can't access private members of the extended type|
 
 ---
-
+ ## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
+- **YouTube Tamil**: [MSDEVBUILD TAMIL](https://www.youtube.com/@MSDEVBUILDTamil)
+- **Blog**: [Blog](https://www.msdevbuild.com/)
+- **Follow Whatsapp**: [Whatsapp](https://www.whatsapp.com/channel/0029Va5j2rHEFeXcTlUhQB0J)
