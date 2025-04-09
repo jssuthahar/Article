@@ -21,10 +21,16 @@ The Singleton pattern ensures that a class has only **one instance** and provide
 ```csharp
 public sealed class Logger
 {
-    private static readonly Logger _instance = new Logger();
+   private static Logger _instance = new Logger();
+
+public static Logger Instance
+{
+    get { return _instance; }
+  
+}
     private Logger() { }
 
-    public static Logger Instance => _instance;
+    
 
     public void Log(string msg)
     {
