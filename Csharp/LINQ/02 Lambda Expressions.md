@@ -16,12 +16,6 @@ Lambda expressions provide a concise way to define anonymous functions in C#. Wh
 (parameters) => expression;
 ```
 
-For example, a simple lambda expression that squares a number:
-
-```csharp
-int square = (x) => x * x;
-Console.WriteLine(square(5)); // Output: 25
-```
 
 ## LINQ Queries Using Lambda Expressions
 
