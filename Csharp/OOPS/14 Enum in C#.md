@@ -64,13 +64,13 @@ enum ErrorCode
 
 ## 🧪 Advanced Enum Techniques
 
-### 🔁 Enum to String and Vice Versa
+### 🔁 Enum to String and Enum to Int
 
 ```csharp
 Status status = Status.Approved;
 string statusName = status.ToString(); // "Approved"
 
-Status parsedStatus = (Status)Enum.Parse(typeof(Status), "Rejected");
+int ErrorCode=Convert.ToInt(ErrorCode.NotFound)
 ```
 
 ### 📦 Loop Through Enum Values
@@ -82,31 +82,14 @@ foreach (Status s in Enum.GetValues(typeof(Status)))
 }
 ```
 
-### ✅ Check if Value is Defined
 
-```csharp
-bool isDefined = Enum.IsDefined(typeof(Status), "Approved"); // true
-```
-
-### 📈 Use with Flags (Bitwise Enums)
-
-```csharp
-[Flags]
-enum FileAccess { Read = 1, Write = 2, Execute = 4 }
-
-FileAccess access = FileAccess.Read | FileAccess.Write;
-bool hasWrite = access.HasFlag(FileAccess.Write); // true
-```
-
----
 
 ## 🎓 Enum Best Practices
 
 - Use **PascalCase** for enum names and values.
 - Group related constants logically.
 - Avoid using magic numbers — prefer enums.
-- Use `[Flags]` only when bitwise operations are required.
-- Add comments to enum members when needed.
+
 
 ---
 
