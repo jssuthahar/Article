@@ -25,7 +25,7 @@ Console.WriteLine($"Total Rooms: {totalRooms}");
 
 ---
 
-## Default Parameters
+## Default/ Optinal Parameters
 Default parameters allow you to assign default values to method parameters, making them optional when calling the method.
 
 ### Example Usage in `MathOperation`
