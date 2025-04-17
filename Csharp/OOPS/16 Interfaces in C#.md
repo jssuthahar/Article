@@ -1,6 +1,6 @@
 ### ✅  Interfaces in C#
 
-```markdown
+
 # 🌐 Interfaces in C#
 
 ## 📘 What is an Interface?
