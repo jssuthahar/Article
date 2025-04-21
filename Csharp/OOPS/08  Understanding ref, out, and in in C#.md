@@ -3,6 +3,8 @@
 ## Introduction
 C# provides three keywords for passing arguments to methods: `ref`, `out`, and `in`. These keywords control how arguments are passed and modified within the method. Understanding these keywords is crucial for writing efficient and maintainable C# code.
 
+![Parameter Passing in C#](./Refout.png)
+
 ## 1. `ref` Keyword
 The `ref` keyword allows a method to modify the value of a parameter passed by reference. The variable must be initialized before passing it as an argument.
 
@@ -141,7 +143,7 @@ class Program
 | Used for returning multiple values | No | Yes | No |
 | Used for performance optimization | No | No | Yes |
 
-## 🧠 Basic Concepts
+## 🧠 Understanding
 
 | Modifier | Pass Type       | Must Initialize? | Must Assign Inside? | Reflects Changes? | Read-only? |
 |----------|------------------|------------------|----------------------|-------------------|------------|
@@ -150,7 +152,7 @@ class Program
 | `out`    | By Reference      | ❌ No            | ✅ Yes               | ✅ Yes            | ❌ No       |
 | `in`     | By Reference (RO) | ✅ Yes           | ❌ No                | ❌ No             | ✅ Yes      |
 
-![Parameter Passing in C#](./A_diagram_titled_"Parameter_Passing_in_C#"_compare.png)
+
 ## Performance Considerations
 - Use `ref` and `in` for performance optimization when passing large structures to avoid unnecessary copying.
 - `out` is useful for returning multiple values but can be replaced with tuples in modern C#.
