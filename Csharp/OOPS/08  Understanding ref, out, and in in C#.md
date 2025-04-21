@@ -141,17 +141,27 @@ class Program
 | Used for returning multiple values | No | Yes | No |
 | Used for performance optimization | No | No | Yes |
 
+## 🧠 Basic Concepts
+
+| Modifier | Pass Type       | Must Initialize? | Must Assign Inside? | Reflects Changes? | Read-only? |
+|----------|------------------|------------------|----------------------|-------------------|------------|
+| *(none)* | By Value         | ✅ Yes           | ❌ No                | ❌ No             | ❌ No       |
+| `ref`    | By Reference      | ✅ Yes           | ❌ No                | ✅ Yes            | ❌ No       |
+| `out`    | By Reference      | ❌ No            | ✅ Yes               | ✅ Yes            | ❌ No       |
+| `in`     | By Reference (RO) | ✅ Yes           | ❌ No                | ❌ No             | ✅ Yes      |
+
+![Parameter Passing in C#](./A_diagram_titled_"Parameter_Passing_in_C#"_compare.png)
 ## Performance Considerations
 - Use `ref` and `in` for performance optimization when passing large structures to avoid unnecessary copying.
 - `out` is useful for returning multiple values but can be replaced with tuples in modern C#.
 - Use `in` for read-only access to large structures, ensuring immutability while avoiding performance overhead.
 
-## Common Pitfalls and Best Practices
-- **Do not modify `in` parameters inside methods**, as it leads to compilation errors.
-- **Ensure proper initialization of `ref` parameters** before passing them.
-- **Prefer tuples over `out`** for better readability and maintainability.
-- **Use `ref` sparingly** to avoid unintended modifications that could make debugging harder.
+## ✅ Best Practices
 
+- Prefer normal parameters unless `ref`/`out` is really needed.
+- Use `out` for method returns (e.g., `TryParse`).
+- Use `in` for performance in large structs.
+- 
 ## FAQs
 ### When should I use `ref` instead of `out`?
 Use `ref` when the variable has an initial value that needs modification, and use `out` when the variable is uninitialized and needs to be assigned within the method.
