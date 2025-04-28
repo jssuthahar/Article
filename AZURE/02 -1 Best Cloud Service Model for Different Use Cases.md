@@ -86,4 +86,10 @@
 - **Best for Developers**: **PaaS** – If you’re developing and deploying apps or APIs, **Azure App Service** is the best.
 - **Best for Businesses with Custom Infrastructure Needs**: **IaaS** – If you need to host or manage virtual machines and other infrastructure components, **Azure Virtual Machines** is ideal.
 - **Best for End-Users**: **SaaS** – For productivity and business applications like **Microsoft 365**, where everything is ready to use out of the box.
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
+- **YouTube Tamil**: [MSDEVBUILD TAMIL](https://www.youtube.com/@MSDEVBUILDTamil)
+- **Blog**: [Blog](https://www.msdevbuild.com/)
+- **Follow Whatsapp**: [Whatsapp](https://www.whatsapp.com/channel/0029Va5j2rHEFeXcTlUhQB0J)
 
