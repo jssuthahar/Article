@@ -1,7 +1,7 @@
 
 # SQL Server: SEQUENCE vs IDENTITY
 
-This document provides a comprehensive explanation of the `SEQUENCE` and `IDENTITY` features in SQL Server. It is tailored for both **beginners** and **advanced** users, and includes **interview questions and answers** for practice.
+
 
 ---
 
