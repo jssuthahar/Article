@@ -85,5 +85,11 @@ By using both **on-premise** and **cloud** solutions, the hospital ensures the *
 - **Cloud Servers**: Perfect for businesses that require **flexibility**, **scalability**, and **cost-effectiveness** while offloading infrastructure management to a third party.
 - **Hybrid Cloud**: A good choice for organizations that need both the **security** of on-premise systems and the **scalability** of cloud services.
 
-Both **on-premise servers** and **cloud servers** serve different needs, and understanding when and why to use each is crucial for making the best decision for your organization’s infrastructure.
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
+- **YouTube Tamil**: [MSDEVBUILD TAMIL](https://www.youtube.com/@MSDEVBUILDTamil)
+- **Blog**: [Blog](https://www.msdevbuild.com/)
+- **Follow Whatsapp**: [Whatsapp](https://www.whatsapp.com/channel/0029Va5j2rHEFeXcTlUhQB0J)
+
 
