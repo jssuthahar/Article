@@ -188,6 +188,187 @@ SET IDENTITY_INSERT msdevbuild ON;
 INSERT INTO msdevbuild(SID, SNAME, COURSE) VALUES(3, 'xyz', 'qwe');
 SET IDENTITY_INSERT msdevbuild OFF;
 ```
+
+# SQL Server IDENTITY vs SEQUENCE
+## 🎯 Interview Questions and Answers
+
+## ❓ 1. What is the IDENTITY property in SQL Server?
+
+**Answer:**  
+`IDENTITY` is a column property that automatically generates incremental numeric values for new rows in a table.  
+It is used to create a unique value for each record without manually specifying the value.
+
+**Example:**
+```sql
+CREATE TABLE Employee (
+    EmpID INT IDENTITY(1,1),
+    Name NVARCHAR(100)
+);
+```
+
+---
+
+## ❓ 2. What is a SEQUENCE in SQL Server?
+
+**Answer:**  
+`SEQUENCE` is a user-defined database object that generates a sequence of numeric values according to the specification with which it was created.  
+It is independent of any table and can be reused across multiple tables or even procedures.
+
+**Example:**
+```sql
+CREATE SEQUENCE Seq_EmployeeID
+    START WITH 1
+    INCREMENT BY 1;
+```
+
+---
+
+## ❓ 3. Key Differences between IDENTITY and SEQUENCE?
+
+| Feature              | IDENTITY                        | SEQUENCE                           |
+|----------------------|----------------------------------|------------------------------------|
+| Level                | Table-specific                  | Database-wide object              |
+| Reusable Across Tables | No                            | Yes                                |
+| Manual Control        | Limited                         | Full control (alter, restart, etc.)|
+| Restarting Values     | Difficult (needs reseed)         | Easy with `ALTER SEQUENCE`         |
+| Insert Values Manually | Not allowed unless `IDENTITY_INSERT` is ON | Allowed by using `NEXT VALUE FOR`  |
+
+---
+
+## ❓ 4. How do you insert explicit values into an IDENTITY column?
+
+**Answer:**  
+You must enable `IDENTITY_INSERT` for the table.
+
+```sql
+SET IDENTITY_INSERT TableName ON;
+INSERT INTO TableName (IdentityColumn, OtherColumns)
+VALUES (10, 'Value');
+SET IDENTITY_INSERT TableName OFF;
+```
+
+---
+
+## ❓ 5. How can you reset an IDENTITY column value?
+
+**Answer:**  
+Use the `DBCC CHECKIDENT` command to reseed the IDENTITY value.
+
+```sql
+DBCC CHECKIDENT ('TableName', RESEED, NewStartingValue);
+```
+
+---
+
+## ❓ 6. How to get the last inserted identity value?
+
+**Answer:**
+
+- `@@IDENTITY`: Returns the last identity value generated for any table in the session.
+- `SCOPE_IDENTITY()`: Returns the last identity value generated within the current scope and session.
+- `IDENT_CURRENT('TableName')`: Returns the last identity value generated for a specific table.
+
+---
+
+## ❓ 7. What happens if you try to insert into an IDENTITY column without setting IDENTITY_INSERT ON?
+
+**Answer:**  
+You will get an error:  
+> *Cannot insert explicit value for identity column in table 'TableName' when IDENTITY_INSERT is set to OFF.*
+
+---
+
+## ❓ 8. Can you modify an existing SEQUENCE?
+
+**Answer:**  
+Yes, you can use the `ALTER SEQUENCE` command to modify the increment, restart value, min/max values, or cycling behavior.
+
+```sql
+ALTER SEQUENCE Seq_EmployeeID
+    INCREMENT BY 5;
+```
+
+---
+
+## ❓ 9. How do you restart a SEQUENCE with a new value?
+
+**Answer:**
+
+```sql
+ALTER SEQUENCE Seq_EmployeeID
+    RESTART WITH 1000;
+```
+
+This restarts the sequence and the next value generated will be 1000.
+
+---
+
+## ❓ 10. Can you have a decreasing SEQUENCE?
+
+**Answer:**  
+Yes!  
+You can create a sequence that decrements by a negative value.
+
+```sql
+CREATE SEQUENCE Seq_Decrement
+    START WITH 100
+    INCREMENT BY -1;
+```
+
+---
+
+## ❓ 11. When should you use SEQUENCE over IDENTITY?
+
+**Answer:**
+- When you need a common number generator across multiple tables.
+- When you need better flexibility like restarting, cycling, or specifying min/max values.
+- When you want full control over number generation outside of table inserts.
+
+---
+
+## ❓ 12. Does SEQUENCE guarantee gap-free numbers?
+
+**Answer:**  
+**No.**  
+If a transaction rolls back after fetching a sequence value, that value is lost. Similarly, IDENTITY values can also have gaps.
+
+---
+
+## ❓ 13. What will happen if two users select `NEXT VALUE FOR` at the same time?
+
+**Answer:**  
+Each user will receive a **different** value.  
+SQL Server ensures that `NEXT VALUE FOR` generates **unique and ordered** values even in concurrent environments.
+
+---
+
+## ❓ 14. Is it possible to use a SEQUENCE in a DEFAULT constraint?
+
+**Answer:**  
+Yes!
+
+```sql
+CREATE TABLE Products (
+    ProductID INT DEFAULT NEXT VALUE FOR Seq_Products,
+    Name NVARCHAR(100)
+);
+```
+
+---
+
+## ❓ 15. How can you check the current value of a SEQUENCE?
+
+**Answer:**
+
+```sql
+SELECT current_value
+FROM sys.sequences
+WHERE name = 'Seq_EmployeeID';
+```
+
+---
+
+
  ## Connect with Me
 - **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
 - **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
