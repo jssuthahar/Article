@@ -15,15 +15,8 @@ An **IP (Internet Protocol) address** is a unique identifier assigned to each de
 
 ### 🔓 Public IP Address
 
-- **Definition**: Assigned by your Internet Service Provider (ISP), a public IP address is used to identify your network on the internet.:contentReference[oaicite:9]{index=9}
-
-- **Characteristics**:
-  - :contentReference[oaicite:11]{index=11}
-  - :contentReference[oaicite:14]{index=14}
-  - :contentReference[oaicite:17]{index=17}:contentReference[oaicite:19]{index=19}
-
-- **Example**: :contentReference[oaicite:21]{index=21}:contentReference[oaicite:23]{index=23}
-
+- **Definition**: Assigned by your Internet Service Provider (ISP), a public IP address is used to identify your network on the internet.
+- 
 ### 🔒 Private IP Address
 
 - **Definition**: :contentReference[oaicite:25]{index=25}:contentReference[oaicite:27]{index=27}
