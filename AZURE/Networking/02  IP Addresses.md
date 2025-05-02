@@ -15,23 +15,47 @@ An **IP (Internet Protocol) address** is a unique identifier assigned to each de
 
 ### 🔓 Public IP Address
 
-- **Definition**: Assigned by your Internet Service Provider (ISP), a public IP address is used to identify your network on the internet.
-- 
+Definition: A public IP address is a globally unique address assigned to a device to allow direct access over the Internet.
+help.keenetic.com
+
+Assigned By: Internet Service Providers (ISPs).
+
+Usage: Used for devices that need to be accessible over the Internet, such as web servers, email servers, or home routers.
+
+Visibility: Visible to any device on the Internet.
+
+Example: 203.0.113.1
+
+
+
 ### 🔒 Private IP Address
 
-- **Definition**: :contentReference[oaicite:25]{index=25}:contentReference[oaicite:27]{index=27}
+Definition: A private IP address is used within a private network to identify devices internally. These addresses are not routable on the Internet.
+help.keenetic.com
 
-- **Characteristics**:
-  - :contentReference[oaicite:29]{index=29}
-  - :contentReference[oaicite:32]{index=32}
-  - :contentReference[oaicite:35]{index=35}:contentReference[oaicite:37]{index=37}
+Assigned By: Network devices like routers using DHCP (Dynamic Host Configuration Protocol).
 
-- **Common Ranges**:
-  - :contentReference[oaicite:39]{index=39}
-  - :contentReference[oaicite:42]{index=42}
-  - :contentReference[oaicite:45]{index=45}:contentReference[oaicite:47]{index=47}
+Usage: Used for devices within a local network, such as computers, printers, and smartphones.
 
-- **Example**: :contentReference[oaicite:49]{index=49}:contentReference[oaicite:51]{index=51}
+Visibility: Only visible within the local network.
+
+Common Ranges:
+
+10.0.0.0 to 10.255.255.255
+
+172.16.0.0 to 172.31.255.255
+
+192.168.0.0 to 192.168.255.255
+Wikipedia
++2
+Avast Antivirus
++2
+help.keenetic.com
++2
+
+Example: 192.168.1.10
+
+
 
 ### 🖼️ Diagram: Public vs. Private IP
 
