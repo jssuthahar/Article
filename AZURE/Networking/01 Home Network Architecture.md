@@ -7,9 +7,31 @@ This document provides an overview of a standard home network setup, detailing t
 
 ## 📡 Network Diagram
 
-![Home Network Diagram](https://www.edrawsoft.com/templates/images/home-network-diagram.png)
+```
 
-*Image Source: [EdrawSoft](https://www.edrawsoft.com/article/home-network-diagram.html)*
+```
+      [Internet]
+           |
+       [Modem]
+           |
+       [Router]
+       /   |   \
+  [PC] [Switch] [Wi-Fi Devices]
+           |
+    [Wired Devices]
+```
+
+```
+
+*Explanation*:
+
+- **Internet**: The external network provided by your Internet Service Provider (ISP).
+- **Modem**: Connects to the ISP and translates the internet signal for your home network.
+- **Router**: Distributes the internet connection to various devices, both wired and wireless.
+- **Switch**: Expands the number of available Ethernet ports for wired connections.
+- **PC**: A personal computer connected directly to the router.
+- **Wi-Fi Devices**: Devices like smartphones, tablets, and laptops that connect wirelessly.
+- **Wired Devices**: Devices like smart TVs, gaming consoles, and desktop computers connected via Ethernet cables.
 
 ---
 
@@ -51,7 +73,6 @@ This document provides an overview of a standard home network setup, detailing t
 - **Bandwidth Management**: Prioritize bandwidth for critical applications like video conferencing or streaming.
 - **Network Monitoring**: Utilize network monitoring tools to keep track of connected devices and bandwidth usage.
 
----
 
 ## Connect with Me
 - **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
