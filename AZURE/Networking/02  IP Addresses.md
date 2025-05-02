@@ -1,78 +1,55 @@
-
-# 📘 Understanding IP Addresses: Public, Private, Static & Dynamic
-
-This guide provides an overview of the four main types of IP addresses: **Public**, **Private**, **Static**, and **Dynamic**. Understanding these concepts is essential for networking and internet communication.
-
----
-
-## 🌐 What is an IP Address?
-
-An **IP (Internet Protocol) address** is a unique identifier assigned to each device connected to a network. It enables devices to locate and communicate with each other over the internet or local networks.
-
----
-
-## 🔓 Public vs. 🔒 Private IP Addresses
+## 🌐 Public vs. Private IP Addresses
 
 ### 🔓 Public IP Address
 
-Definition: A public IP address is a globally unique address assigned to a device to allow direct access over the Internet.
-help.keenetic.com
+* **Definition**: A Public IP address is a unique identifier assigned to your network by your Internet Service Provider (ISP). It allows devices on your network to communicate with devices on the internet.
 
-Assigned By: Internet Service Providers (ISPs).
+* **Characteristics**:
 
-Usage: Used for devices that need to be accessible over the Internet, such as web servers, email servers, or home routers.
+  * **Uniqueness**: Each public IP address is unique across the entire internet.
+  * **Accessibility**: Devices with public IPs can be accessed directly over the internet.
+  * **Assignment**: Assigned by ISPs.
+  * **Example**: `203.0.113.5`
 
-Visibility: Visible to any device on the Internet.
+* **Use Cases**:
 
-Example: 203.0.113.1
-
-
+  * Hosting websites or servers accessible over the internet.
+  * Remote access to devices within a network.([Avira][1])
 
 ### 🔒 Private IP Address
 
-Definition: A private IP address is used within a private network to identify devices internally. These addresses are not routable on the Internet.
-help.keenetic.com
+* **Definition**: A Private IP address is assigned to devices within a private network, allowing them to communicate with each other. These addresses are not routable on the internet.
 
-Assigned By: Network devices like routers using DHCP (Dynamic Host Configuration Protocol).
+* **Characteristics**:
 
-Usage: Used for devices within a local network, such as computers, printers, and smartphones.
+  * **Uniqueness**: Unique within the local network but can be reused in different private networks.
+  * **Accessibility**: Not directly accessible from the internet.
+  * **Assignment**: Assigned by network devices like routers using DHCP.
+  * **Common Ranges**:
 
-Visibility: Only visible within the local network.
+    * `10.0.0.0` to `10.255.255.255`
+    * `172.16.0.0` to `172.31.255.255`
+    * `192.168.0.0` to `192.168.255.255`
+  * **Example**: `192.168.1.10`([Lifewire][2])
 
-Common Ranges:
+* **Use Cases**:
 
-10.0.0.0 to 10.255.255.255
-
-172.16.0.0 to 172.31.255.255
-
-192.168.0.0 to 192.168.255.255
-Wikipedia
-+2
-Avast Antivirus
-+2
-help.keenetic.com
-+2
-
-Example: 192.168.1.10
-
-
+  * Connecting devices within a home or office network.
+  * Assigning IPs to devices like printers, computers, and smartphones within a local network.([Avast][3])
 
 ### 🖼️ Diagram: Public vs. Private IP
 
 ```
-
-\[Internet]
-|
-\[Public IP: 203.0.113.5]
-|
-\[Router]
-|
--
-
-\|           |               |
-\[192.168.1.2] \[192.168.1.3] \[192.168.1.4]
+[Internet]
+     |
+[Public IP: 203.0.113.5]
+     |
+[Router]
+     |
+-----------------------------
+|           |               |
+[192.168.1.2] [192.168.1.3] [192.168.1.4]
 (Computer)   (Printer)      (Smartphone)
-
 ```
 
 ---
@@ -81,79 +58,72 @@ Example: 192.168.1.10
 
 ### 📌 Static IP Address
 
-- **Definition**: :contentReference[oaicite:53]{index=53}:contentReference[oaicite:55]{index=55}
+* **Definition**: A Static IP address is a fixed address manually assigned to a device, which does not change over time.([GeeksforGeeks][4])
 
-- **Characteristics**:
-  - :contentReference[oaicite:57]{index=57}
-  - :contentReference[oaicite:60]{index=60}
-  - :contentReference[oaicite:63]{index=63}:contentReference[oaicite:65]{index=65}
+* **Characteristics**:
 
-- **Example**: :contentReference[oaicite:67]{index=67}:contentReference[oaicite:69]{index=69}
+  * **Consistency**: Remains the same unless manually changed.
+  * **Assignment**: Manually configured by a network administrator or assigned by an ISP.
+  * **Use Cases**:
+
+    * Hosting servers (web, email, FTP).
+    * Remote access to devices.
+    * Network devices requiring consistent addressing.
+  * **Example**: `192.168.1.100`
 
 ### 🔄 Dynamic IP Address
 
-- **Definition**: :contentReference[oaicite:71]{index=71}:contentReference[oaicite:73]{index=73}
+* **Definition**: A Dynamic IP address is automatically assigned to a device by a DHCP server and may change over time.
 
-- **Characteristics**:
-  - :contentReference[oaicite:75]{index=75}
-  - :contentReference[oaicite:78]{index=78}
-  - :contentReference[oaicite:81]{index=81}:contentReference[oaicite:83]{index=83}
+* **Characteristics**:
 
-- **Example**: :contentReference[oaicite:85]{index=85}:contentReference[oaicite:87]{index=87}
+  * **Variability**: Can change each time the device connects to the network.
+  * **Assignment**: Automatically assigned by DHCP servers.
+  * **Use Cases**:
+
+    * Home networks.
+    * Devices that do not require a consistent IP address.
+  * **Example**: `192.168.1.101` (assigned today), `192.168.1.102` (assigned tomorrow)
 
 ### 🖼️ Diagram: Static vs. Dynamic IP
 
 ```
-
-\[Router]
-|
--
-
-\|           |               |
-\[Static IP: 192.168.1.100] \[Dynamic IP: 192.168.1.101]
+[Router]
+     |
+-----------------------------
+|           |               |
+[Static IP: 192.168.1.100] [Dynamic IP: 192.168.1.101]
 (Server)     (Laptop)
-
 ```
 
 ---
 
 ## 🧠 Real-World Examples
 
-- **Public IP**: :contentReference[oaicite:89]{index=89}:contentReference[oaicite:91]{index=91}
+* **Public IP**: Your home router's IP address assigned by your ISP, allowing access to the internet.
 
-- **Private IP**: :contentReference[oaicite:93]{index=93}:contentReference[oaicite:95]{index=95}
+* **Private IP**: Your laptop's IP address within your home network, such as `192.168.1.5`.
 
-- **Static IP**: :contentReference[oaicite:97]{index=97}:contentReference[oaicite:99]{index=99}
+* **Static IP**: A web server hosting a website with a fixed IP address like `203.0.113.10`.
 
-- **Dynamic IP**: :contentReference[oaicite:101]{index=101}:contentReference[oaicite:103]{index=103}
+* **Dynamic IP**: A smartphone that receives a new IP address each time it connects to the Wi-Fi network.
 
 ---
 
 ## 📊 Summary Table
 
-| Type        | Scope    | Assignment Method | Changes Over Time | Common Use Cases             |
-|-------------|----------|-------------------|-------------------|------------------------------|
-| Public      | External | ISP               | No                | Internet access              |
-| Private     | Internal | Router/DHCP       | Yes               | Local network communication  |
-| Static      | Both     | Manual            | No                | Servers, remote access       |
-| Dynamic     | Both     | Automatic (DHCP)  | Yes               | Home networks, mobile devices|
+| Type    | Scope    | Assignment Method | Changes Over Time | Common Use Cases              |
+| ------- | -------- | ----------------- | ----------------- | ----------------------------- |
+| Public  | External | ISP               | No                | Internet access               |
+| Private | Internal | Router/DHCP       | Yes               | Local network communication   |
+| Static  | Both     | Manual            | No                | Servers, remote access        |
+| Dynamic | Both     | Automatic (DHCP)  | Yes               | Home networks, mobile devices |
 
 ---
 
 ## 📝 Conclusion
 
 Understanding the differences between public, private, static, and dynamic IP addresses is crucial for network configuration and troubleshooting. Each type serves a specific purpose, and choosing the right configuration depends on your networking needs.
-
----
-
-## 📚 Additional Resources
-
-- [Difference between Private and Public IP addresses - GeeksforGeeks](https://www.geeksforgeeks.org/difference-between-private-and-public-ip-addresses/)
-- [Difference between Static and Dynamic IP address - GeeksforGeeks](https://www.geeksforgeeks.org/difference-between-static-and-dynamic-ip-address/)
-- [Public vs. Private IP Addresses: What's the Difference? - Avast](https://www.avast.com/c-ip-address-public-vs-private)
-- [Static vs. Dynamic IP Addresses: What's the Difference? - Avast](https://www.avast.com/c-static-vs-dynamic-ip-addresses)
-
----
 
 ## Connect with Me
 - **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
