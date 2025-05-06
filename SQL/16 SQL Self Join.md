@@ -19,7 +19,27 @@ You typically use **aliases** to differentiate between the two instances of the 
 | 4          | David    | 2         |
 | 5          | Eve      | 2         |
 
----
+
+## 🛠️ SQL Script: Create Table and Insert Data
+
+```sql
+-- Create the Employees table
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    ManagerID INT
+);
+
+-- Insert sample data
+INSERT INTO Employees (EmployeeID, Name, ManagerID) VALUES
+(1, 'Alice', NULL),
+(2, 'Bob', 1),
+(3, 'Charlie', 1),
+(4, 'David', 2),
+(5, 'Eve', 2);
+```
+
+
 
 ## 🧠 Use Case
 
