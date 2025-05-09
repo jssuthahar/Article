@@ -3,7 +3,7 @@
 This README explains how to use **ADO.NET** to register a new user in a SQL Server database using C#. It provides a line-by-line explanation of the following code snippet:
 
 ```csharp
-SqlConnection sqlConnection = new SqlConnection("Data Source=DESKTOP-OCCP11M\\SQLEXPRESS;Initial Catalog=JSShopping;Integrated Security=True;Encrypt=false");
+SqlConnection sqlConnection = new SqlConnection("Data Source=xyz\\SQLEXPRESS;Initial Catalog=database;Integrated Security=True;Encrypt=false");
 sqlConnection.Open();
 string sql = $"INSERT INTO USERS(FULLNAME,EMAIL,PasswordHash) VALUES('{txtNewUsername.Text}','{txtEmail.Text}','{txtNewPassword.Password}')";
 SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection);
@@ -31,7 +31,7 @@ sqlConnection.Close();
 ### 1. **Establish SQL Connection**
 
 ```csharp
-SqlConnection sqlConnection = new SqlConnection("Data Source=DESKTOP-OCCP11M\\SQLEXPRESS;Initial Catalog=JSShopping;Integrated Security=True;Encrypt=false");
+SqlConnection sqlConnection = new SqlConnection("Data Source=xyz\\SQLEXPRESS;Initial Catalog=databse;Integrated Security=True;Encrypt=false");
 ```
 
 * `SqlConnection` is part of ADO.NET used to connect to SQL Server.
