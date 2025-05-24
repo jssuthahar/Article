@@ -51,7 +51,7 @@ You can access secrets from:
 var client = new SecretClient(new Uri("https://<your-vault-name>.vault.azure.net/"), new DefaultAzureCredential());
 KeyVaultSecret secret = await client.GetSecretAsync("MySecret");
 Console.WriteLine(secret.Value);
-
+```
  ## Connect with Me
 - **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
 - **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
