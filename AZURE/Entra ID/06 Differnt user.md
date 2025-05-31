@@ -91,11 +91,11 @@ This guide explains three key identity types, their purposes, and how they fit i
 
 ---
 
-## 🧑‍💼 Real-Time Use Case: JSDevBrains Pvt Ltd (`msdevbuild.com`)
+## 🧑‍💼 Real-Time Use Case: MSDEVBUILD (`msdevbuild.com`)
 
 ### Scenario
 
-JSDevBrains is a software development company with:
+MSDEVBUILD is a software development company with:
 
 - On-premises Active Directory for internal employee management.
 - Cloud services like Microsoft 365, Azure DevOps, and Teams.
@@ -103,7 +103,7 @@ JSDevBrains is a software development company with:
 
 ### Identity Setup
 
-| Identity Type      | Usage at JSDevBrains |
+| Identity Type      | Usage at MSDEVBUILD |
 |--------------------|---------------------|
 | **Directory Sync** | All full-time employees synced from on-premises AD using Azure AD Connect. Employees use single credentials for office systems and cloud apps. |
 | **Cloud Identity** | Temporary contractors hired for short projects created as cloud-only users, no on-premises account. Easier onboarding and removal. |
