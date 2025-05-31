@@ -76,7 +76,7 @@ Click **Create**.
 
 ## 🧪 Real-Time Use Case: MSDevBuild
 
-**Company:** JSDevBrains Pvt Ltd  
+**Company:** MSDEVBUILD Pvt Ltd  
 **Custom Domain:** `msdevbuild.com`
 
 ### Scenario:
