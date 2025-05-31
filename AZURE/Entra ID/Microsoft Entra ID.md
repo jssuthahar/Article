@@ -46,10 +46,10 @@ When you create a Microsoft Entra ID tenant, a **default domain name** is automa
 
 ```
 
-For example, if your tenant name is **jsdevbrains**, your default domain will be:
+For example, if your tenant name is **msdevbuild**, your default domain will be:
 ```
 
-jsdevbrains.onmicrosoft.com
+msdevbuild.onmicrosoft.com
 
 ```
 
@@ -57,7 +57,7 @@ jsdevbrains.onmicrosoft.com
 
 - It's used internally by Microsoft services and identity management.
 - Required to create users and assign licenses before you add a custom domain.
-- It serves as a fallback even when you add custom domains like **jsdevbrains.com**.
+- It serves as a fallback even when you add custom domains like **msdevbuild.com**.
 
 ---
 
@@ -65,17 +65,17 @@ jsdevbrains.onmicrosoft.com
 
 **Scenario: Onboarding a Tech Company to Microsoft 365 and Azure**
 
-**Company:** JSDevBrains Pvt Ltd  
+**Company:** MSDEVBUILD Pvt Ltd  
 **Challenge:** Managing user access for employees, consultants, and interns working from different locations and time zones.
 
 **Solution:**  
-JSDevBrains registered for Microsoft 365 Business and was automatically provisioned with a Microsoft Entra ID tenant:
+MSdevbuild registered for Microsoft 365 Business and was automatically provisioned with a Microsoft Entra ID tenant:
 
-> `jsdevbrains.onmicrosoft.com`
+> `msdevbuild.onmicrosoft.com`
 
 They used Entra ID to:
-- Create user accounts like **admin@jsdevbrains.onmicrosoft.com** and **priya@jsdevbrains.onmicrosoft.com**
-- Later verified a custom domain: **jsdevbrains.com**
+- Create user accounts like **admin@msdevbuild.onmicrosoft.com** and **priya@msdevbuild.onmicrosoft.com**
+- Later verified a custom domain: **msdevbuild.com**
 - Enabled SSO for their GitHub, Power BI, and Azure DevOps tools
 - Applied conditional access policies to enforce MFA only when users log in from new devices or risky locations
 - Used role-based access to give interns read-only access and admins full control
