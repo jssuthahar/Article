@@ -59,7 +59,7 @@
 
 ---
 
-## 🧑‍💼 Real-Time Use Case: JSDevBrains Pvt Ltd (`msdevbuild.com`)
+## 🧑‍💼 Real-Time Use Case: MSDEVBUILD Pvt Ltd (`msdevbuild.com`)
 
 ### Company Profile
 
