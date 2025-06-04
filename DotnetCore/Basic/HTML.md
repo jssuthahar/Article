@@ -63,7 +63,7 @@ This HTML resume is perfect for:
 **Suthahar Jegatheesan**  
 Email: suthahar@example.com  
 Phone: +60-123456789  
-<pre>
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -203,4 +203,7 @@ Phone: +60-123456789
 
 </body>
 </html>
-</pre>
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
+
