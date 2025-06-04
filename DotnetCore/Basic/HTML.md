@@ -131,10 +131,10 @@ Phone: +60-123456789
         <h2>Experience</h2>
 
         <div>
-            <h3>Founder & CTO – JSDevBrains</h3> <!-- <h3> is a sub-heading under <h2> -->
+            <h3>Founder & CTO – MSDEVBUILD</h3> <!-- <h3> is a sub-heading under <h2> -->
             <p><em>2024 – Present</em></p> <!-- <em> italicizes text -->
             <ul>
-                <li>Launched JSQUARe and Devbrains platforms for training and mentoring.</li>
+                <li>Launched MSDEVBUILD platforms for training and mentoring.</li>
                 <li>Built scalable AI and mobile solutions for enterprise clients.</li>
             </ul>
         </div>
@@ -178,8 +178,8 @@ Phone: +60-123456789
     <div id="projects">
         <h2>Projects</h2>
         <ul>
-            <li><strong>JSQUARe:</strong> IT training and mentorship platform.</li>
-            <li><strong>Devbrains:</strong> AI-powered mentor booking and knowledge app.</li>
+            <li><strong>MSDEVBUILD:</strong> IT training and mentorship platform.</li>
+            <li><strong>Microsoft:</strong> AI-powered mentor booking and knowledge app.</li>
             <li><strong>Supply Chain AI:</strong> Predictive models to optimize logistics.</li>
         </ul>
     </div>
