@@ -1,8 +1,3 @@
-Here's a sample `README.md` file suitable for a beginner-to-expert level introduction to CSS and its integration with HTML:
-
----
-
-````markdown
 # CSS Beginner to Expert Guide
 
 Welcome to the **CSS Beginner to Expert Guide**! This guide covers the fundamentals of **HTML and CSS**, including how to style HTML elements using classes, IDs, and different CSS techniques such as inline, internal, and external styles.
