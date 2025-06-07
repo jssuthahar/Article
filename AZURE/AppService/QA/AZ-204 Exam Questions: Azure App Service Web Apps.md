@@ -1,156 +1,105 @@
-AZ-204 Exam Questions: Azure App Service Web Apps
+# AZ-204 Exam – Implement Azure App Service Web Apps
 
-Question 1: How do you monitor an Azure App Service web app using Application Insights to examine exceptions including source code and variable states?
+This repository contains curated questions and answers for the Implement Azure App Service Web Apps topic from the AZ-204 Microsoft Azure Developer exam. Each question includes options, correct answers, detailed explanations, and references to official Microsoft Docs for further study.
+
+Question 1
+
+Question:
+You are developing a new web service using Azure Web Apps. The web app contains a third-party library for processing Microsoft Excel files. The license stipulates that only a single instance of the library can run at a time. You need to configure the Azure App Service plan to ensure this licensing condition is met.
 
 Options:
-A. Smart detection
-B. Profiler
-C. Snapshot Debugger
-D. Standard test
 
-Correct Answer: C
+- A) Scale out the Azure App Service to multiple instances.
+
+- B) Scale up the Azure App Service plan to a larger SKU.
+
+- C) Configure Azure App Service to run with a single instance.
+
+- D) Use deployment slots for Blue-Green deployment.
+
+Correct Answer:
+
+- C) Configure Azure App Service to run with a single instance.
 
 Explanation:
-Snapshot Debugger captures a snapshot of the state of your application (including local variables and call stack) at the moment an exception or failure occurs. This helps developers diagnose the root cause of issues in production without stopping or debugging the live app.
+
+To comply with the licensing restriction that only one instance of the third-party library can run, you must ensure that the Azure App Service runs on a single instance. Scaling out to multiple instances would violate the license terms by running multiple instances of the library simultaneously. Scaling up merely increases resources on a single instance, so it is acceptable only if correctly configured as a single instance. Deployment slots do not affect the number of running instances but are used for staging deployments.
 
 Reference:
-Azure Application Insights Snapshot Debugger
 
-Question 2: You need to increase a web app's availability by re-routing requests away from instances with error status codes and automatically replacing unhealthy instances after one hour. You must also send web server logs, application logs, standard output, and error messages to a storage blob. Which features do you configure?
+- Scale an app in Azure App Service
 
-- Health check
+Question 2
 
-- Diagnostic setting
+Question:
+When deploying Azure App Service policies, you notice that some policies are not applied immediately due to deployment timing. What are common causes and how do you handle policy loss during deployment?
 
-- Autoscale
+Options:
 
-- Deployment slots
+- A) Deploy policies asynchronously with retry logic.
 
-Correct Answers:
+- B) Use configuration locks to prevent policy loss.
 
-- Health check (for request routing and instance replacement)
+- C) Redeploy policies after app service deployment.
 
-- Diagnostic setting (for sending logs to Azure Storage Blob)
+- D) Use health monitoring endpoint to validate policy status.
 
-Explanation:
-Health check continuously monitors the health of app instances. When an instance becomes unhealthy, traffic is routed away and after a configured time, the instance is replaced. Diagnostic settings enable streaming of logs, metrics, and traces to destinations like Azure Storage, Log Analytics, or Event Hubs.
+Correct Answer:
 
-References:
-
-- Health check for Azure App Service
-
-- Diagnostic logs in Azure App Service
-
-Question 3: After creating an Azure App Service, which sequence correctly configures Application Insights telemetry for a web app?
-
-1. Create an Application Insights resource
-
-2. Copy the connection string
-
-3. Configure the Application Insights SDK in the app
-
-Correct Sequence: 1, 2, 3
+- C) Redeploy policies after app service deployment.
 
 Explanation:
-First, you create an Application Insights resource in Azure portal. Then, you obtain the connection string which connects your app telemetry to that resource. Finally, you install and configure the Application Insights SDK in your application code to send telemetry data.
+
+Policies might not be applied if the deployment action interrupts the application of policies. It is recommended to redeploy or reapply the policies after the main app deployment completes to ensure that they take effect without policy loss.
 
 Reference:
-Configure Application Insights for ASP.NET Core
 
-Question 4: You want to monitor an Azure Function app error message in the development environment in near real-time. What should you do?
+- Azure Service Policy Deployment Best Practices [T1 (Page 388)]
 
-A. Connect Live Metrics Stream from Application Insights to the Azure Function app and filter the metrics
-B. Create a new Azure Log Analytics workspace and instrument the Azure Function app with Application Insights
-C. Update the Azure Function app with extension methods from Microsoft.Extensions.Logging
-D. Add a new diagnostic setting to the Azure Function app to send logs to Log Analytics
+Question 3
 
-Correct Answer: A
+Question:
+How do you monitor and address performance slowdowns and connection rejections in an Azure web app running an anomaly detection service under heavy load?
 
-Explanation:
-Live Metrics Stream provides live telemetry data with very low latency (~1 second), enabling near real-time monitoring of failures, requests, and performance for Azure Function apps. It allows instant insights during development and debugging.
+Options:
 
-Reference:
-Monitor Azure Functions with Azure Application Insights
+- A) Implement auto-scaling rules to add instances.
 
-Question 5: You deployed a web app and need to configure deployment slots to support changes without downtime. Which Azure App Service feature allows this?
+- B) Enable Azure Application Insights performance monitoring.
 
-A. Slot swapping
-B. Live Metrics Stream
-C. Diagnostic settings
-D. Application Gateway
+- C) Use an Azure Service Bus to queue requests for anomaly detection.
 
-Correct Answer: A
+- D) Restrict incoming requests during peak load hours.
+
+Correct Answer:
+
+- A) Implement auto-scaling rules to add instances.
 
 Explanation:
-Deployment slots enable staging environments for your web app, allowing you to test new versions before swapping with the production slot. Slot swapping is a zero-downtime operation that swaps the content and config of two app slots.
+
+Under heavy load, Azure App Services can degrade performance or reject connections. Setting up autoscale rules based on CPU or memory usage allows the app to scale out and handle increased load dynamically, which will improve availability and reduce latency.
 
 Reference:
-Azure App Service deployment slots
 
-Question 6: To support autoscaling of your web app across multiple instances based on CPU usage, which Azure App Service setting should you configure?
+- Scale-out and scale-up Azure App Service
 
-A. Health check
-B. Diagnostic settings
-C. Autoscale rules in Azure Monitor
-D. Application Insights alerts
+Usage
 
-Correct Answer: C
+1. Review each question carefully.
 
-Explanation:
-Autoscale rules configured in Azure Monitor allow your app to automatically increase or decrease instance count based on performance metrics like CPU percentage, HTTP queue length, or custom metrics, ensuring optimal resource utilization.
+2. Understand the explanation and rationale for the correct answer.
 
-Reference:
-Autoscale Azure App Service
+3. Follow the MSDN links for detailed Microsoft documentation.
 
-Question 7: How do you configure TLS settings for your Azure App Service web app to ensure all inbound HTTPS traffic?
+4. Practice these sample scenarios to prepare effectively for the AZ-204 exam.
 
-A. Use Azure Application Gateway with TLS termination
-B. Configure HTTP to HTTPS redirection in App Service TLS settings
-C. Add a diagnostic setting for TLS logs
-D. Install extensions from Microsoft.Extensions.Logging
+Contributing
 
-Correct Answer: B
+If you want to add more questions or enhance explanations, please open a pull request or submit an issue.
 
-Explanation:
-Azure App Service allows you to enforce HTTPS by redirecting all HTTP traffic to HTTPS through TLS/SSL settings, ensuring secure communication.
+License
 
-Reference:
-Enforce HTTPS in Azure App Service
-
-Question 8: You want to deploy containerized solutions to Azure Web App. Which deployment approach is recommended?
-
-A. ZIP deploy with container artifacts
-B. Push container images to Azure Container Registry and configure Web App for Containers
-C. Deploy via FTP upload of binaries
-D. Use deployment slots only
-
-Correct Answer: B
-
-Explanation:
-Azure Web App for Containers integrates with Azure Container Registry (ACR), allowing you to deploy container images directly from ACR. This is the recommended method for deploying containerized web apps.
-
-Reference:
-Run custom containers on Azure App Service
-
-References Summary
-
-- Snapshot Debugger
-
-- Health checks
-
-- Diagnostic logs
-
-- Application Insights ASP.NET Core
-
-- Azure Functions Monitoring
-
-- App Service Deployment Slots
-
-- Autoscale rules
-
-- Enforce HTTPS
-
-- Deploy containers to Azure Web App
+This material is for educational purposes aligned with Microsoft exam preparation.
 
 ## Connect with Me
 - **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
