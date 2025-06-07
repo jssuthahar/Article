@@ -1,11 +1,10 @@
 # AZ-204 Exam – Implement Azure App Service Web Apps
 
-This repository contains curated questions and answers for the Implement Azure App Service Web Apps topic from the AZ-204 Microsoft Azure Developer exam. Each question includes options, correct answers, detailed explanations, and references to official Microsoft Docs for further study.
 
 Question 1
 
 Question:
-You are developing a new web service using Azure Web Apps. The web app contains a third-party library for processing Microsoft Excel files. The license stipulates that only a single instance of the library can run at a time. You need to configure the Azure App Service plan to ensure this licensing condition is met.
+#You are developing a new web service using Azure Web Apps. The web app contains a third-party library for processing Microsoft Excel files. The license stipulates that only a single instance of the library can run at a time. You need to configure the Azure App Service plan to ensure this licensing condition is met.
 
 Options:
 
