@@ -1,19 +1,5 @@
 AZ-204 Exam Questions: Azure App Service Web Apps
 
-This document consolidates exam questions related to the following topics:
-
-- Create an Azure App Service Web App
-
-- Configure and implement diagnostics and logging
-
-- Deploy code and containerized solutions
-
-- Configure settings including TLS, API settings, and service connections
-
-- Implement autoscaling
-
-- Configure deployment slots
-
 Question 1: How do you monitor an Azure App Service web app using Application Insights to examine exceptions including source code and variable states?
 
 Options:
