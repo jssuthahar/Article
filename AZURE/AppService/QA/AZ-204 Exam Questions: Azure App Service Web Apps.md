@@ -4,7 +4,7 @@
 Question 1
 
 Question:
-#You are developing a new web service using Azure Web Apps. The web app contains a third-party library for processing Microsoft Excel files. The license stipulates that only a single instance of the library can run at a time. You need to configure the Azure App Service plan to ensure this licensing condition is met.
+You are developing a new web service using Azure Web Apps. The web app contains a third-party library for processing Microsoft Excel files. The license stipulates that only a single instance of the library can run at a time. You need to configure the Azure App Service plan to ensure this licensing condition is met.
 
 Options:
 
