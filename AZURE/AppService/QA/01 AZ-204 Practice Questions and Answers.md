@@ -1,167 +1,183 @@
-# AZ-204 Practice Questions and Answers
 
-## Topic: Implement Azure App Service Web Apps
+# AZ-204: Implement Azure App Service Web Apps
 
-### Subtopic: Configure and Implement Diagnostics and Logging
-
-This document provides curated practice questions and detailed answers focused on Azure App Service monitoring and diagnostics, suitable for AZ-204 preparation.
+This document provides a collection of practice questions, correct answers, detailed explanations, and Microsoft documentation references for the AZ-204 certification exam. The focus is on the topic **"Implement Azure App Service Web Apps"**, including diagnostics, logging, availability, scaling, and compliance.
 
 ---
 
-### ✅ Question 1: Configure Azure App Service to Meet Monitoring Requirements
+## 1. Configure Application Insights for Azure App Service Web App
+**Question**:  
+You deploy an ASP.NET web app to Azure App Service. You must monitor the web app using Application Insights. You need to configure Application Insights to meet the requirements. Which feature should you use?
 
-**Scenario:**
+**Options**:  
+A. Smart Detection  
+B. Profiler  
+C. Snapshot Debugger  
+D. Standard Test  
 
-You develop and deploy a web app in Azure App Service with 4 instances and a staging slot. You must:
+**Answer**: A. Smart Detection
 
-- Increase availability by rerouting requests away from instances returning error codes.
-- Replace unhealthy instances if unhealthy for one hour.
-- Send web server logs, application logs, standard output, and standard error messages to Azure Storage Blob.
+**Explanation**:  
+Smart Detection proactively alerts you about potential performance or failure issues by analyzing telemetry data sent by your application. It requires minimal configuration and helps identify anomalies such as sudden failure rate increases.
 
-**Answer:**
-
-- **Health check**: Configure the Health check feature in App Service to monitor a specific endpoint. If an instance fails health checks continuously, App Service can reroute traffic and replace it after a threshold (e.g., 1 hour).
-- **Diagnostic settings**: Set up diagnostic logging to route web server, application, stdout, and stderr logs to an Azure Storage blob.
-
-**Explanation:**
-
-- Health checks improve app reliability by removing unhealthy instances from the load balancer.
-- Diagnostic settings help persist and analyze logs using storage, Event Hubs, or Log Analytics.
-
-**References:**
-
-- [Health check in App Service](https://docs.microsoft.com/en-us/azure/app-service/monitor-instances-health-check)
-- [App Service diagnostic logs](https://docs.microsoft.com/en-us/azure/app-service/troubleshoot-diagnostic-logs)
+**Topic**: Monitoring Azure Web Apps with Application Insights; proactive diagnostics and alerting.  
+**Reference**: [Smart Detection - Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/proactive-diagnostics)
 
 ---
 
-### ✅ Question 2: Investigate Azure Function App Errors in Development
+## 2. Configure Application Insights for Azure Web Apps (DRAG DROP)
 
-**Options:**
+**Question**:  
+An organization has web apps hosted in Azure. They want to track events and telemetry data using Application Insights. Which three actions should you perform in sequence?
 
-A. Connect Live Metrics Stream from Application Insights to the Azure Function app and filter errors  
-B. Create a new Log Analytics workspace and instrument the app with Application Insights  
-C. Use `Microsoft.Extensions.Logging` to log events  
-D. Add a diagnostic setting to send logs to Log Analytics
+**Options**:
+- Create an Application Insights resource
+- Copy the instrumentation key
+- Configure the Application Insights SDK in the app
+- Copy the connection string
+- Enable Azure Monitor logging
+- Configure alerts
 
-**Correct Answer:** A
-
-**Explanation:**
-
-Live Metrics Stream provides real-time monitoring for Azure Functions when integrated with Application Insights. It allows developers to quickly diagnose issues, failures, or performance degradation.
-
-**Reference:**
-
-- [Monitor Azure Functions using Application Insights](https://docs.microsoft.com/en-us/azure/azure-functions/functions-monitoring)
-
----
-
-### ✅ Question 3: Identify Azure Monitor Log for Configuration Changes in Web Apps
-
-**Options:**
-
-A. AppServiceAppLogs  
-B. AppServiceEnvironmentPlatformLogs  
-C. AppServiceConsoleLogs  
-D. AppServiceAuditLogs
-
-**Correct Answer:** B
-
-**Explanation:**
-
-`AppServiceEnvironmentPlatformLogs` includes logs related to scaling operations, configuration changes, and environment-level events, making it ideal for auditing configuration changes.
-
-**Reference:**
-
-- [App Service Diagnostic Logs](https://docs.microsoft.com/en-us/azure/app-service/troubleshoot-diagnostic-logs)
-
----
-
-### ✅ Question 4: Configure Application Insights for Web App Telemetry
-
-**Arrange the correct sequence:**
-
-1. Create Application Insights resource  
+**Correct Sequence**:
+1. Create an Application Insights resource  
 2. Copy the connection string  
 3. Configure the Application Insights SDK in the app
 
-**Correct Sequence:**
+**Explanation**:  
+Creating the resource allows telemetry collection. The connection string links telemetry to your resource, and the SDK enables telemetry capture.
 
-1. Create Application Insights resource  
-2. Copy the connection string  
-3. Configure SDK (add NuGet package, insert connection string in `appsettings.json` or `Startup.cs`)
-
-**Reference:**
-
-- [Enable Application Insights in ASP.NET Core](https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net-core)
+**Topic**: Setting up Application Insights telemetry for Azure Web Apps.  
+**Reference**: [Enable Application Insights - ASP.NET Core](https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net-core)
 
 ---
 
-### ✅ Question 5: Application Insights Feature for Detecting Performance Issues
+## 3. Investigate Azure Function App Error Message
 
-**Which feature detects performance issues and failure anomalies automatically?**
+**Question**:  
+You need to investigate an Azure Function app error in development. What should you do?
 
-**Correct Answer:** Smart Detection
+**Options**:  
+A. Connect Live Metrics Stream from Application Insights  
+B. Create a Log Analytics workspace and instrument with Application Insights  
+C. Use Microsoft.Extensions.Logging to log events  
+D. Add diagnostic setting to send logs to Log Analytics
 
-**Explanation:**
+**Answer**: A. Connect Live Metrics Stream from Application Insights
 
-Smart Detection automatically analyzes telemetry to find potential performance bottlenecks or failure spikes and generates alerts.
+**Explanation**:  
+Live Metrics Stream provides near real-time telemetry and is best for quick diagnosis of Azure Function performance and errors.
 
-**Reference:**
-
-- [Smart Detection in Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/proactive-diagnostics)
-
----
-
-## Other Subtopics Overview
-
-### Subtopic: Configure and Implement Autoscaling
-
-- Health checks play a role in autoscaling by identifying instance health.
-- Autoscale is more effective when the App Service Plan is scaled to **two or more instances**.
-
-### Subtopic: Configure Deployment Slots
-
-- Deployment slot was mentioned in the monitoring question but not tested directly in provided examples.
-- No configuration-specific question was listed.
-
-### Subtopic: Deploy Code and Containerized Solutions
-
-- No explicit deployment questions covered in current set.
-
-### Subtopic: Configure TLS, API Settings, and Service Connections
-
-- Not covered in the provided questions.
+**Topic**: Monitoring Azure Function apps with Application Insights.  
+**Reference**: [Monitor Azure Functions - Application Insights](https://docs.microsoft.com/en-us/azure/azure-functions/functions-monitoring)
 
 ---
 
-## 📌 Summary
+## 4. Increase Web App Availability and Send Logs to Storage Account
 
-This section of the AZ-204 focuses heavily on:
+**Question**:  
+You scale out a web app to four Azure App Service instances and configure a staging slot. You must:
+- Increase availability by rerouting requests away from unhealthy instances
+- Replace unhealthy instances after one hour
+- Send logs to Azure Storage Blob
 
-- Monitoring and diagnostics with **Application Insights**, **Azure Monitor**, and **Health Check**.
-- Ensuring **high availability** through diagnostics and auto-remediation.
-- Integration of logging tools and observability features in Azure App Services.
+**Options**:
+- Health Check  
+- Diagnostic Setting  
+- Application Insights  
+- Auto Scale  
+- Deployment Slots  
 
-More attention should be given to hands-on labs in Azure Portal to configure health checks, diagnostic settings, and Application Insights for real-world understanding.
+**Answer**:  
+- For Availability: Health Check  
+- For Logs: Diagnostic Setting
+
+**Explanation**:  
+Health Check detects and removes unhealthy instances. Diagnostic Settings export logs to Azure Storage, Event Hubs, or Log Analytics.
+
+**Topic**: Azure App Service availability and diagnostics configuration.  
+**Reference**:
+- [Health Check](https://docs.microsoft.com/en-us/azure/app-service/monitor-instances-health-check)  
+- [Diagnostic Logs](https://docs.microsoft.com/en-us/azure/app-service/troubleshoot-diagnostic-logs)
+
+---
+
+## 5. Configure Azure Web App for Third-Party Library with Single Instance License
+ 
+**Question**:  
+You have a web app with a third-party library licensed for one instance. How should you configure Azure App Service?
+
+**Options (Select Two)**:
+- Scale out to 1 instance  
+- Enable Autoscale  
+- Disable Scale Out  
+- Use Premium App Service Plan  
+- Use Consumption Plan  
+
+**Answer**:
+- Scale out to 1 instance  
+- Disable Scale Out
+
+**Explanation**:  
+You must restrict scaling to comply with the license, preventing more than one instance from being created.
+
+**Topic**: Azure App Service scaling and licensing compliance.  
+**Reference**: [App Service scaling documentation](https://docs.microsoft.com/en-us/azure/app-service/manage-scale)
 
 ---
 
-## 📚 Recommended Reading
+## 6. Add Azure Blob Storage Security Settings for Corporate Website Files
 
-- [App Service Monitoring Overview](https://docs.microsoft.com/en-us/azure/app-service/overview-monitoring)
-- [Azure Monitor Logs for App Service](https://docs.microsoft.com/en-us/azure/azure-monitor/)
-- [Application Insights Overview](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
+**Question**:  
+You need to secure Azure Blob Storage for corporate website file compliance. What settings should you enable?
 
+**Options**:
+- Enable encryption at rest  
+- Enable secure transfer required  
+- Enable soft delete  
+- Set Access Tier to Cool  
+- Enable public access  
 
+**Answer**:
+- Enable encryption at rest  
+- Enable secure transfer required  
+- Enable soft delete
 
+**Explanation**:  
+These settings ensure data protection, secure data transmission, and accidental deletion recovery.
 
-## 🔗 Connect with Me
-
-- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)  
-- **YouTube (English)**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)  
-- **YouTube (Tamil)**: [MSDEVBUILD Tamil](https://www.youtube.com/@MSDEVBUILDTamil)  
-- **Blog**: [MSDEVBUILD.com](https://www.msdevbuild.com/)  
-- **WhatsApp Channel**: [Follow on WhatsApp](https://www.whatsapp.com/channel/0029Va5j2rHEFeXcTlUhQB0J)
+**Topic**: Security and compliance configuration for Azure Storage.  
+**Reference**: [Secure Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-guide)
 
 ---
+
+## 7. Troubleshoot and Remediate Azure Web App Errors (Sequence)
+ 
+**Question**:  
+You discover errors in a deployed Azure Web App. What is the recommended sequence to diagnose and fix?
+
+**Options**:
+- Review Application Insights Logs  
+- Analyze Deployment Configuration  
+- Update application code  
+- Redeploy updated app  
+- Test app performance  
+
+**Correct Sequence**:
+1. Review Application Insights Logs  
+2. Analyze Deployment Configuration  
+3. Update application code  
+4. Redeploy updated app  
+5. Test app performance
+
+**Explanation**:  
+Start with diagnostics, validate configuration, apply fixes, and test post-deployment.
+
+**Topic**: Troubleshooting and recovery of Azure App Service web apps.  
+**Reference**: [Troubleshoot App Service Issues](https://docs.microsoft.com/en-us/azure/app-service/overview-diagnostics)
+
+---
+
+## Summary
+
+This guide covers monitoring, diagnostics, availability, scaling, compliance, and troubleshooting for Azure App Service Web Apps. It is designed to help prepare for the **AZ-204** exam and provide real-world configuration insights.
+
