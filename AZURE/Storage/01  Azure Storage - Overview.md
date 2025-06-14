@@ -12,6 +12,7 @@
 
 Azure Storage is part of the **Microsoft Azure cloud platform** and is accessible via REST APIs, SDKs, or the Azure Portal.
 
+![Azure Storage Diagram](https://github.com/jssuthahar/MSDEVBUILD-Doc/blob/main/AZURE/Storage/image/Azure%20Storage%20Options.png)
 ---
 
 ## 🚀 Why Do We Need Azure Storage?
@@ -31,6 +32,7 @@ Azure Storage is part of the **Microsoft Azure cloud platform** and is accessibl
 5. **Cost-Effectiveness**
    Pay only for what you use. Multiple storage tiers (Hot, Cool, Archive) help optimize storage costs.
 
+![Azure Storage Diagram](https://github.com/jssuthahar/MSDEVBUILD-Doc/blob/main/AZURE/Storage/image/Benefits%20of%20Azure%20Storage.png)
 ---
 
 ## 📖 Why Azure Storage – The Story Behind
