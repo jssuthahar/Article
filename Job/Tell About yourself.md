@@ -87,6 +87,12 @@ I’m a quick learner, passionate about full-stack development, and I enjoy solv
 
 Thank you for the opportunity!
 
+##  ✅ Tips Before You Speak:
+Practice saying this naturally, not memorized word-for-word.
+
+Be ready to explain your two projects in more detail (what problem, what tech stack, what was your role).
+
+Prepare 1–2 questions to ask the interviewer (e.g., about team structure, tech stack used, etc.)
 
 ## Connect with Me
 - **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
