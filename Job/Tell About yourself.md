@@ -1,13 +1,13 @@
 # 👨‍💻 Karthikeyan - Full Stack .NET Developer (Intern)
 
-Hi! I'm **Karthikeyan**, a passionate and motivated **Full Stack Developer** currently working as an intern at **JS**. I have a strong foundation in **.NET technologies**, combined with practical experience in **Azure cloud services**, **SQL databases**, and modern software development practices like **Agile methodology**.
+Hi! I'm **Karthikeyan**, a passionate and motivated **Full Stack Developer** currently working as an intern at **MSDEVBUILD**. I have a strong foundation in **.NET technologies**, combined with practical experience in **Azure cloud services**, **SQL databases**, and modern software development practices like **Agile methodology**.
 
 ---
 
 ## 🧾 About Me
 
 - 🎓 **Education**: Bachelor of Engineering (BE)
-- 💼 **Current Role**: Full Stack Intern @ JSQUARE
+- 💼 **Current Role**: Full Stack Intern @ MSDEVBUILD
 - 🔧 **Experience**: Developed 2 real-time projects using .NET Core, WPF, and Azure
 
 ---
