@@ -1,60 +1,70 @@
-# 45 Essential C# Interview Questions with Answers and Code Examples
+# 45 Essential C# Interview Questions with Detailed Explanations and Code Examples
 
 ## 1. Difference between readonly vs const
 
-* `const`: Compile-time constant. Value is set at compile time and can't be changed.
-* `readonly`: Runtime constant. Can be set in constructor.
+* `const` is a compile-time constant. Its value is hardcoded into the assembly at compile time and can't be changed.
+* `readonly` is a runtime constant. Its value can only be set during declaration or in the constructor, making it useful for instance-level constants.
 
 ```csharp
-const int MaxValue = 100;
-readonly int MinValue;
+const int MaxItems = 100; // Must be known at compile time
+readonly int MinItems;
 
 public MyClass() {
-    MinValue = 10; // Allowed
+    MinItems = 10; // Can be set in constructor
 }
 ```
+
+Use `const` for universal constants. Use `readonly` when the value may differ per object instance.
 
 ---
 
 ## 2. What is a sealed keyword used for?
 
-Prevents a class from being inherited.
+The `sealed` keyword prevents a class from being inherited. It is useful for security and performance (especially in polymorphic scenarios).
 
 ```csharp
-sealed class MyClass { }
+sealed class FinalClass { }
 ```
+
+Trying to inherit from `FinalClass` will cause a compile-time error.
 
 ---
 
 ## 3. Name all the access modifiers for types
 
-* `public`
-* `private`
-* `protected`
-* `internal`
-* `protected internal`
-* `private protected`
+1. `public`: Accessible from anywhere.
+2. `private`: Accessible only within the class.
+3. `protected`: Accessible within the class and its derived types.
+4. `internal`: Accessible within the same assembly.
+5. `protected internal`: Accessible within the same assembly or from derived types.
+6. `private protected`: Accessible within the same assembly and from derived classes in that assembly.
 
 ---
 
 ## 4. Difference between interface and abstract class
 
-| Feature        | Interface | Abstract Class |
-| -------------- | --------- | -------------- |
-| Inheritance    | Multiple  | Single         |
-| Implementation | No        | Can contain    |
-| Constructors   | No        | Yes            |
+* **Interface**:
+
+  * All members are abstract (default behavior).
+  * No constructors.
+  * Multiple interfaces can be implemented.
+* **Abstract Class**:
+
+  * Can include both abstract and implemented methods.
+  * Can have constructors and fields.
+
+Use interfaces to define capabilities; use abstract classes when you want shared implementation.
 
 ---
 
 ## 5. When is a static constructor called?
 
-Automatically called before any static member is accessed or instance is created.
+A static constructor is called only once, automatically, before the first instance is created or any static members are accessed.
 
 ```csharp
-class MyClass {
-    static MyClass() {
-        Console.WriteLine("Static constructor");
+class Logger {
+    static Logger() {
+        Console.WriteLine("Initializing Logger");
     }
 }
 ```
@@ -63,57 +73,79 @@ class MyClass {
 
 ## 6. How to create an extension method?
 
+An extension method allows you to "add" new methods to existing types without modifying them.
+
 ```csharp
 public static class StringExtensions {
-    public static bool IsCapital(this string str) => char.IsUpper(str[0]);
+    public static bool IsCapitalized(this string input) {
+        return !string.IsNullOrEmpty(input) && char.IsUpper(input[0]);
+    }
 }
 ```
+
+Usage: `"Hello".IsCapitalized();`
 
 ---
 
 ## 7. Does C# support multiple class inheritance?
 
-No. But you can implement multiple interfaces.
+No. C# does not support multiple class inheritance to avoid ambiguity and complexity. However, a class can implement multiple interfaces.
+
+```csharp
+interface IWalk { void Walk(); }
+interface IRun { void Run(); }
+class Athlete : IWalk, IRun {
+    public void Walk() {}
+    public void Run() {}
+}
+```
 
 ---
 
 ## 8. Explain boxing and unboxing
 
-* Boxing: Value type to object
-* Unboxing: Object to value type
+* **Boxing**: Converting a value type to object type (heap allocation).
+* **Unboxing**: Extracting the value type from the object.
 
 ```csharp
-int x = 123;
-object obj = x; // Boxing
-int y = (int)obj; // Unboxing
+int i = 123;
+object obj = i;        // Boxing
+int j = (int)obj;      // Unboxing
 ```
+
+Avoid excessive boxing/unboxing for performance.
 
 ---
 
 ## 9. What is heap and stack?
 
-* **Stack**: Stores value types and method call data.
-* **Heap**: Stores reference types.
+* **Stack**: Fast memory for value types and method calls. Auto-managed.
+* **Heap**: Stores reference types. Garbage-collected.
+
+Variables in the stack are destroyed when method exits, heap objects live until GC collects them.
 
 ---
 
 ## 10. Difference between string and StringBuilder
 
-`string` is immutable. `StringBuilder` is mutable.
+* `string` is immutable. Every modification creates a new string.
+* `StringBuilder` is mutable. Efficient for string concatenations in loops.
 
 ```csharp
-StringBuilder sb = new StringBuilder("Hello");
-sb.Append(" World");
+StringBuilder sb = new StringBuilder("Hi");
+sb.Append(" there");
 ```
 
 ---
 
 ## 11. How to create a date with a specific timezone?
 
+Use `TimeZoneInfo` to convert `DateTime`.
+
 ```csharp
-DateTime utc = DateTime.UtcNow;
-TimeZoneInfo tz = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
-DateTime local = TimeZoneInfo.ConvertTimeFromUtc(utc, tz);
+DateTime utcNow = DateTime.UtcNow;
+TimeZoneInfo ist = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");
+DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(utcNow, ist);
 ```
 
 ---
@@ -122,54 +154,68 @@ DateTime local = TimeZoneInfo.ConvertTimeFromUtc(utc, tz);
 
 ```csharp
 Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
+Thread.CurrentThread.CurrentUICulture = new CultureInfo("fr-FR");
 ```
+
+Useful for formatting numbers, dates, etc.
 
 ---
 
 ## 13. Difference between HashSet and Dictionary
 
-* `HashSet<T>`: Stores unique values.
-* `Dictionary<K,V>`: Stores key-value pairs.
+* **HashSet<T>**: Stores unique elements.
+* **Dictionary\<TKey,TValue>**: Stores key-value pairs.
+
+```csharp
+HashSet<int> set = new HashSet<int> {1, 2};
+Dictionary<int, string> map = new Dictionary<int, string> {{1, "A"}};
+```
 
 ---
 
 ## 14. What is the purpose of the method ToLookup?
 
-Groups elements by key and returns `ILookup<TKey, TElement>`.
+`ToLookup` creates a one-to-many dictionary-like structure. Good for grouping.
+
+```csharp
+var lookup = people.ToLookup(p => p.Age);
+```
 
 ---
 
 ## 15. Does LINQ Cast<T> method create a new object?
 
-No. It just casts elements to the specified type.
+No. It casts elements but does not create new objects. If types don’t match, it throws `InvalidCastException`.
 
 ---
 
 ## 16. Explain deferred execution in LINQ
 
-Query is not executed until iterated over.
+LINQ queries are not executed when defined. Execution is deferred until iteration.
 
 ```csharp
-var q = list.Where(x => x > 10); // Not executed yet
-foreach (var item in q) { ... }  // Executed here
+var q = list.Where(x => x > 5); // No execution yet
+foreach (var item in q) {...}   // Execution here
 ```
 
 ---
 
 ## 17. How does the ImmutableList work?
 
-Any modification returns a new list.
+You can't modify it. All changes return a new instance.
 
 ```csharp
-var list = ImmutableList.Create(1, 2);
-var newList = list.Add(3);
+var original = ImmutableList.Create(1);
+var modified = original.Add(2);
 ```
 
 ---
 
-## 18. Benefits of using Frozen collections?
+## 18. Benefits of using Frozen collections
 
-High performance lookup, thread-safe, optimized for read-heavy scenarios.
+* Thread-safe
+* Faster lookups
+* Immutable and optimized for read performance
 
 ---
 
@@ -177,6 +223,7 @@ High performance lookup, thread-safe, optimized for read-heavy scenarios.
 
 * `ConcurrentDictionary`
 * `ConcurrentQueue`
+* `ConcurrentBag`
 * `BlockingCollection`
 * `ImmutableList`
 
@@ -184,233 +231,181 @@ High performance lookup, thread-safe, optimized for read-heavy scenarios.
 
 ## 20. How to perform a lock for async code?
 
-Use `SemaphoreSlim`:
+Use `SemaphoreSlim`, not `lock`
 
 ```csharp
-private SemaphoreSlim semaphore = new(1);
-await semaphore.WaitAsync();
-try { ... } finally { semaphore.Release(); }
+SemaphoreSlim _lock = new(1);
+await _lock.WaitAsync();
+try {
+    // critical code
+} finally {
+    _lock.Release();
+}
 ```
 
 ---
 
 ## 21. Ways to create a new thread
 
-* `Thread` class
-* `Task`
-* `ThreadPool`
-* `async/await`
-* `BackgroundWorker`
+1. `Thread` class
+2. `ThreadPool`
+3. `Task`
+4. `Task.Run`
+5. `async/await`
+6. `BackgroundWorker`
 
 ---
 
 ## 22. Execute multiple async tasks at once
 
 ```csharp
-await Task.WhenAll(Task1(), Task2());
+await Task.WhenAll(Download(), Save());
 ```
 
 ---
 
 ## 23. Inheritance vs Composition
 
-* Inheritance: IS-A relationship
-* Composition: HAS-A relationship
+* Inheritance: Extends behavior, tight coupling.
+* Composition: Combines behavior, more flexible.
 
 ---
 
 ## 24. Difference: class vs record vs struct
 
-| Type   | Immutable        | Value Type | Inheritance |
-| ------ | ---------------- | ---------- | ----------- |
-| class  | No               | No         | Yes         |
-| record | Yes (by default) | No         | Yes         |
-| struct | No               | Yes        | No          |
+| Type   | Reference | Value | Inheritance | Immutable      |
+| ------ | --------- | ----- | ----------- | -------------- |
+| class  | Yes       | No    | Yes         | No             |
+| struct | No        | Yes   | No          | No             |
+| record | Yes       | No    | Yes         | Yes by default |
 
 ---
 
 ## 25. What are ref structs used for?
 
-Used for stack-only types like `Span<T>`.
+Used for stack-only types (e.g. `Span<T>`), not allowed on heap.
 
 ---
 
 ## 26. Two forms of records
 
-* Positional record:
-
-```csharp
-public record Person(string Name, int Age);
-```
-
-* Regular record:
-
-```csharp
-public record Person {
-  public string Name { get; init; }
-}
-```
+* Positional
+* Non-positional with `init` properties
 
 ---
 
 ## 27. What is "with" keyword used for?
 
-Clone record with changes.
+Used with records to clone and modify.
 
 ```csharp
-var p2 = p1 with { Age = 30 };
+var newPerson = person with { Age = 30 };
 ```
 
 ---
 
 ## 28. Purpose of Primary Constructors
 
-Allow parameters in type declaration (C# 12+).
-
-```csharp
-class Person(string name) {
-    public string Name => name;
-}
-```
+New C# 12 feature: define constructor parameters in class declaration.
 
 ---
 
 ## 29. Nullable Reference Types
 
-Enable compiler warnings for nullability.
+Adds compile-time null checks.
 
 ```csharp
-string? name = null; // nullable
+string? name = null;
 ```
 
 ---
 
 ## 30. Do switch expressions have return type limitations?
 
-No, they return the evaluated type.
-
-```csharp
-var result = value switch {
-  > 10 => "High",
-  _ => "Low"
-};
-```
+No. You can return any type.
 
 ---
 
 ## 31. What is yield return used for?
 
-Used to implement iterators.
-
-```csharp
-public IEnumerable<int> GetEven() {
-    yield return 2;
-    yield return 4;
-}
-```
+Used to create iterators lazily.
 
 ---
 
 ## 32. How many generations does GC have?
 
-Three: 0 (short-lived), 1, and 2 (long-lived).
+* Gen 0: Short-lived
+* Gen 1: Medium-lived
+* Gen 2: Long-lived
 
 ---
 
 ## 33. What is Interlocked class used for?
 
-Atomic operations in multithreaded scenarios.
-
-```csharp
-Interlocked.Increment(ref counter);
-```
+Thread-safe atomic operations.
 
 ---
 
 ## 34. Code generated for auto properties?
 
-```csharp
-public string Name { get; set; }
-// Backed by hidden private field
-```
+Compiler generates a hidden backing field.
 
 ---
 
 ## 35. How is Polymorphism implemented?
 
-Via virtual methods and interfaces.
-
-```csharp
-public virtual void Speak() { }
-```
+Using virtual/override, interfaces.
 
 ---
 
 ## 36. How is Encapsulation implemented?
 
-Using access modifiers to hide data.
-
-```csharp
-private string _name;
-public string Name { get => _name; set => _name = value; }
-```
+Using private fields + public properties.
 
 ---
 
 ## 37. Difference between ref and out
 
-* `ref`: Must be initialized before passing.
-* `out`: No need to initialize.
+* `ref` requires initialization before use.
+* `out` must be assigned inside method.
 
 ---
 
 ## 38. How does the using statement work?
 
-Disposes object automatically.
-
-```csharp
-using var stream = new StreamReader("file.txt");
-```
+Calls `Dispose()` automatically.
 
 ---
 
 ## 39. What is delegate and how is it used?
 
-Pointer to a method.
-
-```csharp
-delegate void MyDelegate();
-```
+Pointer to method. Supports events, callbacks.
 
 ---
 
 ## 40. Method Overloading vs Overriding
 
-* Overloading: Same method name, different parameters.
-* Overriding: Derived class changes base class implementation.
+* Overloading: Compile-time
+* Overriding: Runtime polymorphism
 
 ---
 
 ## 41. Difference between IEnumerable and IQueryable
 
-* `IEnumerable`: Client-side, in-memory.
-* `IQueryable`: Deferred, query provider translates.
+* `IEnumerable`: In-memory, LINQ to Objects
+* `IQueryable`: Translates to DB queries, deferred
 
 ---
 
 ## 42. What are expression trees?
 
-Code as data. Used in LINQ Providers like Entity Framework.
-
-```csharp
-Expression<Func<int, bool>> expr = x => x > 5;
-```
+Represent code in tree structure. Used in LINQ providers.
 
 ---
 
 ## 43. How does exception handling work?
 
-Using try-catch-finally blocks.
+Use `try`, `catch`, `finally`.
 
 ---
 
@@ -423,7 +418,7 @@ Using try-catch-finally blocks.
 
 ## 45. Explain generics
 
-Enable type safety and reusability.
+Allow type-safe and reusable code.
 
 ```csharp
 List<int> list = new List<int>();
