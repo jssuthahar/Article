@@ -1,4 +1,9 @@
-// ✅ Q1. Write a program to print Fibonacci series up to N terms
+## C# Logical/System Programming Questions (1–15)
+
+---
+
+### ✅ Q1. Print Fibonacci series up to N terms
+```csharp
 public void PrintFibonacci(int n)
 {
     int a = 0, b = 1, c;
@@ -11,10 +16,13 @@ public void PrintFibonacci(int n)
         b = c;
     }
 }
-// Output (n = 7): 0 1 1 2 3 5 8
+```
+**Output:** `PrintFibonacci(7) => 0 1 1 2 3 5 8`
 
+---
 
-// ✅ Q2. Check whether a given number is a prime
+### ✅ Q2. Check whether a number is prime
+```csharp
 public bool IsPrime(int number)
 {
     if (number <= 1) return false;
@@ -22,10 +30,13 @@ public bool IsPrime(int number)
         if (number % i == 0) return false;
     return true;
 }
-// Output: IsPrime(7) => true
+```
+**Output:** `IsPrime(7) => true`
 
+---
 
-// ✅ Q3. Reverse a given number without using string functions
+### ✅ Q3. Reverse a number (without string)
+```csharp
 public int ReverseNumber(int number)
 {
     int reversed = 0;
@@ -37,34 +48,42 @@ public int ReverseNumber(int number)
     }
     return reversed;
 }
-// Output: ReverseNumber(1234) => 4321
+```
+**Output:** `ReverseNumber(1234) => 4321`
 
+---
 
-// ✅ Q4. Find the factorial of a number using recursion
+### ✅ Q4. Factorial using recursion
+```csharp
 public int Factorial(int n)
 {
     if (n == 0 || n == 1) return 1;
     return n * Factorial(n - 1);
 }
-// Output: Factorial(5) => 120
+```
+**Output:** `Factorial(5) => 120`
 
+---
 
-// ✅ Q5. Check whether a string is a palindrome
+### ✅ Q5. Check if a string is palindrome
+```csharp
 public bool IsPalindrome(string input)
 {
     int left = 0, right = input.Length - 1;
     while (left < right)
     {
-        if (input[left] != input[right])
-            return false;
+        if (input[left] != input[right]) return false;
         left++; right--;
     }
     return true;
 }
-// Output: IsPalindrome("level") => true
+```
+**Output:** `IsPalindrome("level") => true`
 
+---
 
-// ✅ Q6. Count the frequency of characters in a string
+### ✅ Q6. Character frequency in string
+```csharp
 public void CharFrequency(string input)
 {
     var dict = new Dictionary<char, int>();
@@ -76,10 +95,13 @@ public void CharFrequency(string input)
     foreach (var item in dict)
         Console.WriteLine($"{item.Key}: {item.Value}");
 }
-// Output for "apple": a:1, p:2, l:1, e:1
+```
+**Output:** `CharFrequency("apple") => a:1, p:2, l:1, e:1`
 
+---
 
-// ✅ Q7. Check if a number is Armstrong
+### ✅ Q7. Check Armstrong number
+```csharp
 public bool IsArmstrong(int number)
 {
     int temp = number, sum = 0, digits = number.ToString().Length;
@@ -91,18 +113,24 @@ public bool IsArmstrong(int number)
     }
     return sum == temp;
 }
-// Output: IsArmstrong(153) => true
+```
+**Output:** `IsArmstrong(153) => true`
 
+---
 
-// ✅ Q8. Replace spaces in a string with '%20'
+### ✅ Q8. Replace spaces in string with "%20"
+```csharp
 public string URLify(string str)
 {
     return str.Replace(" ", "%20");
 }
-// Output: URLify("hello world") => "hello%20world"
+```
+**Output:** `URLify("hello world") => "hello%20world"`
 
+---
 
-// ✅ Q9. Find the second largest number in an array
+### ✅ Q9. Find second largest in array
+```csharp
 public int SecondLargest(int[] arr)
 {
     int first = int.MinValue, second = int.MinValue;
@@ -120,10 +148,13 @@ public int SecondLargest(int[] arr)
     }
     return second;
 }
-// Output: SecondLargest(new int[]{1, 5, 2, 8, 7}) => 7
+```
+**Output:** `SecondLargest([1,5,2,8,7]) => 7`
 
+---
 
-// ✅ Q10. Find the longest word in a sentence
+### ✅ Q10. Longest word in a sentence
+```csharp
 public string LongestWord(string sentence)
 {
     var words = sentence.Split(' ');
@@ -133,10 +164,13 @@ public string LongestWord(string sentence)
             longest = word;
     return longest;
 }
-// Output: LongestWord("I love programming challenges") => "programming"
+```
+**Output:** `LongestWord("I love programming challenges") => "programming"`
 
+---
 
-// ✅ Q11. Count vowels and consonants in a string
+### ✅ Q11. Count vowels and consonants
+```csharp
 public void CountVowelsConsonants(string input)
 {
     int vowels = 0, consonants = 0;
@@ -151,10 +185,13 @@ public void CountVowelsConsonants(string input)
     }
     Console.WriteLine($"Vowels: {vowels}, Consonants: {consonants}");
 }
-// Output for "Hello World": Vowels: 3, Consonants: 7
+```
+**Output:** `CountVowelsConsonants("Hello World") => Vowels: 3, Consonants: 7`
 
+---
 
-// ✅ Q12. Print Pascal's Triangle
+### ✅ Q12. Print Pascal's Triangle
+```csharp
 public void PrintPascalsTriangle(int rows)
 {
     for (int i = 0; i < rows; i++)
@@ -168,10 +205,13 @@ public void PrintPascalsTriangle(int rows)
         Console.WriteLine();
     }
 }
-// Output: First 5 rows of Pascal's Triangle
+```
+**Output:** `PrintPascalsTriangle(5) => prints first 5 rows`
 
+---
 
-// ✅ Q13. Check if a number is a perfect number
+### ✅ Q13. Check perfect number
+```csharp
 public bool IsPerfect(int number)
 {
     int sum = 0;
@@ -179,10 +219,13 @@ public bool IsPerfect(int number)
         if (number % i == 0) sum += i;
     return sum == number;
 }
-// Output: IsPerfect(28) => true
+```
+**Output:** `IsPerfect(28) => true`
 
+---
 
-// ✅ Q14. Find all pairs in array that sum to a specific value
+### ✅ Q14. Find all pairs with given sum
+```csharp
 public void FindPairs(int[] arr, int target)
 {
     for (int i = 0; i < arr.Length; i++)
@@ -194,10 +237,13 @@ public void FindPairs(int[] arr, int target)
         }
     }
 }
-// Output: For arr = [1, 2, 3, 4], target = 5 => (1,4), (2,3)
+```
+**Output:** `FindPairs([1,2,3,4], 5) => (1,4), (2,3)`
 
+---
 
-// ✅ Q15. Rotate array to right by k steps
+### ✅ Q15. Rotate array to right by K steps
+```csharp
 public int[] RotateArray(int[] nums, int k)
 {
     int n = nums.Length;
@@ -209,7 +255,11 @@ public int[] RotateArray(int[] nums, int k)
     }
     return result;
 }
-// Output: RotateArray([1,2,3,4,5], 2) => [4,5,1,2,3]
+```
+**Output:** `RotateArray([1,2,3,4,5], 2) => [4,5,1,2,3]`
+
+---
+
 
 ## Connect with Me
 - **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
