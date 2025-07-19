@@ -29,6 +29,8 @@ class DerivedClass : BaseClass
 }
 ```
 
+
+
 ---
 
 # 🧑‍💼 Real-World Example: Register, Employee, Student
