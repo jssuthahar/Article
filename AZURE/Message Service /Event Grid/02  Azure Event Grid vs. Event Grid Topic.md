@@ -1,160 +1,157 @@
-# ⚡ Azure Event Grid vs. Event Grid Topic - Explained
+# ⚡ Azure Event Grid vs. Event Grid Topic (Portal-Based Setup)
 
-Azure Event Grid is a powerful serverless event routing service. But there’s often confusion between **Event Grid** and **Event Grid Topic**.
-
-This README will help you understand:
-
-✅ What is Event Grid?  
-✅ What is an Event Grid Topic?  
-✅ Key differences between the two  
-✅ Why and when you need custom topics  
-✅ Step-by-step guide to create and implement them
+This guide will help you understand the difference between **Azure Event Grid** and **Event Grid Topic**, and walk you through how to create and use Event Grid Topics **via the Azure Portal** (no CLI required).
 
 ---
 
-## 🔹 What is Azure Event Grid?
+## 📘 What is Azure Event Grid?
 
-Azure Event Grid is a **fully managed event routing platform** designed to simplify event-driven architectures. It connects **event sources** (publishers) with **event handlers** (subscribers).
-
-🔄 It uses a **publish-subscribe** model to deliver events with high availability and low latency.
+Azure Event Grid is a **fully managed eventing platform** for routing messages between publishers and subscribers in real-time. It's designed for **event-driven architectures** and integrates seamlessly with Azure services.
 
 ---
 
-## 🔸 What is an Event Grid Topic?
+## 🧩 What is an Event Grid Topic?
 
-An **Event Grid Topic** is a **logical endpoint** where event publishers send their events. There are two types:
+An **Event Grid Topic** is a **channel** where applications publish events.
 
-| Type              | Description |
-|-------------------|-------------|
-| **System Topics** | Pre-defined by Azure for specific resources (e.g., Blob Storage, Resource Groups) |
-| **Custom Topics** | User-defined for custom applications to push events |
-
-**👉 Custom Topic is required when you want to emit events from your own application or system.**
+> 🔹 If you're using Azure services like Blob Storage or Resource Groups, Azure automatically manages the topics (System Topics).  
+> 🔸 If you're sending custom events from your own application, you need to **create a Custom Topic** manually.
 
 ---
 
-## 🆚 Event Grid vs. Event Grid Topic
+## 🔍 Event Grid vs. Event Grid Topic
 
-| Feature                      | **Event Grid**                            | **Event Grid Topic**                         |
-|-----------------------------|-------------------------------------------|---------------------------------------------|
-| Definition                  | Service that routes events                | A destination (endpoint) where events are sent |
-| Ownership                   | Azure-managed                             | User-defined or Azure-managed               |
-| Use Case                    | Messaging backbone                        | Send custom app events                      |
-| Subscriptions               | Handles multiple subscriptions            | Can define one or more per topic            |
-| Event Source                | Azure services or custom apps             | Custom applications                         |
-| Needed for Custom Events?   | ✅ Yes                                     | ✅ Mandatory                                 |
-
----
-
-## 🎯 Why Do We Need Custom Event Grid Topics?
-
-You need **Custom Event Grid Topics** when:
-
-- You're developing an application that emits **custom domain-specific events**
-- You want to **decouple microservices** with domain-driven events
-- You require **fine-grained control** over event publishing and access policies
+| Feature             | **Event Grid**                        | **Event Grid Topic**                         |
+|---------------------|----------------------------------------|----------------------------------------------|
+| Purpose             | Event routing service                 | Destination endpoint to publish events       |
+| Managed by          | Azure                                 | You (for custom apps)                        |
+| Event Source        | Azure services or custom apps         | Custom apps (user-defined events)            |
+| Subscription Scope  | Wide (resource group, subscription)   | Specific to that topic                       |
+| Needed for Custom?  | ✅ Yes                                 | ✅ Yes                                        |
 
 ---
 
-## 🛠️ Steps to Create and Use an Event Grid Topic
+## 🎯 Why Use Custom Event Grid Topics?
 
-### ✅ Step 1: Create a Custom Topic
+Use **Custom Topics** when:
+- You’re building your **own application** that emits events.
+- You want **custom event schemas** or fine-grained routing.
+- You’re implementing **microservice communication** or **domain-driven events**.
 
-**Using Azure CLI:**
-```bash
-az eventgrid topic create \
-  --name my-custom-topic \
-  --resource-group my-resource-group \
-  --location eastus
+---
+
+## 🛠️ Step-by-Step: Create Event Grid Topic Using Azure Portal
+
+### ✅ Step 1: Create a Custom Event Grid Topic
+1. Go to [Azure Portal](https://portal.azure.com/)
+2. Search for **"Event Grid Topics"** in the top search bar
+3. Click **+ Create**
+4. Fill in:
+   - **Subscription**: Select your Azure subscription
+   - **Resource Group**: Create/select a resource group
+   - **Topic Name**: e.g., `order-events-topic`
+   - **Region**: Choose location (e.g., East US)
+5. Click **Review + Create**, then **Create**
+
+---
+
+### ✅ Step 2: Get Topic Endpoint & Access Key
+1. After deployment, go to your **Event Grid Topic**
+2. Under **Overview**, copy the **Endpoint URL**
+3. Go to **Access Keys**, copy either **Key1** or **Key2**
+
+You’ll use this to **publish events** from your application via HTTP POST.
+
+---
+
+### ✅ Step 3: Publish Events (from Application or Postman)
+
+Use a REST client like Postman to test it:
+
+**POST** to the topic endpoint  
+**Headers**:
+```
+
+aeg-sas-key: <your-access-key>
+Content-Type: application/json
+
 ````
 
-### ✅ Step 2: Get the Topic Endpoint and Key
-
-```bash
-az eventgrid topic show \
-  --name my-custom-topic \
-  --resource-group my-resource-group \
-  --query "endpoint"
-
-az eventgrid topic key list \
-  --name my-custom-topic \
-  --resource-group my-resource-group \
-  --query "key1"
-```
-
-### ✅ Step 3: Publish Events to the Topic
-
-Send a sample event using curl or code (Python, C#, Node.js, etc.)
-
-```bash
-curl -X POST https://<topic-name>.<region>-1.eventgrid.azure.net/api/events \
-  -H "aeg-sas-key: <your-key>" \
-  -H "Content-Type: application/json" \
-  -d '[
-    {
-      "id": "1234",
-      "eventType": "customEventType",
-      "subject": "/myapp/items/item1",
-      "eventTime": "2025-07-19T10:00:00Z",
-      "data": {
-        "itemId": "item1",
-        "status": "created"
-      },
-      "dataVersion": "1.0"
-    }
-  ]'
-```
-
-### ✅ Step 4: Create an Event Subscription (Webhook, Azure Function, etc.)
-
-```bash
-az eventgrid event-subscription create \
-  --name my-subscription \
-  --source-resource-id /subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.EventGrid/topics/my-custom-topic \
-  --endpoint https://myfunction.azurewebsites.net/runtime/webhooks/EventGrid?code=<key>
-```
+**Body**:
+```json
+[
+  {
+    "id": "event-id-001",
+    "eventType": "myApp.item.created",
+    "subject": "/app/items/item1",
+    "eventTime": "2025-07-19T10:00:00Z",
+    "data": {
+      "itemId": "item1",
+      "description": "Sample Item Created"
+    },
+    "dataVersion": "1.0"
+  }
+]
+````
 
 ---
 
-## 📌 Real-World Scenario
+### ✅ Step 4: Create Event Subscription
 
-### E-commerce Order System
+1. Go to your **Event Grid Topic**
+2. Click on **+ Event Subscription**
+3. Fill in:
 
-* **Publisher**: Order Management System emits `OrderCreated`, `OrderShipped`, etc.
-* **Topic**: `order-events-topic`
-* **Subscribers**:
+   * **Name**: `notify-function`
+   * **Event Schema**: Leave as default (Event Grid Schema)
+   * **Event Types**: You can filter (e.g., `myApp.item.created`)
+   * **Endpoint Type**: Select destination (e.g., Azure Function, Webhook, Logic App)
+4. Provide your endpoint URL or select from Azure
+5. Click **Create**
 
-  * Inventory system
-  * Billing system
-  * Notification service
+---
 
-This design:
+## 🧪 Test the Flow
 
-* Reduces coupling
-* Scales easily
-* Ensures reliability via retry/dead-lettering
+Once the topic and subscription are ready:
+
+* Send a custom event using Postman or your app
+* The subscriber (Azure Function, webhook, etc.) should receive the event instantly
+
+---
+
+## 💡 Real Use Case Example
+
+**Scenario**: Online Retail System
+
+* Event Grid Topic: `order-events-topic`
+* Publisher: Order Management System
+* Event Types: `OrderCreated`, `OrderShipped`, `OrderCancelled`
+* Subscribers:
+
+  * Inventory API (WebHook)
+  * Notification Service (Azure Function)
+  * Audit Logger (Logic App)
 
 ---
 
 ## 🧠 Summary
 
-| Concept              | Description                                       |
-| -------------------- | ------------------------------------------------- |
-| **Event Grid**       | The routing system                                |
-| **Event Grid Topic** | The channel to send custom events                 |
-| **Why Use It**       | Enables reactive, decoupled, scalable systems     |
-| **When Use It**      | For custom app events or microservice messaging   |
-| **How To Use**       | Create topic → publish event → subscribe endpoint |
+| Concept              | Description                           |
+| -------------------- | ------------------------------------- |
+| **Event Grid**       | Azure's event routing system          |
+| **Event Grid Topic** | Channel for publishing custom events  |
+| **Portal Setup**     | Easy UI-based creation and management |
+| **Publish**          | Use Postman, application HTTP client  |
+| **Subscribe**        | Azure Functions, Logic Apps, Webhooks |
 
 ---
 
-## 📚 Resources
+## 📚 References
 
-* [Event Grid Docs](https://learn.microsoft.com/en-us/azure/event-grid/)
-* [Create and publish to custom topics](https://learn.microsoft.com/en-us/azure/event-grid/custom-event-to-webhook)
-* [Event Schema Reference](https://learn.microsoft.com/en-us/azure/event-grid/event-schema)
-
----
+* [Azure Event Grid Documentation](https://learn.microsoft.com/en-us/azure/event-grid/)
+* [Publish Custom Events (Portal)](https://learn.microsoft.com/en-us/azure/event-grid/custom-event-to-webhook)
+* [Event Schema Format](https://learn.microsoft.com/en-us/azure/event-grid/event-schema)
 
  ## Connect with Me
 - **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
