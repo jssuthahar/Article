@@ -36,7 +36,7 @@ Once completed, 2FA will be enabled.
 
 ## Step 2: Generate an App Password
 
-1. Log in to your [Google Account Security settings](https://myaccount.google.com/security).
+1. Log in to your [Google Account Security settings](https://myaccount.google.com/apppasswords).
 2. Scroll down to **Signing in to Google**.
 3. Click **App Passwords** (this option appears only after enabling 2FA).
 4. Select the app and device for which you need the App Password.
