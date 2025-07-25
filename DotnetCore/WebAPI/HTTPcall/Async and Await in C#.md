@@ -1,4 +1,3 @@
-````markdown
 # ⚙️ Async and Await in C#
 
 `async` and `await` are powerful features in modern programming (like C# or JavaScript) that allow non-blocking execution. This makes applications faster, more responsive, and scalable—especially when dealing with I/O operations like API calls or file access.
@@ -38,7 +37,7 @@ public string GetWeather()
 
 // Usage
 Console.WriteLine(GetWeather()); // Freezes until request completes
-````
+```
 
 ---
 
@@ -84,19 +83,18 @@ private async void btnFetch_Click(object sender, EventArgs e)
 
 ## 📌 Key Benefits of async/await
 
-* ✅ Keeps apps responsive (especially UI apps)
-* ✅ Handles many I/O operations efficiently
-* ✅ Prevents thread blocking and improves scalability
-* ✅ Easy to read and write like synchronous code
+- ✅ Keeps apps responsive (especially UI apps)
+- ✅ Handles many I/O operations efficiently
+- ✅ Prevents thread blocking and improves scalability
+- ✅ Easy to read and write like synchronous code
 
 ---
 
 ## 📚 References
 
-* [Microsoft Docs: async and await](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/)
-* [Task-based Asynchronous Pattern (TAP)](https://learn.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap)
+- [Microsoft Docs: async and await](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/)
+- [Task-based Asynchronous Pattern (TAP)](https://learn.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap)
 
 ---
 
 > ✅ Use `async` and `await` to build responsive, scalable, and modern apps — without blocking the main thread.
-
