@@ -1,127 +1,128 @@
-# C# HTTP Client Examples
+# 🌐 HTTP API Calls in C# (.NET)
 
-This repository provides examples of making `GET`, `POST`, and `PATCH` requests in C# using `HttpClient`.
+This guide demonstrates how to call HTTP APIs in C# using `HttpClient`. It includes examples for:
+- ✅ GET (with and without parameters)
+- ✅ POST, PUT, PATCH (with body and headers)
+- ✅ Query strings and custom headers
 
-## Prerequisites
-- .NET SDK installed
-- Basic knowledge of C#
-- Internet connection (for API calls)
-- Newtonsoft.Json package (for JSON serialization)
+> `HttpClient` is the recommended way to interact with web APIs in modern .NET applications.
 
-To install Newtonsoft.Json, run:
-```sh
-dotnet add package Newtonsoft.Json
-```
+---
 
-## 1. GET Request with Parameters
-A `GET` request fetches data from a server. Parameters are passed as query strings in the URL.
+## 🛠️ Setup
 
 ```csharp
-using System;
 using System.Net.Http;
-using System.Threading.Tasks;
-
-class Program
-{
-    static async Task Main()
-    {
-        using HttpClient client = new HttpClient();
-        string baseUrl = "https://jsonplaceholder.typicode.com/posts";
-        int id = 1;
-
-        HttpResponseMessage response = await client.GetAsync($"{baseUrl}/{id}");
-        
-        if (response.IsSuccessStatusCode)
-        {
-            string responseData = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(responseData);
-        }
-    }
-}
-```
-
-## 2. POST Request with Parameters
-A `POST` request sends data to a server.
-
-```csharp
-using System;
-using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-class Program
-{
-    static async Task Main()
-    {
-        using HttpClient client = new HttpClient();
-        string baseUrl = "https://jsonplaceholder.typicode.com/posts";
-        
-        var data = new
-        {
-            title = "foo",
-            body = "bar",
-            userId = 1
-        };
-
-        string json = JsonConvert.SerializeObject(data);
-        StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-
-        HttpResponseMessage response = await client.PostAsync(baseUrl, content);
-
-        if (response.IsSuccessStatusCode)
-        {
-            string responseData = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(responseData);
-        }
-    }
-}
+using System.Text.Json;
 ```
 
-## 3. PATCH Request with Parameters
-A `PATCH` request updates partial data.
+Create and reuse a single `HttpClient` instance:
 
 ```csharp
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-class Program
-{
-    static async Task Main()
-    {
-        using HttpClient client = new HttpClient();
-        string baseUrl = "https://jsonplaceholder.typicode.com/posts/1";
-
-        var updateData = new
-        {
-            title = "Updated Title"
-        };
-
-        string json = JsonConvert.SerializeObject(updateData);
-        StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-
-        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Patch, baseUrl)
-        {
-            Content = content
-        };
-
-        HttpResponseMessage response = await client.SendAsync(request);
-
-        if (response.IsSuccessStatusCode)
-        {
-            string responseData = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(responseData);
-        }
-    }
-}
+HttpClient client = new HttpClient();
 ```
 
-## Key Takeaways
-- **GET** → Parameters in the URL (`?id=1` or `/1`).
-- **POST** → Send parameters in the request body as JSON.
-- **PATCH** → Send partial data in the request body.
+---
 
+## ✅ GET Request – No Parameters
 
+```csharp
+var response = await client.GetAsync("https://api.example.com/data");
+var result = await response.Content.ReadAsStringAsync();
+Console.WriteLine(result);
+```
+
+---
+
+## ✅ GET Request – With Query String
+
+```csharp
+var url = "https://api.example.com/users?name=John&age=30";
+var response = await client.GetAsync(url);
+var result = await response.Content.ReadAsStringAsync();
+Console.WriteLine(result);
+```
+
+---
+
+## ✅ POST Request – With JSON Body
+
+```csharp
+var user = new { Name = "John", Age = 30 };
+var json = JsonSerializer.Serialize(user);
+var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+var response = await client.PostAsync("https://api.example.com/users", content);
+var result = await response.Content.ReadAsStringAsync();
+Console.WriteLine(result);
+```
+
+---
+
+## ✅ PUT Request – Update Resource
+
+```csharp
+var userUpdate = new { Age = 31 };
+var json = JsonSerializer.Serialize(userUpdate);
+var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+var response = await client.PutAsync("https://api.example.com/users/1", content);
+var result = await response.Content.ReadAsStringAsync();
+Console.WriteLine(result);
+```
+
+---
+
+## ✅ PATCH Request – Partial Update
+
+```csharp
+var patchData = new { Age = 32 };
+var json = JsonSerializer.Serialize(patchData);
+var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+var method = new HttpMethod("PATCH");
+var request = new HttpRequestMessage(method, "https://api.example.com/users/1") {
+    Content = content
+};
+
+var response = await client.SendAsync(request);
+var result = await response.Content.ReadAsStringAsync();
+Console.WriteLine(result);
+```
+
+---
+
+## 🔐 Adding Headers (e.g., Auth Token)
+
+```csharp
+client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "your_token_here");
+client.DefaultRequestHeaders.Add("X-Custom-Header", "value");
+```
+
+---
+
+## 📚 Tips
+
+- Always reuse `HttpClient` to avoid socket exhaustion.
+- Use `HttpClientFactory` in ASP.NET Core for dependency injection.
+- Handle exceptions with `try-catch` blocks and check `response.IsSuccessStatusCode`.
+
+---
+
+## 📎 References
+
+- [Microsoft Docs – HttpClient](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclient)
+- [Using HTTPClientFactory in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/http-requests)
+
+---
+
+> ✅ This guide helps you interact with RESTful APIs using C# in a clean and reliable way.
+
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
+- **YouTube Tamil**: [MSDEVBUILD TAMIL](https://www.youtube.com/@MSDEVBUILDTamil)
+- **Blog**: [Blog](https://www.msdevbuild.com/)
+- **Follow Whatsapp**: [Whatsapp](https://www.whatsapp.com/channel/0029Va5j2rHEFeXcTlUhQB0J)
