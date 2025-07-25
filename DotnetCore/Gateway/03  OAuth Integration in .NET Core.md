@@ -4,6 +4,77 @@
 
 OAuth (Open Authorization) is an open standard for token-based authentication and authorization. It enables applications to securely access user data from other services without exposing login credentials. OAuth is commonly used for third-party authentication with services like Google, Facebook, and LinkedIn.
 
+## 🚀 Flow Summary
+
+The **Authorization Code Flow** is designed for apps that access resources on behalf of a user. It ensures secure token exchange without exposing sensitive credentials.
+
+---
+
+## 🔄 Sequence Diagram (PlantUML)
+
+<details>
+<summary>Click to expand PlantUML diagram source</summary>
+
+```plantuml
+@startuml
+actor User
+participant "Client App" as App
+participant "Authorization Server" as Auth
+participant "Resource Server" as API
+
+User -> App : Access app (Login with OAuth)
+App -> Auth : Redirect to Auth URL (client_id, redirect_uri, etc.)
+User -> Auth : Enter credentials & consent
+Auth -> User : Redirect back with Authorization Code
+User -> App : Authorization Code via redirect URI
+App -> Auth : Exchange Code for Access Token\n(+ optional Refresh Token)
+Auth -> App : Access Token (and Refresh Token)
+App -> API : Request Resource (with Access Token)
+API -> App : Return Protected Resource
+App -> User : Show protected data
+@enduml
+````
+
+</details>
+
+---
+
+## 🧩 Text Version (Fallback)
+
+```plaintext
+User         -> Client App       : Open App (Login with Google)
+Client App   -> Auth Server      : Redirect to Authorization URL
+User         -> Auth Server      : Enter Credentials + Consent
+Auth Server  -> User             : Redirect back with Auth Code
+User         -> Client App       : Provide Auth Code via Redirect URI
+Client App   -> Auth Server      : Exchange Auth Code for Access Token
+Auth Server  -> Client App       : Return Access Token (+ Refresh Token)
+Client App   -> Resource Server  : Request Protected Resource (with Token)
+Resource Server -> Client App    : Return Data
+Client App   -> User             : Display Data
+```
+
+---
+
+## 📌 Components
+
+* **User**: The person authorizing the application.
+* **Client App**: Application requesting access (e.g., your website/app).
+* **Authorization Server**: Service provider (e.g., Google Auth).
+* **Resource Server**: The protected resource (API) the app wants to access.
+
+---
+
+## ✅ Benefits of Authorization Code Flow
+
+* Secure token exchange.
+* Supports refresh tokens for long-lived sessions.
+* Keeps client secrets and access tokens safe.
+
+
+
+
+
 ## OAuth Providers
 
 Some of the most commonly used OAuth providers include:
