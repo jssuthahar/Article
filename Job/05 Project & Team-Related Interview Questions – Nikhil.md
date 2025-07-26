@@ -101,7 +101,72 @@ A helpful guide for answering common interview questions related to your interns
 
 > I implemented authentication and authorization using ASP.NET Identity, used HTTPS, encrypted connection strings, and handled sensitive logic on the server side only.
 
+Thanks for confirming! Since your current README already covers most questions, here are **additional unique project and team-related questions** that are not in the file yet. You can use these to further strengthen your interview preparation:
+
 ---
+
+### ✅ **Additional Questions with Suggested Answers**
+
+---
+
+### 27. **How did you gather requirements for the project?**
+
+> During my internship, I was given user stories and functional requirements by the project lead. I clarified unclear points through meetings and documented the acceptance criteria in Trello for each module.
+
+---
+
+### 28. **Did you write any documentation for your project?**
+
+> Yes, I documented the API endpoints using Swagger for the backend and created a user manual for internal testers. I also maintained README files for setup instructions.
+
+---
+
+### 29. **How did you handle code reviews?**
+
+> I raised pull requests for all major features. My mentor or senior reviewed my code, gave feedback on naming conventions, performance, or readability, and I made changes before merging to main.
+
+---
+
+### 30. **How did you collaborate with other developers during your internship?**
+
+> We used GitHub for code collaboration, and Microsoft Teams for calls. For each feature, we discussed the task, estimated time, and synced regularly. We resolved merge conflicts and reviewed each other’s work.
+
+---
+
+### 31. **How do you ensure your code is clean and maintainable?**
+
+> I follow SOLID principles and meaningful naming conventions. I use helper methods to reduce redundancy and keep my methods short. I also add comments where business logic is complex.
+
+---
+
+### 32. **What would you do differently if you redid the project?**
+
+> I would focus more on unit testing and error logging from the beginning. I’d also modularize the frontend more cleanly and try using dependency injection in more parts of the WPF application.
+
+---
+
+### 33. **Did you integrate any logging or monitoring in your project?**
+
+> Yes, I used built-in ASP.NET Core logging for error tracking and wrote logs to file. In WPF, I created a simple log writer class to capture application errors.
+
+---
+
+### 34. **Did your project go live or stay in development?**
+
+> One of our projects (the billing app) was deployed for internal use in a staging environment. We collected feedback and iterated based on user input.
+
+---
+
+### 35. **Did you use environment configurations like dev/test/prod?**
+
+> Yes, I maintained different appsettings.json files for development and staging. Environment-specific database strings and email credentials were managed using Azure configuration.
+
+---
+
+### 36. **How did you handle errors in your application?**
+
+> I used try-catch blocks and logged exceptions using middleware in ASP.NET Core. For user-facing errors, I displayed friendly messages. In WPF, I used global exception handling to capture UI-level errors.
+
 
 ## 🧠 Bonus Tips for Interview
 
