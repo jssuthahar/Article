@@ -116,4 +116,12 @@ Best regards,
 
 ---
 
-> 🧠 Pro Tip: Replace placeholders like `[Company Name]`, `[Hiring Manager's Name]`, and `[Job Title]` before sending.
+> 🧠 Pro Tip: Replace placeholders like `[Company Name]`, `[Hiring Manager's Name]`, and `[Job Title]` before sending and Nikhil to your name
+>
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
+- **YouTube Tamil**: [MSDEVBUILD TAMIL](https://www.youtube.com/@MSDEVBUILDTamil)
+- **Blog**: [Blog](https://www.msdevbuild.com/)
+- **Follow Whatsapp**: [Whatsapp](https://www.whatsapp.com/channel/0029Va5j2rHEFeXcTlUhQB0J)
+
