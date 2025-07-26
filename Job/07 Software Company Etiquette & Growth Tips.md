@@ -77,9 +77,9 @@ This README provides a professional guide on workplace behavior, what to avoid, 
 * Be ready to mentor juniors – it shows leadership
 * Be honest and say "I’ll check and get back" if you don’t know something
 
----
-
-Follow this guide to build a reputation as a reliable and professional team member while ensuring long-term career growth.
-
-**Best Regards,**
-**Nikhil**
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
+- **YouTube Tamil**: [MSDEVBUILD TAMIL](https://www.youtube.com/@MSDEVBUILDTamil)
+- **Blog**: [Blog](https://www.msdevbuild.com/)
+- **Follow Whatsapp**: [Whatsapp](https://www.whatsapp.com/channel/0029Va5j2rHEFeXcTlUhQB0J)
