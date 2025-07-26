@@ -21,6 +21,4 @@ Welcome! This is your personal index to all job-related preparation materials, i
 ## 🛠 Usage
 
 * Click on any link above to open the specific README page.
-* Keep this index updated whenever you add a new topic.
-* You can host this in a GitHub repo named `job-preparation-nikhil`.
 
