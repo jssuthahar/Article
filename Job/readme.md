@@ -8,8 +8,8 @@ Welcome! This is your personal index to all job-related preparation materials, i
 
 | #   | Topic                                        | Link                                                          |
 | --- | -------------------------------------------- | ------------------------------------------------------------- |
-| 1️⃣ | Prepare Your Job Profile Materials           | [📄 View File](./01 Job Portal.md)                             |
-| 2️⃣ | Project-Based Interview Questions            | [📄 View File](./Project_Interview_Questions_Nikhil.md)       |
+| 1️⃣ | Prepare Your Job Profile Materials           | [📄 View File](./01 Job Portal.md)                            |
+| 2️⃣ | Project-Based Interview Questions            | [📄 View File](./01 Job Portal.md)                            |
 | 3️⃣ | Internship, Git, Agile, Architecture Q\&A    | [📄 View File](./Internship_Agile_Git_Architecture_QA.md)     |
 | 4️⃣ | HR Interview Questions                       | [📄 View File](./HR_Interview_Questions_Nikhil.md)            |
 | 5️⃣ | Onsite Job Search & PR Guide                 | [📄 View File](./Onsite_Job_Search_Guide_Nikhil.md)           |
