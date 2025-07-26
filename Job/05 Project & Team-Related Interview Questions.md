@@ -1,4 +1,4 @@
-# 💬 Project & Team-Related Interview Questions – Nikhil
+# 💬 Project & Team-Related Interview Questions 
 
 A helpful guide for answering common interview questions related to your internship projects and teamwork experience as a .NET Full Stack Developer.
 
@@ -176,6 +176,10 @@ Thanks for confirming! Since your current README already covers most questions, 
 | If they ask "Did you work in a team?" | "Yes, I worked closely with a senior developer and reported progress regularly. We used Git for version control." |
 | If they ask "Do you know deployment?" | "Yes, I tested deployment using Azure App Service and configured connection strings securely."                    |
 
----
+## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
+- **YouTube Tamil**: [MSDEVBUILD TAMIL](https://www.youtube.com/@MSDEVBUILDTamil)
+- **Blog**: [Blog](https://www.msdevbuild.com/)
+- **Follow Whatsapp**: [Whatsapp](https://www.whatsapp.com/channel/0029Va5j2rHEFeXcTlUhQB0J)
 
-Use this guide to prepare for real-time project discussion during interviews. Be confident, clear, and always back your answers with examples.
