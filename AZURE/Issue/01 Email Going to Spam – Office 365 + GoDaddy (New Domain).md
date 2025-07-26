@@ -38,21 +38,25 @@ Value: v=spf1 include:spf.protection.outlook.com -all
 TTL: 1 hour
 ```
 
-### 2. ✅ Enable DKIM in Microsoft 365
+### 2. ✅ Enable DKIM in Microsoft 365 for Your Domain
 
-* Go to [Microsoft 365 Defender Portal](https://security.microsoft.com/dkimv2)
-* Select your custom domain
-* Enable DKIM (add the two CNAMEs in GoDaddy DNS as instructed)
+#### 🧭 Steps:
 
-Example CNAME entries:
+1. Go to [https://security.microsoft.com/dkimv2](https://security.microsoft.com/dkimv2)
+2. Select your domain
+3. If prompted, create DKIM keys — you’ll be given two CNAME records
+4. Add these two records in GoDaddy DNS:
 
-```
-selector1._domainkey.yourdomain.com  
-→ selector1-yourdomain-com._domainkey.yourtenant.onmicrosoft.com
+| Host                   | Type    | Points To                                                        |
+| ---------------------- | ------- | ---------------------------------------------------------------- |
+| `selector1._domainkey` | `CNAME` | `selector1-yourdomain-com._domainkey.yourtenant.onmicrosoft.com` |
+| `selector2._domainkey` | `CNAME` | `selector2-yourdomain-com._domainkey.yourtenant.onmicrosoft.com` |
 
-selector2._domainkey.yourdomain.com  
-→ selector2-yourdomain-com._domainkey.yourtenant.onmicrosoft.com
-```
+> ❗ In GoDaddy, do NOT enter the full domain in the "Host" field. Just use `selector1._domainkey` — GoDaddy appends `.yourdomain.com`.
+
+5. After DNS changes, go back to the portal and click **Enable**.
+
+✅ Now your emails will show `d=yourdomain.com` in DKIM headers.
 
 ### 3. ✅ Add DMARC Record
 
@@ -65,7 +69,7 @@ Value: v=DMARC1; p=none; rua=mailto:you@yourdomain.com
 TTL: 1 hour
 ```
 
-> Later change `p=none` to `p=quarantine` or `p=reject` for better enforcement.
+> If an old record exists like `rua=mailto:dmarc_rua@onsecureserver.net`, replace it. That may be GoDaddy default but not useful for you.
 
 ---
 
@@ -135,6 +139,43 @@ John Doe
 Your Company  
 123 Business Rd, Malaysia  
 ```
+
+---
+
+## 🔍 Why “onmicrosoft.com” Still Appears in Headers and How to Fix It
+
+### 🤔 Problem:
+
+Even if you send from your domain (e.g., `yourdomain.com`), some recipients (like Gmail) see:
+
+> “This message was marked as spam because previous messages from yourtenant.onmicrosoft.com were marked as spam.”
+
+### 🧨 Cause:
+
+Microsoft may use `onmicrosoft.com` as:
+
+* Return-Path or envelope sender
+* DKIM signer if not customized
+
+### 🛠️ Fix:
+
+1. Set custom domain as default in M365
+2. Enable DKIM for custom domain (see earlier section)
+3. Check SPF is set to `include:spf.protection.outlook.com`
+4. Avoid using Power Automate / SMTP that defaults to `onmicrosoft.com`
+5. Register domain in [Microsoft SNDS](https://sendersupport.olc.protection.outlook.com/snds/) and [Google Postmaster](https://postmaster.google.com)
+6. Ask recipients to click “Not Spam”
+
+---
+
+## 🔗 Domain Verification Links
+
+| Purpose               | Link                                                                                                       |
+| --------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Add TXT in GoDaddy    | [https://www.godaddy.com/help/add-a-txt-record-19232](https://www.godaddy.com/help/add-a-txt-record-19232) |
+| Postmark DKIM & DMARC | [https://postmarkapp.com/dmarc](https://postmarkapp.com/dmarc)                                             |
+| Dmarcian Setup        | [https://dmarcian.com/how-to-create-a-dmarc-record/](https://dmarcian.com/how-to-create-a-dmarc-record/)   |
+| EasyDMARC             | [https://easydmarc.com](https://easydmarc.com)                                                             |
 
 ---
 
