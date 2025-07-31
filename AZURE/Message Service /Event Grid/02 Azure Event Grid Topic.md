@@ -1,5 +1,5 @@
 
-# 📘 Azure Event Grid Topic & Subscription Demo via Azure Portal
+# 📘 Azure Event Grid Topic & Subscription Demo via Azure Portal (Custom Event)
 
 ## 🧩 Overview
 
