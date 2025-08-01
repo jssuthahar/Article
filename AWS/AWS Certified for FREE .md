@@ -128,3 +128,5 @@ If you find this repository useful, don't forget to **Star** ⭐ the repo and **
 - **YouTube Tamil**: [MSDEVBUILD TAMIL](https://www.youtube.com/@MSDEVBUILDTamil)
 - **Blog**: [Blog](https://www.msdevbuild.com/)
 - **Follow Whatsapp**: [Whatsapp](https://www.whatsapp.com/channel/0029Va5j2rHEFeXcTlUhQB0J)
+- [![Follow on GitHub](https://img.shields.io/github/followers/jssuthahar?label=Follow&style=social)](https://github.com/jssuthahar)
+
