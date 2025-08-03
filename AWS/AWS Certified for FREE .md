@@ -116,8 +116,17 @@ Yes, but each path must be completed separately with a 70%+ score. Check the rew
 * 🔗 [Pearson VUE AWS Exams](https://home.pearsonvue.com/aws)
 * 🔗 [AWS Certification Official Page](https://aws.amazon.com/certification/)
 
----
+### 🔔 Stay Updated with My Latest Projects
 
+If you enjoy:
+- 🧠 AI agents and automation
+- 🛠️ Practical tools and utilities
+- 📘 Developer tutorials and guides
+- 🚀 End-to-end project templates
+
+👉 Then **[Follow me on GitHub](https://github.com/jssuthahar)** to get notified about new repos, ideas, and updates!
+
+[![Follow Me](https://img.shields.io/github/followers/jssuthahar?label=Follow&style=social)](https://github.com/jssuthahar)
 
 ## ⭐ Start & Follow Me
 If you find this repository useful, don't forget to **Star** ⭐ the repo and **Follow** me for more updates!
