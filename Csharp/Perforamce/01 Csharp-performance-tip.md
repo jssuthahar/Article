@@ -4,8 +4,6 @@
 
 ![Enum Performance Tip](https://github.com/jssuthahar/Article/blob/main/Csharp/Perforamce/Enum.png?raw=true)
 
-Use `nameof()` instead of `.ToString()` for converting enum values to string — it's faster and compile-time safe.
-
 
 When working with **enums**, you might be tempted to use `.ToString()` to get the name as a string. However, there's a more **performant** and **compile-time safe** alternative: `nameof()`.
 
