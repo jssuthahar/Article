@@ -139,3 +139,5 @@ If you find this repository useful, don't forget to **Star** ⭐ the repo and **
 - **Follow Whatsapp**: [Whatsapp](https://www.whatsapp.com/channel/0029Va5j2rHEFeXcTlUhQB0J)
 - [![Follow on GitHub](https://img.shields.io/github/followers/jssuthahar?label=Follow&style=social)](https://github.com/jssuthahar)
 
+## 🏷️ Tags
+`bee-swarm-optimization` • `swarm-intelligence` • `metaheuristics` • `ai-research` • `machine-learning` • `optimization-algorithms` • `bso` • `article-template`
