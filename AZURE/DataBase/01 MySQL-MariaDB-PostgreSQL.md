@@ -143,21 +143,27 @@ psql "host=<server>.postgres.database.azure.com port=5432 dbname=postgres user=<
 * [Azure Database for PostgreSQL - Docs](https://learn.microsoft.com/en-us/azure/postgresql/)
 * [MariaDB on Azure](https://learn.microsoft.com/en-us/azure/mariadb/)
 
----
+### 🔔 Stay Updated with My Latest Projects
 
-## 🙌 Contributing
+If you enjoy:
+- 🧠 AI agents and automation
+- 🛠️ Practical tools and utilities
+- 📘 Developer tutorials and guides
+- 🚀 End-to-end project templates
 
-Feel free to fork this repo and add more use cases, tutorials, or performance benchmarks for different DB engines in Azure.
+👉 Then **[Follow me on GitHub](https://github.com/jssuthahar)** to get notified about new repos, ideas, and updates!
 
----
+[![Follow Me](https://img.shields.io/github/followers/jssuthahar?label=Follow&style=social)](https://github.com/jssuthahar)
 
-## 📄 License
+## ⭐ Start & Follow Me
+If you find this repository useful, don't forget to **Star** ⭐ the repo and **Follow** me for more updates!
 
-This project is licensed under the MIT License.
+ ## Connect with Me
+- **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
+- **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
+- **YouTube Tamil**: [MSDEVBUILD TAMIL](https://www.youtube.com/@MSDEVBUILDTamil)
+- **Blog**: [Blog](https://www.msdevbuild.com/)
+- **Follow Whatsapp**: [Whatsapp](https://www.whatsapp.com/channel/0029Va5j2rHEFeXcTlUhQB0J)
+- [![Follow on GitHub](https://img.shields.io/github/followers/jssuthahar?label=Follow&style=social)](https://github.com/jssuthahar)
 
-```
 
----
-
-Would you like this as a downloadable `README.md` file or added to a GitHub repository structure with folders for tutorials and samples (e.g., SQL scripts, connection examples, performance test results)?
-```
