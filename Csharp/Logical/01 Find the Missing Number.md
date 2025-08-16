@@ -2,6 +2,7 @@
 
 * **Question:** You have numbers from `1 to N`. One number is missing. Find it.
 * **Real-Time Example:** Detecting a missing invoice ID in a billing system.
+  
 👉 This problem is often asked in **Amazon, Microsoft, and Flipkart interviews** to test your ability to apply mathematical logic and optimize performance.
 #### Example Input:
 
