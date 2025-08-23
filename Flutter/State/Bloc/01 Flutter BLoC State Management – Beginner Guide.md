@@ -249,6 +249,166 @@ class MyApp extends StatelessWidget {
 
 ---
 
+Instead of putting everything inside one folder like `counter/`, we split into **layers**:
+
+* **Presentation layer** → Widgets, UI, Screens (what user sees).
+* **Business logic layer** → Bloc (handles events, states, logic).
+* **Data layer** → Repository (fetches/saves data, maybe from API/DB).
+
+This makes apps clean, testable, and scalable.
+
+---
+
+## 📂 Example Folder Structure
+
+Here’s a **3-layer structure** for a typical feature (e.g., `counter`):
+
+```
+lib/
+│
+├── main.dart
+│
+└── features/
+    └── counter/
+        ├── presentation/                # UI Layer
+        │   └── counter_page.dart
+        │
+        ├── business_logic/              # Bloc Layer
+        │   ├── counter_bloc.dart
+        │   ├── counter_event.dart
+        │   └── counter_state.dart
+        │
+        └── data/                        # Repository/Data Layer
+            ├── counter_repository.dart
+            └── counter_api_provider.dart   (optional, if API/DB)
+```
+
+---
+
+## 🔎 Explanation
+
+### 1. **Presentation Layer (UI)**
+
+* Only displays data.
+* Doesn’t know where data comes from.
+* Talks to the **Bloc**.
+
+👉 Example: `counter_page.dart`
+
+```dart
+class CounterPage extends StatelessWidget {
+  const CounterPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final bloc = context.read<CounterBloc>();
+
+    return Scaffold(
+      appBar: AppBar(title: const Text('BLoC Counter')),
+      body: Center(
+        child: BlocBuilder<CounterBloc, CounterState>(
+          builder: (context, state) => Text(
+            'Count: ${state.value}',
+            style: const TextStyle(fontSize: 32),
+          ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => bloc.add(Increment()),
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+```
+
+---
+
+### 2. **Business Logic Layer (Bloc)**
+
+* Receives **events** (e.g., `Increment`).
+* Talks to the **repository** if data is needed.
+* Emits **states**.
+
+👉 Example: `counter_bloc.dart`
+
+```dart
+class CounterBloc extends Bloc<CounterEvent, CounterState> {
+  final CounterRepository repository;
+
+  CounterBloc(this.repository) : super(const CounterState(0)) {
+    on<Increment>((event, emit) {
+      final newValue = repository.increment(state.value);
+      emit(CounterState(newValue));
+    });
+  }
+}
+```
+
+---
+
+### 3. **Data Layer (Repository)**
+
+* Responsible for **fetching/saving data**.
+* Could be API, database, or local storage.
+* Bloc only knows it’s asking a repository, not *how* data is fetched.
+
+👉 Example: `counter_repository.dart`
+
+```dart
+class CounterRepository {
+  int increment(int currentValue) {
+    // In a real app, this could be an API or DB call
+    return currentValue + 1;
+  }
+
+  int decrement(int currentValue) {
+    return currentValue - 1;
+  }
+
+  int reset() {
+    return 0;
+  }
+}
+```
+
+---
+
+## 🧩 Benefits of Splitting into Layers
+
+✅ **Clean separation** → UI, logic, and data don’t mix.
+✅ **Scalable** → Easy to add new features without breaking old ones.
+✅ **Testable** → You can test repository, bloc, and UI separately.
+✅ **Reusable** → The same repository can be used in multiple blocs.
+
+---
+
+## 📘 Bigger App Folder Example
+
+In a real-world app with multiple features:
+
+```
+lib/
+├── core/                     # Shared code (themes, widgets, utils, constants)
+├── features/
+│   ├── auth/                 # Login / Signup
+│   │   ├── presentation/
+│   │   ├── business_logic/
+│   │   └── data/
+│   │
+│   ├── counter/              # Counter feature
+│   │   ├── presentation/
+│   │   ├── business_logic/
+│   │   └── data/
+│   │
+│   └── profile/              # User Profile
+│       ├── presentation/
+│       ├── business_logic/
+│       └── data/
+│
+└── main.dart
+```
+
 ## 📚 Resources
 
 * [flutter\_bloc package](https://pub.dev/packages/flutter_bloc)
