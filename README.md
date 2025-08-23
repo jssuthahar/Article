@@ -35,3 +35,8 @@ This repository is open-source and available for learning purposes. Please provi
 
 ---
 Stay updated with the latest blog posts at [MSDEVBUILD](https://www.msdevbuild.com/)!
+
+
+<!-- FOOTER:START -->
+<!-- FOOTER:END -->
+
