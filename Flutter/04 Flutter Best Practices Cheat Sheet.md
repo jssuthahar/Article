@@ -5,12 +5,10 @@ This guide contains **best practices** for writing clean, maintainable, and scal
 ---
 
 ## 📂 1. Project Structure
-... (your existing content here) ...
 
 ---
 
 ## 🔗 12. Version Control & CI/CD
-... (your existing content here) ...
 
 ---
 
