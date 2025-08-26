@@ -4,64 +4,94 @@ This document explains three related AZ-204 exam questions about designing a **h
 Each question presents a proposed solution, and we evaluate whether it meets the stated requirements:
 
 - **Requirements:**  
-  - Ensure **high availability**.  
-  - Provide a **consistent streaming experience**.  
-  - Store data in a **geographic location nearest to the user**.
+  - Ensure **high availability**  
+  - Provide a **consistent streaming experience**  
+  - Store data in a **geographic location nearest to the user**
 
 ---
 
 ## Question #17
 
-**Proposed Solution:** Use **Azure Redis Cache**.  
-**Answer:** ❌ **No (Correct: B)**  
+**Question:**  
+You are configuring a web app that delivers streaming video to users. The application makes use of continuous integration and deployment.  
 
-### Why this is incorrect:
+You need to ensure that the application is highly available and that the users' streaming experience is constant. You also want to configure the application to store data in a geographic location that is nearest to the user.  
+
+**Solution:** You include the use of **Azure Redis Cache** in your design.  
+
+**Does the solution meet the goal?**  
+A. Yes  
+B. No  
+
+**Correct Answer:** ❌ **B (No)**  
+
+### Explanation:
 - Azure Redis Cache is an **in-memory caching service**.  
-- It helps reduce latency for frequently accessed data (e.g., session state, metadata), but it does **not ensure video streaming availability** or distribute data geographically near the user.  
-- It is **not designed for large content delivery or global replication**.
+- It helps reduce latency for **metadata, sessions, or frequently accessed small data**, but not **large streaming video files**.  
+- It does not ensure **global availability** or **store content nearest to the user**.  
 
-### Why others are incorrect:
-- **Yes (A)** would be wrong because Redis Cache alone does not satisfy requirements for global video streaming.
+➡️ Therefore, Redis Cache **does not satisfy** the requirements.
 
 ---
 
 ## Question #18
 
-**Proposed Solution:** Use **Azure Content Delivery Network (CDN)**.  
-**Answer:** ✅ **Yes (Correct: A)**  
+**Question:**  
+You are configuring a web app that delivers streaming video to users. The application makes use of continuous integration and deployment.  
 
-### Why this is correct:
-- Azure CDN **caches content at edge locations worldwide**, ensuring that video streams are delivered from the **nearest server** to the user.  
-- It improves **performance, availability, and reliability**, making it an ideal solution for video streaming.  
-- CDN directly addresses the requirement to store data geographically close to users and ensures **low latency, smooth playback**.
+You need to ensure that the application is highly available and that the users' streaming experience is constant. You also want to configure the application to store data in a geographic location that is nearest to the user.  
 
-### Why others are incorrect:
-- **No (B)** would be wrong because CDN *does* satisfy all requirements.  
+**Solution:** You include the use of an **Azure Content Delivery Network (CDN)** in your design.  
 
-**Reference:** [Azure CDN Docs](https://docs.microsoft.com/en-in/azure/cdn/)
+**Does the solution meet the goal?**  
+A. Yes  
+B. No  
+
+**Correct Answer:** ✅ **A (Yes)**  
+
+### Explanation:
+- Azure CDN **caches video content at edge locations worldwide**, ensuring the **nearest server** delivers the stream.  
+- Improves **latency, reliability, and availability**.  
+- Designed specifically for **global content delivery** like video streaming.  
+
+➡️ Therefore, CDN **satisfies all requirements**.  
+
+**Reference:** [Azure CDN Documentation](https://docs.microsoft.com/en-in/azure/cdn/)
 
 ---
 
 ## Question #19
 
-**Proposed Solution:** Use a **Storage Area Network (SAN)**.  
-**Answer:** ❌ **No (Correct: B)**  
+**Question:**  
+You are configuring a web app that delivers streaming video to users. The application makes use of continuous integration and deployment.  
 
-### Why this is incorrect:
-- SAN is a **local high-performance storage solution** used in data centers, not in Azure for global distribution.  
-- It provides **fast disk access** but does not improve global content delivery or streaming experience.  
-- It does not replicate or cache content **closer to the user**.  
+You need to ensure that the application is highly available and that the users' streaming experience is constant. You also want to configure the application to store data in a geographic location that is nearest to the user.  
 
-### Why others are incorrect:
-- **Yes (A)** would be wrong because SAN is not designed for streaming video delivery across geographies.  
+**Solution:** You include the use of a **Storage Area Network (SAN)** in your design.  
+
+**Does the solution meet the goal?**  
+A. Yes  
+B. No  
+
+**Correct Answer:** ❌ **B (No)**  
+
+### Explanation:
+- A Storage Area Network (SAN) is typically **on-premises block-level storage** for enterprise systems.  
+- It provides **fast disk access** but does not handle **global distribution** or **content delivery**.  
+- It is not suitable for **streaming video delivery** across multiple regions.  
+
+➡️ Therefore, SAN **does not satisfy** the requirements.
 
 ---
 
 ## ✅ Summary
 
-- **Q17 → Azure Redis Cache → No (B)**  
-- **Q18 → Azure CDN → Yes (A)**  
-- **Q19 → Storage Area Network (SAN) → No (B)**  
+| Question | Proposed Solution         | Correct Answer | Why Correct / Incorrect |
+|----------|---------------------------|----------------|--------------------------|
+| Q17      | Azure Redis Cache         | **No (B)**     | Good for caching metadata/sessions, but not global video delivery |
+| Q18      | Azure Content Delivery Network (CDN) | **Yes (A)** | Meets all requirements: global availability, low latency, nearest edge server |
+| Q19      | Storage Area Network (SAN) | **No (B)**    | Local storage, not for global streaming or user proximity |
+
 
 ### 🔔 Stay Updated with My Latest Projects
 
