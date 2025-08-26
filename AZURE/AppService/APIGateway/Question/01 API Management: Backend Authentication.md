@@ -121,11 +121,6 @@ You are developing a solution for a public facing API.
 
   ## Additinal Explation
 
-  Got it ✅ Let’s create a **README.md** in industry style, but **beginner-friendly**.
-
----
-
-# README – Azure API Management (APIM) Backend Authentication
 
 ## 📌 What is Azure API Management (APIM)?
 
