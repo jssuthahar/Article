@@ -1,109 +1,82 @@
-# 🐳 Publishing a Docker Image to Docker Hub
-
-Docker Hub is a cloud registry where you can **store and share container images**. Below are the steps to publish your image.
+# 🐳 Publish Docker Image to Docker Hub from Visual Studio
 
 ---
 
 ## ✅ Prerequisites
 
-* A [Docker Hub account](https://hub.docker.com/signup)
+* [Visual Studio 2019/2022](https://visualstudio.microsoft.com/downloads/)
 * [Docker Desktop](https://www.docker.com/products/docker-desktop) installed and running
-* A project with a working `Dockerfile`
+* A [Docker Hub account](https://hub.docker.com/signup)
 
 ---
 
-## ⚙️ 1. Login to Docker Hub
+## ⚙️ Step 1: Add Docker Support to Your Project
 
-Run in terminal/PowerShell:
+1. In **Visual Studio**, right-click your project → **Add** → **Docker Support**.
+2. Choose **Linux** (recommended) or **Windows** container.
+3. Visual Studio generates a `Dockerfile`.
+
+---
+
+## ⚙️ Step 2: Configure Docker Hub Login
+
+1. Open a terminal (inside VS or outside).
+2. Run:
 
 ```bash
 docker login
 ```
 
-Enter your **Docker Hub username** and **password (or access token)**.
+3. Enter your **Docker Hub username** and **password (or token)**.
 
 ---
 
-## ⚙️ 2. Build Your Docker Image
+## ⚙️ Step 3: Build Image from Visual Studio
 
-Navigate to your project folder (where `Dockerfile` exists) and run:
+1. In **Solution Explorer**, right-click the project → **Publish**.
+2. Select **Container Registry**.
+3. Choose **Docker Hub**.
+4. Sign in with your Docker Hub credentials (from VS prompt).
+5. Enter:
 
-```bash
-docker build -t <dockerhub-username>/<repository-name>:<tag> .
-```
-
-Example:
-
-```bash
-docker build -t myusername/myapp:1.0 .
-```
-
-* `myusername` → your Docker Hub username
-* `myapp` → repository name
-* `1.0` → version tag
+   * **Repository** → `username/repository`
+   * **Tag** → e.g., `latest` or `1.0`
 
 ---
 
-## ⚙️ 3. Test the Image Locally
+## ⚙️ Step 4: Publish Image
 
-Before pushing, test your image:
+1. Click **Publish**.
+2. Visual Studio will:
 
-```bash
-docker run -d -p 8080:80 myusername/myapp:1.0
-```
-
-Now open `http://localhost:8080` to verify.
-
----
-
-## ⚙️ 4. Push Image to Docker Hub
-
-Run:
-
-```bash
-docker push myusername/myapp:1.0
-```
-
-This uploads your image to Docker Hub.
+   * Build the Docker image
+   * Tag it
+   * Push it to Docker Hub
 
 ---
 
-## ⚙️ 5. Pull Image from Docker Hub (Verify)
+## ⚙️ Step 5: Verify on Docker Hub
 
-On another system (or after removing it locally), try:
-
-```bash
-docker pull myusername/myapp:1.0
-```
-
-Run it:
-
-```bash
-docker run -d -p 8080:80 myusername/myapp:1.0
-```
+1. Go to [Docker Hub Repositories](https://hub.docker.com/repositories).
+2. Check if your image (`username/repository:tag`) appears.
 
 ---
 
-## 📝 Example Workflow
+## 🛠 Alternative (Command Line from VS Terminal)
+
+If you prefer CLI inside Visual Studio Terminal:
 
 ```bash
-# Login to Docker Hub
-docker login
+# Build
+docker build -t username/myapp:latest .
 
-# Build image
-docker build -t myusername/helloworld:latest .
-
-# Push image
-docker push myusername/helloworld:latest
-
-# Pull image (test)
-docker pull myusername/helloworld:latest
+# Push
+docker push username/myapp:latest
 ```
 
 ---
 
 ## 📚 References
 
+* [Publish Docker Images from Visual Studio](https://learn.microsoft.com/en-us/visualstudio/containers/container-tools-publish?view=vs-2022)
 * [Docker Hub Docs](https://docs.docker.com/docker-hub/)
-* [Docker CLI Reference](https://docs.docker.com/engine/reference/commandline/cli/)
-
