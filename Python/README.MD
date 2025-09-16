@@ -45,43 +45,101 @@ By the end of this program, you will be able to:
 * Google Colab (for ML/AI experiments)
 
 ---
+Excellent 🔥 — if you want to expand your **3-month beginner → expert roadmap** to also include **AI Agents** and **Recognition (Computer Vision, Speech, Face, OCR, etc.)**, we can extend the **Month 3 AI module** with hands-on projects.
 
-## 📅 12-Week Course Plan
-
-### **Month 1 – Python Core + Web Basics**
-
-* **Week 1:** Python basics (variables, loops, functions) → *Mini Project: Number Guessing Game*
-* **Week 2:** OOP, exceptions, file handling → *Library Management CLI*
-* **Week 3:** Databases + ORM → *Student DB System*
-* **Week 4:** HTML, CSS, JavaScript fundamentals → *Portfolio Website*
-
-### **Month 2 – Backend & Full Stack**
-
-* **Week 5:** Flask/FastAPI basics → *Blog Backend*
-* **Week 6:** REST APIs (CRUD, JWT, Swagger) → *Student Management API*
-* **Week 7:** .NET Core Web API (optional) → *Rebuild Student API in .NET*
-* **Week 8:** Full-Stack integration → *E-Commerce Lite App*
-
-### **Month 3 – AI, Recognition & Agents**
-
-* **Week 9:** Data Science (NumPy, Pandas, Matplotlib) → *Data Analysis Project*
-* **Week 10:** Machine Learning (Regression, Classification, Deployment) → *Student Performance Prediction*
-* **Week 11:** Recognition (CV + Speech + OCR) → *Smart Attendance System*
-* **Week 12:** AI Agents + Capstone Project
-
-  * AI Resume Analyzer Agent
-  * AI Chatbot Assistant
-  * AI Smart Recognition App
+I’ll show you how to fit **AI Agents** + **Recognition** into the daily plan without overwhelming a beginner.
 
 ---
 
-## 📂 Projects Milestones
-
-* ✅ Month 1: CLI apps + DB integration + Static Website
-* ✅ Month 2: REST APIs + Full Stack E-Commerce Lite
-* ✅ Month 3: ML Model + Recognition + AI Agent Capstone
+# 📅 Updated 3-Month Roadmap with AI Agents + Recognition
 
 ---
+
+## **Month 1 – Python Core + Web Basics (Days 1–20)**
+
+*(No change, strong Python + Web foundation as before)*
+
+---
+
+## **Month 2 – Backend & Full-Stack (Days 21–40)**
+
+*(Same Flask/FastAPI/.NET Core API + Full-Stack Integration plan as before)*
+
+---
+
+## **Month 3 – AI, Agents & Recognition (Days 41–60)**
+
+### Week 9 – Data Science Foundations
+
+**Day 41:** NumPy arrays, indexing, operations
+**Day 42:** Pandas (Series, DataFrames)
+**Day 43:** Data cleaning, missing values
+**Day 44:** Matplotlib/Seaborn basics
+**Day 45:** Project: *Analyze Student Marks Dataset*
+
+---
+
+### Week 10 – Machine Learning Basics
+
+**Day 46:** Intro to ML, regression with Scikit-learn
+**Day 47:** Classification models (Logistic, Decision Trees)
+**Day 48:** Train/Test split, model evaluation (accuracy, confusion matrix)
+**Day 49:** Model persistence (Pickle/Joblib)
+**Day 50:** Project: *Student Performance Prediction*
+
+---
+
+### Week 11 – Recognition (Computer Vision & NLP)
+
+**Day 51:** OpenCV basics (read, display, process images)
+**Day 52:** Face detection (Haar Cascade / DNN models)
+**Day 53:** Text Recognition (OCR with Tesseract)
+**Day 54:** Speech Recognition (Speech-to-Text with `speech_recognition` lib)
+**Day 55:** Project: *Smart Attendance System*
+
+* Detect faces + recognize names + mark attendance in DB
+
+---
+
+### Week 12 – AI Agents & Capstone Project
+
+**Day 56:** What is an AI Agent? (LLMs, planning, tools, memory)
+**Day 57:** Build a simple AI Agent in Python (LangChain/Autogen)
+
+* Example: "Research Assistant Agent" (takes query → fetches info → summarizes)
+  **Day 58:** Multi-agent system demo (e.g., Q\&A Agent + Summarizer Agent)
+  **Day 59:** Integrate AI Agent into Web App (Flask API → Frontend fetch)
+  **Day 60:** Capstone Project: **AI-Powered Web App**
+* Options:
+
+  * **AI Resume Analyzer Agent** → Upload CV → Extract text → Give feedback
+  * **AI Chatbot Agent** → Conversational Q\&A using LLM
+  * **AI Smart Recognition App** → Upload image/speech → Recognize & give insights
+
+---
+
+# 🚀 Final Deliverables
+
+At the end of 3 months, your student will be able to:
+✅ Master **Python + Web + APIs**
+✅ Build **Full-Stack projects** with Flask/FastAPI (+ optional .NET Core)
+✅ Apply **AI/ML** for predictions
+✅ Implement **Recognition (Face, OCR, Speech)**
+✅ Create and deploy **AI Agents** (LangChain, Autogen, or custom Python agents)
+✅ Deliver a **Capstone AI Agent + Recognition Project**
+
+
+## 🚀 Next Steps
+
+* Fork/clone this repo
+* Follow daily lessons
+* Complete weekly projects
+* End with Capstone submission
+
+---
+
+👉 Do you want me to **add a detailed "Daily Coding Exercise & Assignment Section"** inside this README (like Day 1 → 5 problems, Day 2 → 5 problems, etc.), so students have ready-to-practice tasks every single day?
+
 
 ## 🚀 Setup Guide
 
