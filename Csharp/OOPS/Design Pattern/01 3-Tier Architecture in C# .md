@@ -1,215 +1,264 @@
+# 3-Tier Architecture with ADO.NET and SQL Server
 
-
-# 3-Tier Architecture in C# with SQL Insert Example and Common DAL Code Refactoring
-
-## What is 3-Tier Architecture?
-
-3-Tier Architecture divides an application into three distinct layers:
-
-1. **Presentation Layer (UI Layer):** Handles user interaction.
-2. **Business Logic Layer (BLL):** Contains business rules and validation.
-3. **Data Access Layer (DAL):** Manages database operations.
-
-This separation promotes modularity, maintainability, and scalability.
+This project demonstrates a **3-tier architecture** in .NET using **ADO.NET** to interact with a **SQL Server** database. It covers the use of `ExecuteNonQuery`, `ExecuteScalar`, `SqlDataReader`, and `DataSet`, and explains why queries belong in the Data Access Layer (DAL) while the Business Logic Layer (BLL) handles rules.
 
 ---
 
-## Why Use 3-Tier Architecture?
+## Table of Contents
 
-* Separation of concerns
-* Easier maintenance and testing
-* Independent scalability
-* Cleaner and reusable code
+1. [Overview](#overview)
+2. [Architecture](#architecture)
+3. [Technologies Used](#technologies-used)
+4. [Project Structure](#project-structure)
+5. [Database Setup](#database-setup)
+6. [Layer Responsibilities](#layer-responsibilities)
+7. [Implementation Details](#implementation-details)
+
+   * [Data Access Layer (DAL)](#data-access-layer-dal)
+   * [Business Logic Layer (BLL)](#business-logic-layer-bll)
+   * [Presentation Layer (PL)](#presentation-layer-pl)
+8. [ADO.NET Methods](#adonet-methods)
+9. [Usage](#usage)
+10. [Author](#author)
 
 ---
 
-## Layers Communication Flow
+## Overview
 
-* UI Layer → calls → BLL → calls → DAL → interacts → Database
-* Responses flow back in reverse order.
+The 3-tier architecture separates the application into three distinct layers:
+
+1. **Presentation Layer (PL)** – Manages user interface and user interaction.
+2. **Business Logic Layer (BLL)** – Contains all business rules and validations.
+3. **Data Access Layer (DAL)** – Handles all database operations (CRUD) using **ADO.NET**.
+
+This separation ensures **modularity, maintainability, and scalability**.
 
 ---
 
-## Example: Insert Data into SQL Server Using 3-Tier Architecture
+## Architecture
 
-### SQL Table Structure
+```
+Presentation Layer (PL)
+          │
+          ▼
+Business Logic Layer (BLL)
+          │
+          ▼
+Data Access Layer (DAL) ←→ SQL Server Database
+```
+
+---
+
+## Technologies Used
+
+* **.NET Framework / .NET Core**
+* **C#**
+* **ADO.NET**
+* **SQL Server**
+* **Visual Studio**
+
+---
+
+## Project Structure
+
+```
+3TierArchitectureDemo/
+│
+├─ DAL/                  # Data Access Layer
+│  ├─ DatabaseHelper.cs
+│  └─ CustomerDAL.cs
+│
+├─ BLL/                  # Business Logic Layer
+│  └─ CustomerBLL.cs
+│
+├─ PL/                   # Presentation Layer (Console / WinForms / WPF)
+│  └─ Program.cs
+│
+└─ README.md
+```
+
+---
+
+## Database Setup
+
+1. Create a database named `CustomerDB`.
+2. Create a `Customers` table:
 
 ```sql
-CREATE TABLE Employees (
-    EmployeeId INT IDENTITY(1,1) PRIMARY KEY,
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY IDENTITY(1,1),
     Name NVARCHAR(100),
-    Age INT,
-    Position NVARCHAR(100)
+    Email NVARCHAR(100),
+    Age INT
 );
 ```
 
 ---
 
-## 1. Data Access Layer (DAL) with Common Code Refactoring
+## Layer Responsibilities
 
-### DatabaseHelper.cs — Common DAL Helper for Executing SQL Commands
+| Layer | Responsibility                         | Queries? | SQL Rights? |
+| ----- | -------------------------------------- | -------- | ----------- |
+| DAL   | Handles all database operations (CRUD) | ✅ Yes    | ✅ Yes       |
+| BLL   | Business rules, validations            | ❌ No     | ❌ No        |
+| PL    | User interface                         | ❌ No     | ❌ No        |
+
+**Key points:**
+
+* **Queries stay in DAL**: Centralizes database operations, allows reusability, and keeps BLL clean.
+* **BLL does not need SQL**: It calls DAL methods and applies business rules before/after operations.
+
+---
+
+## Implementation Details
+
+### Data Access Layer (DAL)
+
+Handles all database operations:
 
 ```csharp
+using System.Data;
 using System.Data.SqlClient;
 
-public class DatabaseHelper
+public class CustomerDAL
 {
-    private readonly string connectionString;
+    private string connectionString = "Server=.;Database=CustomerDB;Trusted_Connection=True;";
 
-    public DatabaseHelper(string connectionString)
+    // ExecuteNonQuery - Insert/Update/Delete
+    public int AddCustomer(string name, string email, int age)
     {
-        this.connectionString = connectionString;
-    }
-
-    /// <summary>
-    /// Executes a non-query SQL command like INSERT, UPDATE, DELETE.
-    /// </summary>
-    /// <param name="query">SQL command text</param>
-    /// <param name="parameters">Parameters for the SQL command</param>
-    /// <returns>Number of affected rows</returns>
-    public int ExecuteNonQuery(string query, params SqlParameter[] parameters)
-    {
-        using (SqlConnection conn = new SqlConnection(connectionString))
-        using (SqlCommand cmd = new SqlCommand(query, conn))
+        using(SqlConnection conn = new SqlConnection(connectionString))
         {
-            if (parameters != null)
-                cmd.Parameters.AddRange(parameters);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Customers (Name, Email, Age) VALUES (@Name, @Email, @Age)", conn);
+            cmd.Parameters.AddWithValue("@Name", name);
+            cmd.Parameters.AddWithValue("@Email", email);
+            cmd.Parameters.AddWithValue("@Age", age);
 
             conn.Open();
             return cmd.ExecuteNonQuery();
         }
     }
+
+    // ExecuteScalar - Get single value
+    public int GetCustomerCount()
+    {
+        using(SqlConnection conn = new SqlConnection(connectionString))
+        {
+            SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Customers", conn);
+            conn.Open();
+            return (int)cmd.ExecuteScalar();
+        }
+    }
+
+    // DataSet - Retrieve multiple rows
+    public DataSet GetAllCustomers()
+    {
+        using(SqlConnection conn = new SqlConnection(connectionString))
+        {
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Customers", conn);
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Customers");
+            return ds;
+        }
+    }
+
+    // SqlDataReader - Read row by row
+    public void DisplayCustomers()
+    {
+        using(SqlConnection conn = new SqlConnection(connectionString))
+        {
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Customers", conn);
+            conn.Open();
+            using(SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while(reader.Read())
+                {
+                    Console.WriteLine($"ID: {reader["CustomerID"]}, Name: {reader["Name"]}, Email: {reader["Email"]}, Age: {reader["Age"]}");
+                }
+            }
+        }
+    }
 }
 ```
 
 ---
 
-### EmployeeDAL.cs — Uses DatabaseHelper to Insert Data
+### Business Logic Layer (BLL)
+
+Applies business rules and communicates with DAL:
 
 ```csharp
-using System.Data.SqlClient;
-
-public class EmployeeDAL
+public class CustomerBLL
 {
-    private readonly DatabaseHelper dbHelper;
+    private CustomerDAL dal = new CustomerDAL();
 
-    public EmployeeDAL(string connectionString)
+    public void AddCustomer(string name, string email, int age)
     {
-        dbHelper = new DatabaseHelper(connectionString);
+        if(age < 18)
+            throw new Exception("Customer must be adult.");
+        dal.AddCustomer(name, email, age);
     }
 
-    public bool InsertEmployee(string name, int age, string position)
+    public void ShowAllCustomers()
     {
-        string query = "INSERT INTO Employees (Name, Age, Position) VALUES (@Name, @Age, @Position)";
-        
-        SqlParameter[] parameters = {
-            new SqlParameter("@Name", name),
-            new SqlParameter("@Age", age),
-            new SqlParameter("@Position", position)
-        };
+        dal.DisplayCustomers();
+    }
 
-        int rowsAffected = dbHelper.ExecuteNonQuery(query, parameters);
-        return rowsAffected > 0;
+    public int GetCustomerCount()
+    {
+        return dal.GetCustomerCount();
     }
 }
 ```
 
 ---
 
-## 2. Business Logic Layer (BLL)
+### Presentation Layer (PL)
 
-Handles validation and business rules before calling DAL.
-
-```csharp
-public class EmployeeBLL
-{
-    private EmployeeDAL employeeDAL;
-
-    public EmployeeBLL(string connectionString)
-    {
-        employeeDAL = new EmployeeDAL(connectionString);
-    }
-
-    public bool AddEmployee(string name, int age, string position)
-    {
-        if (string.IsNullOrWhiteSpace(name))
-            throw new ArgumentException("Name is required.");
-
-        if (age <= 0)
-            throw new ArgumentException("Age must be greater than zero.");
-
-        return employeeDAL.InsertEmployee(name, age, position);
-    }
-}
-```
-
----
-
-## 3. Presentation Layer (Console App Example)
-
-Gets user input and calls BLL to insert employee.
+Handles user interaction:
 
 ```csharp
-using System;
-
 class Program
 {
     static void Main()
     {
-        string connectionString = "your_connection_string_here";
-        EmployeeBLL employeeBLL = new EmployeeBLL(connectionString);
+        CustomerBLL bll = new CustomerBLL();
 
-        Console.Write("Enter employee name: ");
-        string name = Console.ReadLine();
+        bll.AddCustomer("John Doe", "john@example.com", 30);
+        Console.WriteLine("Total Customers: " + bll.GetCustomerCount());
 
-        Console.Write("Enter employee age: ");
-        int age = int.Parse(Console.ReadLine());
+        Console.WriteLine("Customer List:");
+        bll.ShowAllCustomers();
 
-        Console.Write("Enter employee position: ");
-        string position = Console.ReadLine();
-
-        try
-        {
-            bool success = employeeBLL.AddEmployee(name, age, position);
-            Console.WriteLine(success ? "Employee inserted successfully." : "Insert failed.");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error: " + ex.Message);
-        }
+        Console.ReadLine();
     }
 }
 ```
 
 ---
 
-## Benefits of Common DAL Code Refactoring
+## ADO.NET Methods Explained
 
-* **Code Reuse:** Centralizes connection and command execution logic.
-* **Maintainability:** Fix bugs or change database interaction in one place.
-* **Cleaner DAL:** Focuses on SQL queries and parameters only.
-
----
-
-## Summary
-
-| Layer                | Responsibility                     | Example Class                   |
-| -------------------- | ---------------------------------- | ------------------------------- |
-| Presentation Layer   | UI and user input/output           | `Program`                       |
-| Business Logic Layer | Validation, rules, business logic  | `EmployeeBLL`                   |
-| Data Access Layer    | Database communication and queries | `EmployeeDAL`, `DatabaseHelper` |
+| Method              | Purpose                                                       |
+| ------------------- | ------------------------------------------------------------- |
+| **ExecuteNonQuery** | Executes `INSERT`, `UPDATE`, `DELETE`. Returns affected rows. |
+| **ExecuteScalar**   | Returns a single value (e.g., COUNT, SUM).                    |
+| **SqlDataReader**   | Reads data row by row, forward-only, fast.                    |
+| **DataSet**         | Stores multiple tables in memory, can be used offline.        |
 
 ---
 
-## Notes
+## Usage
 
-* Replace `"your_connection_string_here"` with your actual database connection string.
-* Extend `DatabaseHelper` with more methods for different query types (e.g., `ExecuteScalar`, `ExecuteReader`).
-* Consider async versions (`ExecuteNonQueryAsync`) for better performance.
-* Use ORM frameworks like Entity Framework for more complex applications.
+1. Open the solution in **Visual Studio**.
+2. Update the connection string in `CustomerDAL.cs`.
+3. Run the application to insert, view, and count customers.
+4. Modify queries or add new methods in DAL as needed.
 
 ---
- ## Connect with Me
+
+## Author
+
 - **LinkedIn**: [Suthahar Jeganathan](https://www.linkedin.com/in/jssuthahar/)
 - **YouTube**: [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
 - **YouTube Tamil**: [MSDEVBUILD TAMIL](https://www.youtube.com/@MSDEVBUILDTamil)
