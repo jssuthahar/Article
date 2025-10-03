@@ -66,11 +66,9 @@ D. Configure Azure Cosmos DB to use the **MongoDB API**.
   session.startTransaction();
   // perform multiple operations
   session.commitTransaction();
-````
 
 * This API allows you to update **multiple documents in one ACID operation** as long as they are in the same partition (i.e., in the same unsharded collection).
 
----
 
 ### ❌ Incorrect Options
 
