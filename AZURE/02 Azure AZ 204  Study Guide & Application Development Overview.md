@@ -1,8 +1,8 @@
-# Azure AI-102 Study Guide & Application Development Overview
+# Azure AZ 204 Study Guide & Application Development Overview
 
 This document serves as a **study guide** for the **AI-102 Microsoft Azure AI Engineer Associate certification** and provides a high-level overview of developing, deploying, securing, and monitoring applications on Microsoft Azure.
 
-Reference: [Microsoft AI-102 Study Guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-102)
+Reference: [Microsoft AZ 204 Study Guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-204)
 
 ---
 
