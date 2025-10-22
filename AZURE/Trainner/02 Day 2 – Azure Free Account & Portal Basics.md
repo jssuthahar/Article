@@ -51,7 +51,7 @@ Common Services:
 | Concept         | Definition                                  | Example                                         |
 | --------------- | ------------------------------------------- | ----------------------------------------------- |
 | Azure Account   | Your login identity                         | [suthahar@gmail.com](mailto:suthahar@gmail.com) |
-| Azure AD Tenant | A secure identity boundary for users & apps | jsdevbrains.onmicrosoft.com                     |
+| Azure AD Tenant | A secure identity boundary for users & apps | suthahargmail.onmicrosoft.com                     |
 | Subscription    | Billing and resource container              | Pay-As-You-Go                                   |
 
 📌 **Tenant = Security/Identity boundary**
