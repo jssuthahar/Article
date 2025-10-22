@@ -130,41 +130,6 @@ Tenant (Identity)
 
 This separation improves **cost tracking**, **security**, and **blast radius isolation**.
 
----
-
-## 7️⃣ Multi-tenant vs Cross-tenant Access
-
-| Feature      | Multi-tenant                    | Cross-tenant                         |
-| ------------ | ------------------------------- | ------------------------------------ |
-| Purpose      | SaaS app used by many customers | Collaboration between 2 companies    |
-| Who owns app | Single tenant                   | Each tenant owns their own resources |
-| Example      | Microsoft Teams, Azure DevOps   | B2B Guest access between companies   |
-
-### Diagram
-
-```
-MULTI-TENANT (One app → many tenants)
-         Teams (Hosted by Microsoft)
-     ┌─────────┬─────────┬─────────┐
- TenantA   TenantB   TenantC   ...
-
-CROSS-TENANT (Tenant→Tenant collaboration)
-Tenant A (Contoso) ── Guest/B2B ── Tenant B (Fabrikam)
-```
-
----
-
-## 8️⃣ Hands-on: Check Your Tenant & Subscription
-
-1. Go to [https://portal.azure.com](https://portal.azure.com)
-2. Click **Top-right corner profile icon**
-3. You will see:
-
-   * Account (Email)
-   * Tenant name & ID
-   * Default Directory
-4. Click **Subscriptions** in portal search
-5. Check list of active subscriptions and billing scope
 
 ---
 
