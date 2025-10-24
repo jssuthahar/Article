@@ -28,7 +28,6 @@ Understanding these concepts is essential for designing **secure, highly availab
 * **You cannot choose a specific datacenter**; Microsoft automatically decides placement.
 * **Example:** East US Datacenter 1
 
-**Analogy:** A datacenter is a **castle** in the cloud kingdom, keeping your apps and data safe.
 
 **Diagram:**
 
@@ -50,7 +49,6 @@ Datacenter (DC)
 * **You choose the region** when deploying services.
 * **Examples:** East US, Southeast Asia, West Europe
 
-**Analogy:** A region is a **city**, containing multiple castles (datacenters).
 
 **Diagram:**
 
@@ -74,7 +72,6 @@ Region
 
 **Example:** East US → Zone 1, Zone 2, Zone 3
 
-**Analogy:** Zones are **fortresses** in a city. If one falls, others continue working.
 
 **Diagram:**
 
@@ -108,7 +105,6 @@ Region with Zones
 | Southeast Asia | East Asia     |
 | Japan East     | Japan West    |
 
-**Analogy:** Region pairs are **twin cities** in the same kingdom ready to help each other.
 
 **Diagram:**
 
@@ -136,7 +132,6 @@ Region Pair
 | India         | Central India, South India |
 | Japan         | Japan East, Japan West     |
 
-**Analogy:** Geography = **kingdom**, Regions = **cities**, Datacenters = **castles**.
 
 **Diagram:**
 
@@ -206,6 +201,31 @@ Paired Region: East Asia
   * Virtual tours and sustainability details
 
 ---
+
+## 🌐 Azure Infrastructure – Simple Analogy
+
+* **Region = City** 🏙️
+  A **region** is like a **city**. Each city has many **buildings**.
+
+* **Datacenter = Building** 🏢
+  A **datacenter** is like a **building** in the city. Each building stores your apps and data. Different buildings have different names.
+
+* **Region Pair = Twin Cities** 👯
+  Two regions close to each other are **twin cities**. If one city has a problem, the other can help.
+
+* **Availability Zone = Building Section** 🏢🪟
+  Each building has **sections** called **availability zones**. If one section stops working, the other sections are still fine.
+
+* **Fault Domain = Floor in a Building** 🪜
+  A **fault domain** is like a floor in the building. Problems on one floor do not affect other floors.
+
+* **Update Domain = Part of a Floor** 🧱
+  An **update domain** is a small part of a floor. It is updated separately so the whole building is not down at once.
+
+**Hierarchy in simple words:**
+
+**City (Region) → Building (Datacenter) → Section (Availability Zone) → Floor (Fault Domain) → Part (Update Domain)**
+
 
 ## Key Takeaways
 
