@@ -65,7 +65,6 @@ By the end of Day 3, you should be able to:
 * Microsoft Docs – Azure Regions and Availability Zones
 * Microsoft Docs – Azure Resource Manager overview
 * Microsoft Docs – Azure supported languages for Functions and App Service
-* Your links (above) to the repository articles.
 
 ---
 
