@@ -1,4 +1,15 @@
- ## Azure Developer Fundamentals (Day 1–3) Practice Test
+# Azure Developer Fundamentals (Day 1–3) Practice Test
+
+**Description:**
+This quiz covers Azure basics from Day 1 to Day 3 including Azure overview, Free Account, Portal navigation, and Developer fundamentals. Please attempt the questions sincerely without referring to any handwritten notes, screenshots, training material, or AI tools (including ChatGPT, Copilot, Bard, Gemini, etc.) during the exam. Treat it like a real AZ‑204 environment.
+
+**Take the Quiz Here:** [Google Form Link](https://docs.google.com/forms/d/e/1FAIpQLSfcoHMgsla5pOGMfHoOw_TAZ30SAX8EHgvG9vXorPWVrdGQ-Q/viewform?usp=publish-editor)
+
+---
+
+# Azure Cloud Fundamentals – 20 MCQ with Answers (Beginner to Advanced)
+
+This README contains 20 multiple-choice questions from Azure basics, categorized by difficulty levels (Beginner, Intermediate, Advanced). Each question includes the correct answer and a detailed explanation.
 
 ---
 
@@ -134,14 +145,14 @@ D. Resource Tenant
 **Answer:** C. Fault Domain
 **Explanation:** Fault domains isolate physical racks to prevent total hardware outage.
 
-### Q15. Which tool is used for Infrastructure as Code in Azure?
+### Q15. Which extended cloud service model allows running code on-demand without managing infrastructure?
 
-A. Portal
-B. ARM/Bicep
-C. DevOps Boards
-D. Calculator
-**Answer:** B. ARM/Bicep
-**Explanation:** ARM/Bicep provide declarative IaC deployments in Azure.
+A. IaaS
+B. PaaS
+C. FaaS
+D. SaaS
+**Answer:** C. FaaS
+**Explanation:** FaaS (Function as a Service) allows developers to execute code in response to events without provisioning or managing servers, an extension of PaaS capabilities.
 
 ---
 
@@ -154,6 +165,7 @@ B. Uses paired region in the same geography
 C. Requires manual move
 D. Uses availability sets
 **Answer:** B. Uses paired region in the same geography
+**Explanation:** Region pairs ensure data stays within the same geography, meeting compliance and data residency laws while providing disaster recovery.
 
 ### Q17. During Azure maintenance, only some VMs rebooted while others stayed up. Why?
 
@@ -162,6 +174,7 @@ B. Fault Domain
 C. Update Domain
 D. Host Replica
 **Answer:** C. Update Domain
+**Explanation:** Update Domains allow rolling updates to VMs so that only one batch is updated at a time, preventing complete downtime.
 
 ### Q18. Which service is best for running code without managing OS or runtime?
 
@@ -170,6 +183,7 @@ B. IaaS
 C. PaaS
 D. On-prem VM
 **Answer:** C. PaaS
+**Explanation:** PaaS allows developers to deploy code and configure the runtime environment without managing underlying OS or infrastructure.
 
 ### Q19. Which combination gives both intra-region HA and cross-region DR?
 
@@ -178,6 +192,10 @@ B. Availability Set + Region Pair
 C. RG + Tenant
 D. Subscription + RBAC
 **Answer:** B. Availability Set + Region Pair
+**Explanation:**
+
+* **HA (High Availability):** Ensures your application continues running in a region despite hardware or rack failures, using Availability Sets or Zones.
+* **DR (Disaster Recovery):** Ensures business continuity in case of regional outages by replicating workloads across paired regions.
 
 ### Q20. How can you have multiple subscriptions while keeping identity centralized?
 
@@ -186,6 +204,9 @@ B. Multiple directories
 C. One tenant with many subscriptions
 D. One subscription per user
 **Answer:** C. One tenant with many subscriptions
+**Explanation:** A single Azure AD tenant can manage multiple subscriptions, centralizing identity and access control while separating billing and resource management.
+
+
 
 ---
  ## Connect with Me
