@@ -32,7 +32,7 @@ We will build a WPF app with three windows:
 * **Register.xaml** — fields: name, password, age, email. Clicking **Register** stores the name and password in application settings.
 * **MainWindow.xaml** — shown when a correct admin or a registered user logs in.
 
-This README shows XAML and C# examples and explains every control and line of code.
+This Article shows XAML and C# examples and explains every control and line of code.
 
 ---
 
