@@ -179,12 +179,7 @@ namespace MyApp
             string user = txtUsername.Text.Trim();
             string pass = pwdBox.Password; // PasswordBox uses Password property
 
-            // Basic validations
-            if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(pass))
-            {
-                MessageBox.Show("Please enter username and password", "Missing data", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
+          
 
             // Check Admin (case-sensitive)
             if (user == "Admin" && pass == "admin")
@@ -202,7 +197,7 @@ namespace MyApp
             if (user == savedUser && pass == savedPass)
             {
                 MainWindow main = new MainWindow();
-                OpenWindowAndClose(main, this);
+                main.Show();
                 return;
             }
 
@@ -217,12 +212,7 @@ namespace MyApp
             this.Close();
         }
 
-        // Reuse the helper method inside the class
-        private void OpenWindowAndClose(Window newWindow, Window current)
-        {
-            newWindow.Show();
-            current.Close();
-        }
+     
     }
 }
 ```
@@ -258,32 +248,13 @@ namespace MyApp
             string ageText = txtAge.Text.Trim();
             string email = txtEmail.Text.Trim();
 
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(pass))
-            {
-                MessageBox.Show("Name and password are required.", "Validation", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            // Optional: validate age is a number
-            if (!int.TryParse(ageText, out int age))
-            {
-                MessageBox.Show("Please enter a valid age.", "Validation", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            // Optional: simple email validation
-            if (!Regex.IsMatch(email, @"^\S+@\S+\.\S+$"))
-            {
-                MessageBox.Show("Please enter a valid email.", "Validation", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
+            
             // Save name and password to settings
             Properties.Settings.Default.SavedName = name;
             Properties.Settings.Default.SavedPassword = pass;
             Properties.Settings.Default.Save(); // IMPORTANT: persist to disk
 
-            MessageBox.Show("Registration successful. Please login.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Registration successful");
 
             // Return to login
             Login login = new Login();
