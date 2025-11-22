@@ -1,42 +1,111 @@
-# MSDEVBUILD Learning Repository
+# 📘 MSDEVBUILD-Doc
 
-Welcome to the **MSDEVBUILD Learning Repository**! This repository contains articles and code samples referenced in the [MSDEVBUILD](https://www.msdevbuild.com/) blog, created by **Suthahar Jegatheesan**.
+**Enterprise Architecture | Azure | .NET | DevOps | AI Agents | System Design | Interview Prep**
 
-## ⭐ Start & Follow Me
-If you find this repository useful, don't forget to **Star** ⭐ the repo and **Follow** me for more updates!
-
-## About MSDEVBUILD
-[MSDEVBUILD](https://www.msdevbuild.com/) is a blog dedicated to sharing knowledge on Microsoft technologies, software development, cloud computing, mobile applications, AI, and more. The blog features in-depth technical articles, tutorials, and best practices for developers.
-
-## Contents
-This repository includes:
-- Articles covering various development topics
-- Code samples demonstrating real-world implementations
-- Resources for developers to enhance their skills in Microsoft technologies
-
-## How to Use This Repository
-1. Browse the articles and code samples.
-2. Clone the repository for local access:
-   ```sh
-   git clone https://github.com/jssuthahar/MSDEVBUILD-Doc.git
-   ```
-3. Explore the code and refer to the related blog posts for detailed explanations.
-
-## YouTube Channels
-Follow our YouTube channels for video tutorials and development insights:
-- [MSDEVBUILD Tamil](https://www.youtube.com/@MSDEVBUILDTamil)
-- [MSDEVBUILD](https://www.youtube.com/@MSDEVBUILD)
-
-## Contributions
-Contributions are welcome! If you have improvements or additional resources to share, feel free to submit a pull request.
-
-## License
-This repository is open-source and available for learning purposes. Please provide proper attribution when using the content.
+![Stars](https://img.shields.io/github/stars/jssuthahar/MSDEVBUILD-Doc?style=for-the-badge)
+![Last Commit](https://img.shields.io/github/last-commit/jssuthahar/MSDEVBUILD-Doc?style=for-the-badge)
+![Issues](https://img.shields.io/github/issues/jssuthahar/MSDEVBUILD-Doc?style=for-the-badge)
+![License](https://img.shields.io/github/license/jssuthahar/MSDEVBUILD-Doc?style=for-the-badge)
 
 ---
-Stay updated with the latest blog posts at [MSDEVBUILD](https://www.msdevbuild.com/)!
 
+## 🚀 Overview
 
-<!-- FOOTER:START -->
-<!-- FOOTER:END -->
+**MSDEVBUILD-Doc** is a centralized learning hub for developers and architects.
+It contains **articles, tutorials, diagrams, code samples, and best practices** for:
 
+* **Azure** – Web Apps, Functions, Scale, DevOps, AI
+* **.NET & C#** – Collections, File Handling, WPF, MVC
+* **DevOps** – GitHub Actions, CI/CD, Deployment
+* **AI / Agent Development** – Architecture, Multi-Agent Systems, Prompt Engineering
+* **Enterprise Architecture** – Microservices, DDD, CQRS, High Availability
+* **Interview Prep** – Logical & coding questions, system design Q&A
+
+This repository is perfect for **beginners, students, developers, and IT professionals** looking to quickly upskill and prepare for real-world projects or interviews.
+
+---
+
+## 📂 Repository Structure
+
+```
+MSDEVBUILD-Doc/
+ ├── README.md
+ ├── Azure/
+ ├── .NET/
+ ├── DevOps/
+ ├── AI/
+ ├── Architecture/
+ ├── CloudSecurity/
+ ├── InterviewPrep/
+ └── Diagrams/
+```
+
+* **Azure/** – Web Apps, Functions, Scale, Stack settings, Environment Variables
+* **.NET/** – C# Collections, WPF, ASP.NET Core, File Handling
+* **DevOps/** – GitHub Actions, CI/CD pipelines, Yaml examples
+* **AI/** – AI agent architecture, shopping agent, multi-agent systems
+* **Architecture/** – Microservices, DDD, CQRS, Event-driven architecture
+* **CloudSecurity/** – SSL, Key Vault, Managed Identity, secure app config
+* **InterviewPrep/** – Top 50 logical questions, coding puzzles, system design
+* **Diagrams/** – Architecture diagrams, flowcharts, Azure topology diagrams
+
+---
+
+## 📚 Featured Articles
+
+* Azure Web App – Beginner Guide
+* App Service Custom Domain + SSL Step-by-Step
+* Azure Scale-Out vs Scale-Up
+* Azure Functions – Short URL Project
+* AI Shopping Agent – Full Architecture
+* C# Collections & Generic Collections
+* WPF Styles & Templates
+* GitHub Actions CI/CD for .NET
+* Microservices & Event-Driven Architecture
+
+---
+
+## 🔧 How to Use
+
+1. Browse the topic folder you want (Azure, .NET, AI…).
+2. Each folder contains structured notes, code examples, and diagrams.
+3. Clone the repo to your local machine for offline reading:
+
+```bash
+git clone https://github.com/jssuthahar/MSDEVBUILD-Doc.git
+cd MSDEVBUILD-Doc
+```
+
+4. Follow folder README files for detailed instructions and sample code.
+
+---
+
+## 🧩 Contributing
+
+Contributions are welcome!
+
+* Fork the repo
+* Create a branch for your feature/fix
+* Add your code, articles, or diagrams
+* Submit a Pull Request
+
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for detailed guidelines.
+
+---
+
+## 📜 License
+
+MIT © Suthahar Jegatheesan
+
+---
+
+## 🔍 GitHub SEO Keywords
+
+azure app service, azure functions, custom domain ssl, dotnet interview questions, c# collections, wpf styles, ai agent architecture, github actions ci cd, microservices architecture, ddd cqrs, system design
+
+---
+
+## 📞 Contact
+
+* web: **[www.msdevbuild.com](https://www.msdevbuild.com)**
+* GitHub: [https://github.com/jssuthahar](https://github.com/jssuthahar)
