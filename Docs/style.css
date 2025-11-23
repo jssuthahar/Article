@@ -22,6 +22,16 @@ header p {
     margin-top: 5px;
 }
 
+#searchInput {
+    width: 60%;
+    max-width: 400px;
+    padding: 12px 16px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 20px;
+}
+
 .container {
     padding: 40px 20px;
     max-width: 1000px;
@@ -72,7 +82,7 @@ h2 {
     text-decoration: underline;
 }
 
-.btn-primary, .btn-secondary {
+.btn-secondary {
     display: inline-block;
     padding: 14px 28px;
     margin-top: 20px;
@@ -80,14 +90,6 @@ h2 {
     font-size: 18px;
     text-decoration: none;
     font-weight: bold;
-}
-
-.btn-primary {
-    background: #ffc107;
-    color: #333;
-}
-
-.btn-secondary {
     background: #28a745;
     color: white;
 }
