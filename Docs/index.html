@@ -1,52 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Technical Articles & Tutorials | Suthahar Jegatheesan</title>
-    <meta name="description" content="Collection of technical articles and tutorials on software architecture, Azure, AI agents, .NET, and more." />
+    <meta name="description" content="Collection of technical articles and tutorials on software architecture, Azure, .NET, AI agents, and more." />
     <meta name="keywords" content="technical articles, software architecture, azure tutorials, csharp, dotnet, ai agent, backend, devops, github-actions, system design" />
     <meta name="author" content="Suthahar Jegatheesan" />
 
-    <!-- Open Graph for social sharing -->
-    <meta property="og:title" content="Technical Articles & Tutorials | Suthahar Jegatheesan" />
-    <meta property="og:description" content="Learn software architecture, Azure, .NET, AI agents, and DevOps best practices." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jssuthahar.github.io/Article/" />
-    <meta property="og:image" content="images/og-image.png" />
-
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- HEADER -->
     <header>
         <h1>📝 Technical Articles & Tutorials</h1>
-        <p>Learn software architecture, Azure, .NET, AI agents, and more with practical examples.</p>
-        <a href="#articles" class="btn-primary">View Articles</a>
+        <p>Learn software architecture, Azure, .NET, AI agents, and more.</p>
+        <input type="text" id="searchInput" placeholder="Search articles..." onkeyup="filterArticles()">
     </header>
 
     <!-- ARTICLES SECTION -->
     <section id="articles" class="container">
         <h2>📚 Articles & Guides</h2>
-        <div class="article-list">
+        <div id="articleList" class="article-list">
+
             <div class="article-item">
                 <h3>Azure AI Foundry – Full Guide</h3>
                 <p>A comprehensive tutorial on building AI solutions on Azure, including architecture and best practices.</p>
                 <a href="https://github.com/jssuthahar/Article/blob/main/Azure-AI-Foundry.md" target="_blank">Read More</a>
             </div>
+
             <div class="article-item">
                 <h3>C# Collections & Generics</h3>
                 <p>Learn about collections, generic collections, and advanced patterns in C# with examples.</p>
                 <a href="https://github.com/jssuthahar/Article/blob/main/CSharp-Collections.md" target="_blank">Read More</a>
             </div>
+
             <div class="article-item">
                 <h3>Azure Web Apps Deployment Guide</h3>
                 <p>Step-by-step guide for deploying web apps on Azure with CI/CD and GitHub Actions.</p>
                 <a href="https://github.com/jssuthahar/Article/blob/main/Azure-WebApp-Deploy.md" target="_blank">Read More</a>
             </div>
-            <!-- Add more article items as needed -->
+
+            <!-- Add more articles here -->
         </div>
     </section>
 
