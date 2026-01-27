@@ -102,36 +102,217 @@ MyWebJob/
 
      * For **Scheduled**, specify CRON expression (e.g., `0 */2 * * * *` every 2 hours)
     
-┌───────────── Minute (0 - 59)
-│ ┌───────────── Hour (0 - 23)
-│ │ ┌───────────── Day of the Month (1 - 31)
-│ │ │ ┌───────────── Month (1 - 12 or JAN-DEC)
-│ │ │ │ ┌───────────── Day of the Week (0 - 7 or SUN-SAT)
-│ │ │ │ │
+  # ⏱️ CRON Expression Guide
+
+This README explains how to configure **Scheduled jobs** using **CRON expressions**, including syntax, breakdown, symbols, and common real‑world examples.
+
+---
+
+## ✅ Basic CRON Format
+
+```
 * * * * *
+│ │ │ │ │
+│ │ │ │ └── Day of the Week (0–7 or SUN–SAT)
+│ │ │ └──── Month (1–12 or JAN–DEC)
+│ │ └────── Day of the Month (1–31)
+│ └──────── Hour (0–23)
+└────────── Minute (0–59)
+```
 
-Key Components & Examples
+---
 
-Wildcard (*): Represents "all" or "every" (e.g., * in the month field means every month).
+## 🧩 Example: Every 2 Hours
 
-Comma (,): Separates a list of values (e.g., MON,WED,FRI in the day-of-week field).
+```
+0 */2 * * *
+```
 
-Hyphen (-): Defines ranges (e.g., 9-17 in the hour field means 9 AM to 5 PM).
+### Breakdown
 
-Slash (/): Defines increments (e.g., */5 in the minute field means every 5 minutes).
+| Field        | Value | Meaning                     |
+| ------------ | ----- | --------------------------- |
+| Minute       | `0`   | At the 0th minute           |
+| Hour         | `*/2` | Every 2 hours (0, 2, 4, 6…) |
+| Day of Month | `*`   | Every day                   |
+| Month        | `*`   | Every month                 |
+| Day of Week  | `*`   | Any day                     |
 
-Question Mark (?): Used instead of * for day-of-month or day-of-week to indicate "no specific value" (used to avoid conflicts). 
+✅ **Runs every 2 hours exactly on the hour**
 
-Common Examples:
-0 0 * * *: Runs at midnight every day.
-*/15 * * * *: Runs every 15 minutes.
-0 9 * * 1-5: Runs at 9:00 AM, Monday through Friday.
-0 0 1 1 *: Runs at midnight on January 1st. 
-Special Characters (Advanced)
-L (Last): Represents the last day of the month or the last day of the week (e.g., 5L = last Friday).
-W (Weekday): Finds the nearest weekday to a given day (e.g., 15W = closest weekday to the 15th).
-# (Hash): Specifies the nth day of the month (e.g., 6#3 = 3rd Friday of the month). 
+---
 
+## 🔍 CRON Field Explanation
+
+| Field        | Allowed Values                        |
+| ------------ | ------------------------------------- |
+| Minute       | 0 – 59                                |
+| Hour         | 0 – 23                                |
+| Day of Month | 1 – 31                                |
+| Month        | 1 – 12 or JAN – DEC                   |
+| Day of Week  | 0 – 7 or SUN – SAT (0 and 7 = Sunday) |
+
+---
+
+## 🧠 Key Components
+
+### `*` Wildcard
+
+Represents **all values**.
+
+Example:
+
+```
+* * * * *
+```
+
+Runs every minute.
+
+---
+
+### `,` Comma (List)
+
+Used to specify multiple values.
+
+Example:
+
+```
+0 9 * * MON,WED,FRI
+```
+
+Runs at **9 AM on Monday, Wednesday, and Friday**.
+
+---
+
+### `-` Hyphen (Range)
+
+Defines a continuous range.
+
+Example:
+
+```
+0 9-17 * * *
+```
+
+Runs **every hour from 9 AM to 5 PM**.
+
+---
+
+### `/` Slash (Step / Increment)
+
+Defines recurring intervals.
+
+Example:
+
+```
+*/5 * * * *
+```
+
+Runs **every 5 minutes**.
+
+---
+
+### `?` Question Mark
+
+Used in **Quartz Scheduler** CRON expressions.
+
+Indicates **no specific value**, mainly to avoid conflicts between:
+
+* Day of Month
+* Day of Week
+
+Example:
+
+```
+0 10 ? * MON
+```
+
+Runs every Monday at 10 AM.
+
+---
+
+## 📘 Common CRON Examples
+
+| Expression     | Description             |
+| -------------- | ----------------------- |
+| `0 0 * * *`    | Every day at midnight   |
+| `*/15 * * * *` | Every 15 minutes        |
+| `0 9 * * 1-5`  | 9 AM, Monday–Friday     |
+| `0 0 1 1 *`    | January 1st at midnight |
+| `0 */2 * * *`  | Every 2 hours           |
+| `0 12 * * SUN` | Every Sunday at noon    |
+
+---
+
+## ⭐ Advanced Special Characters
+
+### `L` — Last
+
+* **Last day of the month**
+* **Last weekday in a month**
+
+Examples:
+
+```
+0 0 L * *     → Last day of every month
+0 9 * * 5L    → Last Friday of the month
+```
+
+---
+
+### `W` — Weekday
+
+Finds the **nearest weekday (Mon–Fri)**.
+
+Example:
+
+```
+0 9 15W * *
+```
+
+Runs on the weekday closest to the 15th.
+
+---
+
+### `#` — Nth Weekday of Month
+
+Format:
+
+```
+DAY#N
+```
+
+Example:
+
+```
+0 9 * * 6#3
+```
+
+Runs on the **3rd Friday of every month**.
+
+---
+
+## ✅ Quick Reference
+
+| Symbol | Meaning           |
+| ------ | ----------------- |
+| `*`    | Every value       |
+| `,`    | Multiple values   |
+| `-`    | Range             |
+| `/`    | Step interval     |
+| `?`    | No specific value |
+| `L`    | Last              |
+| `W`    | Weekday           |
+| `#`    | Nth weekday       |
+
+---
+
+## 🚀 Tip
+
+Always verify your CRON expression using online tools like:
+
+* crontab.guru
+* cronhub.io
 
 
 5. Click **OK**
