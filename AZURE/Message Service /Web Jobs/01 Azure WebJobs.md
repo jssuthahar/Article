@@ -101,6 +101,39 @@ MyWebJob/
    * **Triggers**:
 
      * For **Scheduled**, specify CRON expression (e.g., `0 */2 * * * *` every 2 hours)
+    
+┌───────────── Minute (0 - 59)
+│ ┌───────────── Hour (0 - 23)
+│ │ ┌───────────── Day of the Month (1 - 31)
+│ │ │ ┌───────────── Month (1 - 12 or JAN-DEC)
+│ │ │ │ ┌───────────── Day of the Week (0 - 7 or SUN-SAT)
+│ │ │ │ │
+* * * * *
+
+Key Components & Examples
+
+Wildcard (*): Represents "all" or "every" (e.g., * in the month field means every month).
+
+Comma (,): Separates a list of values (e.g., MON,WED,FRI in the day-of-week field).
+
+Hyphen (-): Defines ranges (e.g., 9-17 in the hour field means 9 AM to 5 PM).
+
+Slash (/): Defines increments (e.g., */5 in the minute field means every 5 minutes).
+
+Question Mark (?): Used instead of * for day-of-month or day-of-week to indicate "no specific value" (used to avoid conflicts). 
+
+Common Examples:
+0 0 * * *: Runs at midnight every day.
+*/15 * * * *: Runs every 15 minutes.
+0 9 * * 1-5: Runs at 9:00 AM, Monday through Friday.
+0 0 1 1 *: Runs at midnight on January 1st. 
+Special Characters (Advanced)
+L (Last): Represents the last day of the month or the last day of the week (e.g., 5L = last Friday).
+W (Weekday): Finds the nearest weekday to a given day (e.g., 15W = closest weekday to the 15th).
+# (Hash): Specifies the nth day of the month (e.g., 6#3 = 3rd Friday of the month). 
+
+
+
 5. Click **OK**
 
 ✅ WebJob will be deployed and appear in the WebJobs list
