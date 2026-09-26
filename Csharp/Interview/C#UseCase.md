@@ -2341,4 +2341,3 @@ Dependency Injection
 
 > **Don't just learn C# syntax. Learn when and why to use each feature.**
 
-This is ready to save directly as **`README.md`** in your GitHub repository.
