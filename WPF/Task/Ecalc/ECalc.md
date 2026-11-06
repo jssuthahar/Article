@@ -59,6 +59,7 @@ The application shall allow registered users to log in using their email and pas
 - A successful login opens the Home / ECalc screen.
 - The application shall retain the logged-in user's `uid` in the current session.
 
+
 ### BR-03: Add Expense
 
 The logged-in user shall be able to add an expense.
@@ -150,7 +151,7 @@ Different users may register and use the same installed application.
 **Navigation**
 - Successful registration returns to Login.
 - Duplicate email or invalid input displays a validation message.
-
+![ECalc business and technical overview](https://github.com/jssuthahar/Article/blob/main/WPF/Task/Ecalc/login.png)
 ### 3.3 Home / ECalc Screen
 
 **Controls and fields**
@@ -163,7 +164,7 @@ Different users may register and use the same installed application.
 - Amount TextBox
 - Save Button
 - Expense DataGrid
-
+![ECalc business and technical overview](https://github.com/jssuthahar/Article/blob/main/WPF/Task/Ecalc/entry.png)
 ### 3.4 Dashboard Screen
 
 **Summary cards**
@@ -171,7 +172,7 @@ Different users may register and use the same installed application.
 2. This Week Expense
 3. Current Year Expense
 
-No additional expense fields or categories are part of this version.
+![ECalc business and technical overview](https://github.com/jssuthahar/Article/blob/main/WPF/Task/Ecalc/dash.png)
 
 ---
 
