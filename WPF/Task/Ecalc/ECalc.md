@@ -2,7 +2,7 @@
 
 A Windows desktop expense-tracking application built with **C# and WPF**. ECalc allows different users to register, log in, and manage their own expense records. Data is stored locally in JSON files under the current Windows user's AppData folder.
 
-![ECalc business and technical overview](docs/images/ecalc-business-and-technical-overview.png)
+![ECalc business and technical overview](Ecalcs/all.png)
 
 ---
 
