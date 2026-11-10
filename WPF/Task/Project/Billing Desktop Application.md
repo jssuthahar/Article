@@ -5,6 +5,8 @@ A Windows-based Billing and Inventory Management System developed using C# WPF, 
 
 The application supports multiple billing counters connected to a centralized database. Administrators can manage products, prices, stock, users, and sales reports, while billing counter users can scan products, generate bills, and print receipts.
 
+![Billing Desktop Application UI Design](https://github.com/jssuthahar/Article/blob/main/WPF/Task/Project/Billing%20Desktop%20Application%20Showcase.png)
+
 ---
 
 # 1. Project Overview
